@@ -1,11 +1,135 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet"  href="./Css/index.css">
-</head>
-<body>
 
-</body>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+		<title> Portal Chivilcity</title>
+		<link rel="stylesheet" href="css/grid.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link href="https://fonts.googleapis.com/css?family=Syncopate|Six+Caps|Lekton|Shadows+Into+Light|Indie+Flower|Amatic+SC|PT+Mono" rel="stylesheet">
+	</head>
+
+	<body>
+
+
+
+										<!--- Intro al Sitio -------->
+
+		<section class="intro">
+			<video autoplay  poster="" id="videoby" muted loop >
+
+				<source src="css/background/audioSpectrum.mp4" type="video/mp4">
+
+			</video>
+
+			<a href="#home">
+				<div class="row">
+					<div class="column-12">
+						<img class="arrow" src="css/logo/arrow-down.png">
+					</div>
+				</div>
+			</a>
+		</section>
+
+
+										<!--- HOME-------->
+
+		<div class="container">
+			<section id="home" class="header">
+
+										<!-- LOGO -->
+
+
+				<div class="row">
+					<div class="column-4">
+						<img class="logo" src="css/logo/logoblack.jpg" alt="Logo">
+					</div>
+				<div class="column-4">
+					<h1>Ante Merídiem </h1>
+					<span>La agenda nocturna de ChivilCity</span>
+				</div>
+
+										<!-- LOGIN -->
+
+				<div class="column-4 last login">
+					<img src="css/icon-user.png" alt="user">
+					<form method="POST" action="login.php">
+							<label class="user">
+
+								<input type="email" placeholder="User" name="usuario" required>
+							</label>
+
+							<br>
+
+							<label class="password">
+
+								<input type="password" placeholder="Password" name="password" required>
+							</label>
+							<br>
+						</form>
+						
+				</div>
+
+				</div>
+			</section>
+
+										<!-- BUSCADOR -->
+
+		<section class="buscador">
+			<div class="row">
+				<div class="column-12">
+					<form action="enviar.php" method="">
+						<input type="text" placeholder="Ingrese aquí su busqueda" required>
+					</form>
+					<input style="display:inline-block;width:10%;margin-left: -22em;" class="button" type="submit" value="Buscar">
+					<img class="division" src="css/line2.png">
+				</div>
+			</div>
+		</section>
+
+
+										<!-- MAIN CONTENT -->
+
+		<section class="main-content">
+			<div class="row">
+				<div class="column-6"></div>
+				<div class="column-6 last"><h1>Eventos</h1></div>
+			</div>
+			<div class="row">
+				<div class="column-3">
+					<h2>Proximos Eventos</h2>
+					<div class="next-events">
+					</div>
+				</div>
+				<div class="column-9 last">
+					
+					<div class="events">
+					</div>
+				</div>
+			</div>
+		</section>
+
+										<!-- FOOTER -->
+
+		<section class="footer">
+	
+			<div class="row">
+				<div class="column-12">
+					<ul>
+						<li><a href="#">Contacto |</a></li>
+						<li><a href="#">Sobre Ante Merídiem  |</a></li>
+						<li><a href="#">Ayuda  |</a></li>
+						<li><a href="#">Legales  |</a></li>
+						<li><a href="#">Politica de Privacidad  |</a></li>
+						<li><a href="#">© Copyright 2017  </a></li>
+					</ul>
+				</div>
+			</div>
+	
+		</section>
+
+		</div>
+	</body>
+
 </html>
