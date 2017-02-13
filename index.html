@@ -7,8 +7,10 @@
 		<title> Portal Chivilcity</title>
 		<link rel="stylesheet" href="css/grid.css">
 		<link rel="stylesheet" href="css/index.css">
-		<link href="https://fonts.googleapis.com/css?family=Syncopate|Six+Caps|Lekton|Shadows+Into+Light|Indie+Flower|Amatic+SC|PT+Mono" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Syncopate|Barrio|Bangers|Six+Caps|Lekton|Shadows+Into+Light|Indie+Flower|Amatic+SC|PT+Mono" rel="stylesheet">
 	</head>
+		
+
 
 	<body>
 
@@ -23,26 +25,36 @@
 
 			</video>
 
-			<a href="#home">
+
 				<div class="row">
 					<div class="column-12">
-						<img class="arrow" src="css/logo/arrow-down.png">
+						<div class="introAnimada">
+								<h1 id="introA">Ante </h1>
+								<h1 id="introB">Merídiem </h1>
+								<span id="introC"><a href="#home">Agenda Nocturna</a></span>
+						</div>
+
+
+						<a href="#home" class="scroll-down" address="true"></a>
+
+					<!--	<img class="arrow" id="arrowD" src="css/logo/arrow-down.png">-->
 					</div>
 				</div>
-			</a>
+
 		</section>
 
 
 										<!--- HOME-------->
 
 		<div class="container">
+			<div class="cabeceraTransparente">
 			<section id="home" class="header">
 
 										<!-- LOGO -->
 
 
 				<div class="row">
-					<div class="column-4">
+					<div class="column-4 ">
 						<img class="logo" src="css/logo/logoblack.jpg" alt="Logo">
 					</div>
 				<div class="column-4">
@@ -67,9 +79,79 @@
 								<input type="password" placeholder="Password" name="password" required>
 							</label>
 							<br>
+
+
 						</form>
-						
+
+						<div class="tooltip">
+							<button type="button" id="registrarse" onClick="show()"> Registrarse</button>
+							<p class="tooltiptext">Registrate!</p>
+						</div>
+
+						<button type="button"> Acceder</button>
+
+						<div class="registro" id="formularioRegistro">
+							<h2> Registrarse </h2>
+
+							<form method="POST" action=""> <!-- FALTA COMPLETAR LA RUTA DEL PHP-->
+								<label class="user-name">
+									<span>Nombre Usuario</span>
+									<input type="text" placeholder="" name="user_name" required>
+								</label>
+
+								<br>
+
+
+								<label class="nombre">
+									<span>Nombre</span>
+									<input type="text" placeholder="" name="name" required>
+
+								</label>
+
+								<br>
+
+								<label class="apellido">
+								<span>Apellido</span>
+									<input type="text" placeholder="" name="" required>
+
+								</label>
+
+								<br>
+
+								<label class="mail">
+									<span>E-mail</span>
+									<input type="text" placeholder="" name="" required>
+
+								</label>
+
+								<br>
+
+								<label class="fechaNacimiento">
+									<span>Fecha de Nacimiento</span>
+									<input type="text" placeholder="" name="" required>
+
+								</label>
+
+								<br>
+
+								<label class="password">
+									<span>Password</span>
+									<input type="text" placeholder="" name="" required>
+
+								</label>
+
+								<br>
+
+							</form>
+
+							<br>
+
+							<div class="buttons">
+								<button type="button" id="cancel" onClick="D()">Cancelar </button>
+								<button type="button" id="confirmar">Confirmar </button>
+							</div>
 				</div>
+			</div>
 
 				</div>
 			</section>
@@ -94,26 +176,128 @@
 		<section class="main-content">
 			<div class="row">
 				<div class="column-6"></div>
-				<div class="column-6 last"><h1>Eventos</h1></div>
+				<div class="column-6 last">
+					<img class="imageEvent" src="css/liveshow.jpg">
+
+				</div>
 			</div>
 			<div class="row">
+
+											<!-- NEXT EVENTS -->
+
 				<div class="column-3">
+					<img class="imgNextEvents" src="css/mia.gif">
 					<h2>Proximos Eventos</h2>
 					<div class="next-events">
 					</div>
 				</div>
 				<div class="column-9 last">
-					
+
+												<!-- EVENTS -->
+
 					<div class="events">
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+							<div class="publicaciones">
+								<img src="css/publicaciones/sticker5.png" alt="">
+								<h2>Banda Show Bar Cultural 'Los Indios'</h2>
+								<span>Sabado a la hora que pinte</span>
+								<br>
+								<a href=""> mas informacion</a>
+
+							</div>
+
+
 					</div>
 				</div>
 			</div>
+
 		</section>
 
 										<!-- FOOTER -->
 
 		<section class="footer">
-	
+
 			<div class="row">
 				<div class="column-12">
 					<ul>
@@ -126,10 +310,15 @@
 					</ul>
 				</div>
 			</div>
-	
+
 		</section>
 
 		</div>
-	</body>
+
+		<!-- script -->
+
+		 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+
+		 <script src="js/animation.js"></script>
 
 </html>
