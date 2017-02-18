@@ -1,3 +1,13 @@
+<?php 
+/*
+if(!isset($_SESSION['user_name'])){
+session_start();
+}*/
+session_start();
+/*require_once('php/connections.php');*/
+//ademas debe conectarse a la bd y dejarme una conexion abierta. Cuando se cierra, tengo que borrar los
+// datos de sesion y ademas la conexion a la bd;
+ ?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -66,10 +76,58 @@
 
 				<div class="column-4 last login">
 					<img src="css/icon-user.png" alt="user">
-					<form method="POST" action="login.php">
+					<form method="POST" action="php/login.php">
+
+							<?php
+
+							if(isset($_SESSION['user_name']) && ( $_SESSION['user_state']==0 ) && ( $_SESSION['user_name']!='error')) {
+								
+							?>
+								<ul class="show_name"> 
+										<li>
+											<a href=""><?php echo $_SESSION['user_name'];
+												 ?>
+												<script type="text/javascript">
+													
+
+												</script>
+											</a>
+										</li>
+										<button id="button_close_session" >Cerrar sesion</button>
+								</ul>
+							<?php 
+							
+							} else { 
+
+						if(isset($_SESSION['user_name']) && $_SESSION['user_name']=='error') {
+									?>
+										<script type="text/javascript">
+											window.alert("Los datos ingresados son incorrectos");
+
+										</script>
+									<?php
+										unset( $_SESSION['user_name'] );
+										} else {
+											if(isset($_SESSION['user_state']) && $_SESSION['user_state']==1){
+												?>
+													<script type="text/javascript">
+												window.alert("usuario bloqueado");
+														</script>
+
+									<?php
+											unset($_SESSION['user_state'] );
+											unset($_SESSION['user_name'] );
+										  }
+										} 
+
+							
+									?>
+									
+							
+
 							<label class="user">
 
-								<input type="email" placeholder="User" name="usuario" required>
+								<input type="text" placeholder="User" name="user_name" required>
 							</label>
 
 							<br>
@@ -79,6 +137,7 @@
 								<input type="password" placeholder="Password" name="password" required>
 							</label>
 							<br>
+							<button type="submit" name="acceder" value="acceder"> Acceder</button>
 
 
 						</form>
@@ -88,12 +147,11 @@
 							<p class="tooltiptext">Registrate!</p>
 						</div>
 
-						<button type="button"> Acceder</button>
-
+						
 						<div class="registro" id="formularioRegistro">
 							<h2> Registrarse </h2>
 
-							<form method="POST" action=""> <!-- FALTA COMPLETAR LA RUTA DEL PHP-->
+							<form method="POST" action=""../WebMaster/php/register.php""> <!-- FALTA COMPLETAR LA RUTA DEL PHP-->
 								<label class="user-name">
 									<span>Nombre Usuario</span>
 									<input type="text" placeholder="" name="user_name" required>
@@ -151,7 +209,11 @@
 								<button type="button" id="confirmar">Confirmar </button>
 							</div>
 				</div>
+				<?php
+					}
+				?>
 			</div>
+			
 
 				</div>
 			</section>
@@ -320,5 +382,6 @@
 		 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 
 		 <script src="js/animation.js"></script>
+
 
 </html>
