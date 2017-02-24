@@ -1,12 +1,22 @@
-<?php 
-session_start();
+<?php  
+
+
 $user_name = $_POST['user_name'];
 $password = $_POST['password'];
+
+
+
+
+if (!isset($_POST['user_name'])) {
+	header("Location: http://localhost/WebMaster/index.php#home");
+		
+	# code...
+}else{
 
 $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
 
 $consulta = mysqli_query($conexion,"SELECT user_name, type, state, mail FROM usuarios_filtrados WHERE user_name='$user_name' AND password='$password'") or die (mysqli_error($conexion));
-
+	
 if($consulta){
 $cant_reg_consulta= mysqli_num_rows($consulta);
 
@@ -22,30 +32,49 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 			$datos[3]= $fila[3];
 			}
 
+		if ($datos[2]==1) {
+	
+				//usuario bloqueado 
+					header("Location: http://localhost/WebMaster/index.php?estado=bloqueado#home");
+					exit;			
+		}else{
+				//usuario válido
+		session_start();		
 		$_SESSION['user_name'] = $datos[0];
 		$_SESSION['user_type'] = $datos[1];
 		$_SESSION['user_state'] = $datos[2];
 		$_SESSION['user_mail'] = $datos[3];
 		$_SESSION['conexion']= $conexion;
-		// $_SESSION['user_type'] = tipo de usuario sacado de la consulta
-		echo "conectado usuario:" .$_SESSION['user_name'];
 	
+		echo "conectado usuario:" .$_SESSION['user_name'];
+		header("Location: http://localhost/WebMaster/index.php#home");
+		exit;
+}
+		
 	}
-		else{
-			$_SESSION['user_name'] = 'error';
- 		echo "usuario incorrecto";
+
+		else{ 
+				//usuario incorrecto
+			echo "usuario incorrecto";
+
+
+			header("Location: http://localhost/WebMaster/index.php?estado=error#home");
+
+			exit;			
+ 			
 			}
 
 
-header("Location: http://localhost/WebMaster/index.php#home");
+exit;
 
 } 		else {
-
+				//error en el select
 	echo "error en la consulta";
 	
-	//para cerrar sesion --> session_destroy();
+
 header("Location: http://localhost/WebMaster/index.php#home");
 	
-
-			}
+exit;
+			} 
+				}
  ?>

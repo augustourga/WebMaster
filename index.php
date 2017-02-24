@@ -4,6 +4,7 @@ if(!isset($_SESSION['user_name'])){
 session_start();
 }*/
 session_start();
+
 /*require_once('php/connections.php');*/
 //ademas debe conectarse a la bd y dejarme una conexion abierta. Cuando se cierra, tengo que borrar los
 // datos de sesion y ademas la conexion a la bd;
@@ -18,6 +19,7 @@ session_start();
 		<link rel="stylesheet" href="css/grid.css">
 		<link rel="stylesheet" href="css/index.css">
 		<link href="https://fonts.googleapis.com/css?family=Syncopate|Barrio|Bangers|Six+Caps|Lekton|Shadows+Into+Light|Indie+Flower|Amatic+SC|PT+Mono" rel="stylesheet">
+
 	</head>
 		
 
@@ -61,8 +63,7 @@ session_start();
 			<section id="home" class="header">
 
 										<!-- LOGO -->
-
-
+										
 				<div class="row">
 					<div class="column-4 ">
 						<img class="logo" src="css/logo/logoblack.jpg" alt="Logo">
@@ -79,50 +80,59 @@ session_start();
 					<form method="POST" action="php/login.php">
 
 							<?php
+							
+							if (isset($_GET["estado"])) {
 
-							if(isset($_SESSION['user_name']) && ( $_SESSION['user_state']==0 ) && ( $_SESSION['user_name']!='error')) {
+									if($_GET["estado"]== "error"){ ?>
+										<script type="text/javascript">
+											window.alert("Los datos ingresados son incorrectos");		
+											window.location.href= 'http://localhost/WebMaster/index.php#home';
+									
+
+										</script>
+									<?php
+									
+									unset($_GET["estado"]);
+
+								}else{ if($_GET["estado"]== "bloqueado"){?>
+
+										<script type="text/javascript">
+											window.alert("Usuario Bloqueado");
+											window.location.href= 'http://localhost/WebMaster/index.php#home';
+										</script>
+
+								
+
+
+							<?php
+									
+								}
+							}
+
+							} else{
+
+							if(isset($_SESSION['user_name']))  {
 								
 							?>
 								<ul class="show_name"> 
 										<li>
 											<a href=""><?php echo $_SESSION['user_name'];
-												 ?>
-												<script type="text/javascript">
-													
-
-												</script>
-											</a>
+												 ?>										</a>
 										</li>
-										<button id="button_close_session" >Cerrar sesion</button>
+										<button id="button_close_session" onclick="redirect_unlogin()" >
+										<script type="text/javascript">
+										function redirect_unlogin(){
+											window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+										}
+
+										</script>
+										Cerrar sesion</button>
 								</ul>
 							<?php 
 							
 							} else { 
 
-						if(isset($_SESSION['user_name']) && $_SESSION['user_name']=='error') {
 									?>
-										<script type="text/javascript">
-											window.alert("Los datos ingresados son incorrectos");
-
-										</script>
-									<?php
-										unset( $_SESSION['user_name'] );
-										} else {
-											if(isset($_SESSION['user_state']) && $_SESSION['user_state']==1){
-												?>
-													<script type="text/javascript">
-												window.alert("usuario bloqueado");
-														</script>
-
-									<?php
-											unset($_SESSION['user_state'] );
-											unset($_SESSION['user_name'] );
-										  }
-										} 
-
-							
-									?>
-									
 							
 
 							<label class="user">
@@ -137,21 +147,82 @@ session_start();
 								<input type="password" placeholder="Password" name="password" required>
 							</label>
 							<br>
-							<button type="submit" name="acceder" value="acceder"> Acceder</button>
+							<button type="submit" id="acceder" name="acceder" value="acceder"> Acceder</button>
 
 
 						</form>
+						
 
 						<div class="tooltip">
-							<button type="button" id="registrarse" onClick="show()"> Registrarse</button>
+							<button type="button" id="registrarse" onClick="show()" > Registrarse</button>
 							<p class="tooltiptext">Registrate!</p>
 						</div>
 
 						
-						<div class="registro" id="formularioRegistro">
+						<div class="registro" id="formularioRegistro" href="#formulario">
+							<?php
+									if (isset($_GET["formulario_estado"])) {
+
+											switch ($_GET["formulario_estado"]) {
+												case 'usererror':
+																	?>
+													<script type="text/javascript">
+															window.alert("Ya existe un usuario con ese nombre");
+															window.location.href= 'http://localhost/WebMaster/index.php#formulario';
+													</script>
+
+																	<?php
+										
+												break;
+												case 'ok': //redireccionar a la pantalla para ingresar codigo de validación
+													?>
+													<script type="text/javascript">
+															// window.alert("Se ha enviado un mensaje a su mail con el codigo de validación, debe ingresarlo para continuar");
+															var valor = window.prompt("Se ha enviado un mensaje a su mail con el codigo de validación, debe ingresarlo para continuar","codigo" );
+																window.location.href= 'http://localhost/WebMaster/php/validation_code.php?valor';
+															if (valor=1) {
+																window.alert("piola");
+															}
+													</script>
+
+   											<form method="POST" action="php/validaton_code.php">
+												<label class="validation_code">
+													<span>Código de Activación</span>
+													<input type="text" placeholder="" name="validation_code" required>
+												</label>
+												<div class="buttons">
+								
+													<button type="submit" id="confirmar">Confirmar </button>
+							
+												</div>
+										<?php
+												break;
+												case 'mensajeerror':
+												?>
+													<script type="text/javascript">
+															window.alert("Ocurrio un problema al enviar el código de validación, por favor revise su dirección de email");
+															window.location.href= 'http://localhost/WebMaster/index.php#formulario';
+													</script>
+
+										<?php
+														break;
+												default:
+														?>
+															<script type="text/javascript">
+															window.alert("fatal error");
+															window.location.href= 'http://localhost/WebMaster/index.php#home';
+													</script>
+														<?php
+
+												break;
+											}
+											
+									}//cierre del if isset formulario estado
+								else{
+									?>
 							<h2> Registrarse </h2>
 
-							<form method="POST" action=""../WebMaster/php/register.php""> <!-- FALTA COMPLETAR LA RUTA DEL PHP-->
+							<form method="POST" action="php/register.php"> <!-- FALTA COMPLETAR LA RUTA DEL PHP-->
 								<label class="user-name">
 									<span>Nombre Usuario</span>
 									<input type="text" placeholder="" name="user_name" required>
@@ -170,7 +241,7 @@ session_start();
 
 								<label class="apellido">
 								<span>Apellido</span>
-									<input type="text" placeholder="" name="" required>
+									<input type="text" placeholder="" name="last_name" required>
 
 								</label>
 
@@ -178,38 +249,39 @@ session_start();
 
 								<label class="mail">
 									<span>E-mail</span>
-									<input type="text" placeholder="" name="" required>
+									<input type="mail" placeholder="" name="mail" required>
 
 								</label>
 
 								<br>
 
-								<label class="fechaNacimiento">
-									<span>Fecha de Nacimiento</span>
-									<input type="text" placeholder="" name="" required>
-
-								</label>
-
-								<br>
 
 								<label class="password">
 									<span>Password</span>
-									<input type="text" placeholder="" name="" required>
+									<input type="password" placeholder="" name="password" required>
 
 								</label>
 
 								<br>
+							
+								<div class="buttons">
+								<button type="button" id="cancel" onClick="D()">Cancelar </button>
+								<button type="submit" id="confirmar">Confirmar </button>
+							
+							</div>
+
 
 							</form>
-
+							<?php
+								}
+							?>
 							<br>
 
-							<div class="buttons">
-								<button type="button" id="cancel" onClick="D()">Cancelar </button>
-								<button type="button" id="confirmar">Confirmar </button>
-							</div>
+							
 				</div>
 				<?php
+					}
+
 					}
 				?>
 			</div>
@@ -224,7 +296,7 @@ session_start();
 			<div class="row">
 				<div class="column-12">
 					<form action="enviar.php" method="">
-						<input type="text" placeholder="Ingrese aquí su busqueda" required>
+						<input type="text" placeholder="Ingrese aquí su busqueda" >
 					</form>
 					<input style="display:inline-block;width:10%;margin-left: -22em;" class="button" type="submit" value="Buscar">
 					<img class="division" src="css/line2.png">
