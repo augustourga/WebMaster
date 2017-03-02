@@ -175,17 +175,19 @@ session_start();
 										
 												break;
 												case 'ok': //redireccionar a la pantalla para ingresar codigo de validación
+												$id = $_GET["id"];
+												if(isset($_GET["codigo_validacion"])){
 													?>
 													<script type="text/javascript">
-															// window.alert("Se ha enviado un mensaje a su mail con el codigo de validación, debe ingresarlo para continuar");
-															var valor = window.prompt("Se ha enviado un mensaje a su mail con el codigo de validación, debe ingresarlo para continuar","codigo" );
-																window.location.href= 'http://localhost/WebMaster/php/validation_code.php?valor';
-															if (valor=1) {
-																window.alert("piola");
-															}
-													</script>
+															window.alert("Codigo de validación incorrecto");
+											
 
-   											<form method="POST" action="php/validaton_code.php">
+													</script> 
+													<?php 
+														}/*Cierro el if de isset($_GET["codigo_validacion" */
+													?>
+
+   											<form method="POST" action="php/validation_code.php?id=<?php echo $id ?>">
 												<label class="validation_code">
 													<span>Código de Activación</span>
 													<input type="text" placeholder="" name="validation_code" required>

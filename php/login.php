@@ -1,8 +1,6 @@
 <?php  
 
 
-$user_name = $_POST['user_name'];
-$password = $_POST['password'];
 
 
 
@@ -12,6 +10,9 @@ if (!isset($_POST['user_name'])) {
 		
 	# code...
 }else{
+	$user_name = $_POST['user_name'];
+	$password = md5($_POST['password']);
+
 
 $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
 

@@ -6,7 +6,7 @@ $user_name = $_POST['user_name'];
 $name = $_POST['name'];
 $last_name = $_POST['last_name'];
 $mail = $_POST['mail'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 $validation_code = getRandomCode();
 
 
@@ -17,7 +17,8 @@ if (!isset($_POST['user_name'])) {
 }else{
 
 $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
-$consulta = mysqli_query($conexion,"SELECT * FROM usuarios_filtrados WHERE user_name='$user_name'");
+$consulta = mysqli_query($conexion,"SELECT * FROM usuarios_filtrados WHERE user_name='$user_name' OR mail='$mail'");
+
 
 if($consulta){
 
@@ -27,7 +28,7 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 
 		//existe el usuario, ingrese otro nombre de usuario	
 			//header("Location: http://localhost/WebMaster/index.php?formulario_estado=usererror#formulario");
-	echo "existe el usuario, ingrese otro nombre de usuario	";
+	echo "existe el usuario o ya ha sido creado un usuario con esa direccion de e-mail, ingrese otro nombre de usuario	";
 
 	}
 		else{
@@ -36,7 +37,7 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 				//Usuario válido y mensaje enviado
 			
 	
-			$consulta = mysqli_query($conexion ,"INSERT INTO usuarios ( user_name ,name, last_name, mail, state , password , validation_code) values ('$user_name' , '$name' , '$last_name' , '$mail' , 1 , '$password' , '$validation_code' ) ");
+			$consulta = mysqli_query($conexion ,"INSERT INTO usuarios ( user_name ,name, last_name, mail, state , password , validation_code) values ('$user_name' , '$name' , '$last_name' , '$mail' , 0 , '$password' , '$validation_code' ) ");
 			//header("Location: http://localhost/WebMaster/index.php?formulario_estado=ok#formulario");
 			if($consulta){
 			echo "Usuario válido y mensaje enviado";
