@@ -16,7 +16,7 @@ if (!isset($_POST['user_name'])) {
 
 $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
 
-$consulta = mysqli_query($conexion,"SELECT user_name, type, state, mail FROM usuarios_filtrados WHERE user_name='$user_name' AND password='$password'") or die (mysqli_error($conexion));
+$consulta = mysqli_query($conexion,"SELECT user_name, type, state, mail FROM usuarios_filtrados WHERE ( user_name='$user_name' OR mail ='$user_name') AND password='$password'") or die (mysqli_error($conexion));
 	
 if($consulta){
 $cant_reg_consulta= mysqli_num_rows($consulta);
