@@ -1,0 +1,1104 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+a {
+  color: white;
+}
+
+h1{
+  font-family: 'Six Caps', sans-serif;
+  font-size:3em;
+}
+
+h2 {
+  font-family: 'Six Caps', sans-serif;
+  font-size: 2em;
+  color: white;
+}
+
+p {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1em;
+}
+
+body {
+  max-width: 1920px;
+  font-size: 1.2em;
+  overflow-x: hidden;
+}
+
+.intro {
+
+  width: 100%;
+  height: 100vh;
+  min-height:100vh;
+  width: 100%;
+  background-color: ;
+  color: white;
+
+}
+
+#video{
+  width: 100%;
+  height: 100vh;
+}
+
+video#videoby {
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  min-height: 100%;
+  max-height: 100vh;
+  height: auto;
+  z-index: -3;
+  transform: translateX(-50%);
+  background-color: black;
+  -webkit-filter:blur(3px);
+}
+
+#introA{
+  padding-top: 20vh;
+  float:left;
+  padding-left: 10vw;
+  font-size: 12em;
+}
+
+#introB {
+  padding-top: 20vh;
+  float: right;
+  padding-right: 10vw;
+  font-size: 12em;
+}
+
+#introC {
+  clear: both;
+  position: relative;
+  top: 35vh;
+  left: 75vw;
+  font-size: 4em;
+  transition: text-decoration 5s ease;
+}
+
+#introC:hover {
+  text-decoration: line-through;
+  transform: rotateX(15deg);
+
+
+}
+
+.header {
+  width: 100%;
+  min-height: 184px;
+  height: 27vh;
+  background-color: black;
+  color: white;
+  border-bottom: 0.2px solid white;
+  color: white;
+  border-top: 1px solid white;
+}
+
+.header-logo{
+  width: 23%;
+  float: left;
+}
+
+.header-logo img{
+  width: 100%;
+  max-width: 282px;
+
+
+}
+
+.header-center{
+  width: 54%;
+  float: left;
+  text-align: center;
+  padding-left: 5vw;
+  padding-top: 10vh;
+  line-height: 5vh;
+}
+
+.header-login {
+  width: 23%;
+  float: right;
+  display: inline-block;
+}
+
+.header-login img {
+  width: 20%;
+  max-width: 50px;
+  display: inline-block;
+
+}
+
+.header-center h2 {
+  font-family: 'Six Caps', sans-serif;
+  font-size: 4em;
+  color: white;
+  letter-spacing: 23px;
+}
+
+.header-center p{
+  font-size: 2.5em;
+  position: relative;
+  top: 4vh;
+}
+
+.header-login form{
+  display: inline-block;
+  margin-top: 10vh;
+  margin-left: 2em;
+}
+
+.header-login input {
+  display: inline-block;
+  width: 10vw;
+}
+
+.header-login button{
+  display: inline-block;
+  margin-top: 1vh;
+  margin-left: 0.5vw;
+  padding: 4px 5px;
+  text-align: center;
+}
+
+.header-login button:hover {
+  cursor: pointer;
+}
+
+.header-login a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  padding:1px 8px;
+  position: relative;
+  top: 0.6vh;
+  left: 0.2vw;
+  border-radius: 5%;
+  border: 1px solid white;
+  font-size: 1em;
+}
+
+.header-login a:hover {
+  background-color: white;
+  color: black;
+}
+
+.header-login a:visited {
+  color: grey;
+}
+
+.home-text{
+  background-color: rgba(255, 255, 255, 0.16);
+  border-radius: 2%;
+  padding: 5px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid white;
+}
+
+h2.home-text {
+  color: white;
+  padding-top: 6vh;
+  margin-left: 2vw;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+p.home-text {
+  color: white;
+  width: 100%;
+  max-width: 67vw;
+  margin-left: 16vw;
+  background-color: rgba(255, 255, 255, 0.02);
+  margin-bottom: 10px;
+
+}
+
+.buscador {
+  clear: both;
+  width: 100%;
+  height: 10vh;
+  background-color: black;
+  text-align: center;
+  line-height: 10vh;
+  padding-top: 3%;
+  padding-bottom: 7%;
+}
+
+.buscador .busqueda {
+  width: 50vw;
+}
+
+.contenido {
+  background-color: black;
+  max-height: 200vh;
+  height: auto;
+}
+
+.next-events {
+  float: left;
+  width: 20%;
+  height: auto;
+  background-color: black;
+  color: #d9d9d9;
+  margin-top: 4%;
+}
+
+.next-events h2{
+  margin-left: 1.5em;
+  font-size: 3em;
+  letter-spacing: 2px;
+  text-shadow: -14px 15px 9px;
+  transition: all 2s;
+  top: 15vh;
+  position: relative;
+}
+
+.next-events h2:hover{
+  transform:rotateX(45deg);
+  color: darkgrey;
+  cursor: none;
+}
+
+.cartelera{
+  background-image:url("../img/backgrounds/bricks.jpg");
+  background-position: center;
+  background-size: cover;
+  border: 1px solid white;
+  border-radius: 7%;
+  height: 30vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 15vw;
+  margin-left: 3.5vw;
+  margin-top: 25vh;
+
+}
+
+
+
+.cartelera ul {
+  list-style-type: none;
+  font-family: 'Amatic SC', cursive;
+  position: relative;
+  top: 3vh;
+  height: 1vh;
+
+}
+
+.cartelera li {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.cartelera a{
+  border-bottom: 1px dashed white;
+  text-decoration: none;
+  color: white;
+  padding-left: 1em;
+  font-size: 1.3em;
+  transition: all 1s;
+  display: block;
+
+}
+
+.cartelera a:hover{
+  background-color: rgba(189, 182, 182, 0.79);
+  cursor: pointer;
+  color: black;
+  font-weight: 900;
+  font-size: 1.5em;
+}
+
+.events {
+
+    float: right;
+    width: 75%;
+    height: 90vh;
+    background-image: url(../img/publicaciones/lights.jpg);
+    background-position: center;
+    background-size: cover;
+    top: 11vh;
+    position: relative;
+    margin-bottom: 25vh;
+    border-radius: 5%;
+    margin-right: 2vw;
+}
+
+.publicaciones-content{
+  width: 100%;
+  height: 55vh;
+  position: relative;
+  top: 2vh;
+  overflow-x: scroll;
+
+}
+
+.publicaciones {
+	display: inline-block;
+	width: 400px;
+	height: 450px;
+	background-color: black;
+  margin: 46px 30px;
+  opacity: 0.7;
+  border-radius: 4%;
+  margin-left: 2vw;
+}
+
+
+
+.publicaciones h2 {
+  text-align: center;
+  padding: 10px 10px;
+
+}
+
+.portada  {
+    max-width: 350px;
+    width: 100%;
+    margin-left: 1.5vw;
+    border-radius: 2%;
+    display: inline-block;
+}
+
+.publicaciones span {
+  color: white;
+  margin-left: 2vw;
+}
+
+.publicaciones a{
+  margin-left: 6vw;
+}
+
+
+
+
+.myEvents {
+  clear: both;
+  width: 100%;
+  height: 120vh;
+  background-color: black;
+  position: relative;
+
+}
+
+
+.MyEventsImg {
+  display: inline-block;
+  position: relative;
+  max-width: 43%;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  float: left;
+  max-height: 45vh;
+  height: 100%;
+  box-shadow: -4px 14px 11px 11px black;
+  border-radius: 8%;
+  top: 5%;
+  left: 3%;
+  background-image: url(../img/slider/polaroid1.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.MyEventsImg p{
+  position: relative;
+top: 16vh;
+left: 6vw;
+font-weight: bold;
+font-size: 2em;
+border: 3px solid black;
+display: inline-block;
+}
+
+
+#slideshow img {
+  max-width: 74%;
+  width: 100%;
+  left: 13%;
+  position: relative;
+  top: 18%;
+  transition: .3s ease-in-out;
+}
+
+#slideshow img:hover {
+  opacity: 0.5;
+
+}
+
+#box1, #box2, #box3, #box4{
+  width: 800px;
+  height: 50vh;
+    -webkit-box-shadow: 0px 1px 1px;
+  float: left;
+  background-color: rgba(0, 0, 0, 0);
+
+}
+
+
+
+#slideshow-container {
+  width: 800px;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  top: 17vh;
+  box-shadow: -1px 4px 20px 8px #333;
+  border-radius: 10px;
+  margin-right: 10vw;
+
+}
+
+#slideshow {
+  width: 1000%;
+  -webkit-animation: slideshow 30s infinite;
+  -moz-animation: slideshow 30s infinite;
+  -o-animation: slideshow 30s infinite;
+  -ms-animation: slideshow 30s infinite;
+
+
+}
+
+#slideshow:hover {
+  animation-play-state: paused;
+  cursor: pointer;
+
+}
+
+#slideshow-container:hover{
+
+  }
+
+.infoEvent {
+  display: inline-block;
+	position: relative;
+  width: 400px;
+  height: 40vh;
+  float: right;
+  border-radius: 2%;
+  color: white;
+  background-color: rgba(72, 71, 71, 0.78);
+  top: 8%;
+  right: 3%;
+
+
+}
+
+
+.infoEvent p {
+  margin: 3px 23px;
+  padding: 20px 20px;
+  border: 1px solid white;
+  border-radius: 2%;
+  color: black;
+  background-color: rgba(208, 208, 208, 0.72);
+  overflow: scroll;
+  height: 20vh;
+}
+
+.infoEvent h2 {
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 2.5em;
+  padding: 15px 5px;
+  text-shadow: -12px 8px 7px black;
+}
+
+.infoEvent span {
+  right: -15vw;
+  top: 5vh;
+  position: relative;
+
+}
+
+.infoEvent a {
+  color: white;
+  font-family: 'PT Mono', monospace;
+}
+
+/* Animation
+============================= */
+
+@-webkit-keyframes slideshow {
+  0%, 10%, 100% {margin-left: 0; }
+  20%, 30% {margin-left: -800px; }
+  40%, 50% {margin-left: -1600px;}
+  60%, 70% {margin-left: -2400px;}
+  80% {margin-left: 0;}
+}
+
+@-moz-keyframes slideshow {
+  0%, 10%, 100% {margin-left: 0; }
+  20%, 30% {margin-left: -800px; }
+  40%, 50% {margin-left: -1600px;}
+  60%, 70% {margin-left: -2400px;}
+  80% {margin-left: 0;}
+}
+
+@-o-keyframes slideshow {
+  0%, 10%, 100% {margin-left: 0; }
+  20%, 30% {margin-left: -800px; }
+  40%, 50% {margin-left: -1600px;}
+  60%, 70% {margin-left: -2400px;}
+  80% {margin-left: 0;}
+}
+
+@-ms-keyframes slideshow {
+  0%, 10%, 100% {margin-left: 0; }
+  20%, 30% {margin-left: -800px; }
+  40%, 50% {margin-left: -1600px;}
+  60%, 70% {margin-left: -2400px;}
+  80% {margin-left: 0;}
+}
+
+
+
+.footer {
+	border:1px solid grey;
+	font-family: 'PT Mono', monospace;
+	height:30vh;
+	width:100%;
+	background-color:black;
+	opacity:0.5;
+
+}
+
+.footer ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-top:9em;
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+	padding-left: 20em;
+	background-color: black;
+}
+
+.footer li {
+	display: inline;
+	background-color: black;
+}
+
+.footer li a{
+	color:white;
+	text-decoration:none;
+}
+
+
+/* ============= REGISTRO ============ */
+
+.contenido.registro{
+  height: 140vh;
+}
+
+.formulario {
+  max-width: 40vw;
+  width: 100%;
+  max-height: 88vh;
+  height: 100%;
+  background-color: rgba(72, 71, 71, 0.77);
+  position: relative;
+  left: 30vw;
+  top: 10vh;
+  border-radius: 2%;
+  box-shadow: -1px 2px 24px 2px white;
+
+
+}
+
+.formulario h2 {
+  text-align: center;
+  font-size: 5em;
+  text-shadow: -12px 8px 7px black;
+}
+
+.formulario form {
+  position: relative;
+  top: 5vh;
+  background-color: rgba(255, 255, 255, 0.57);
+  margin: 5px 100px;
+  height: 60vh;
+  border-radius: 2%;
+  padding: 5px 200px;
+  border: 1px dashed black;
+    box-shadow: -1px 2px 24px 2px black;
+}
+
+.formulario label {
+  position: relative;
+  top: 3vh;
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  font-size: 1em;
+
+
+}
+
+
+.formulario span {
+  padding: 5px 5px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 2.5px;
+
+    border-radius: 3%;
+
+}
+
+
+.formulario input {
+  padding: 0px 10px;
+  width: 10vw;
+  height: 3vh;
+  position: relative;
+  top:1vh;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.formulario button{
+  position: relative;
+  top: 10vh;
+
+}
+
+.back {
+  position: relative;
+  display: inline-block;
+  left: 3vw;
+  top: 4vh;
+  letter-spacing: 2px;
+}
+
+/* ================== PUBLICACION ==================== */
+
+.publicacion .contenido {
+  height: 300vh;
+}
+
+.publicacion .back {
+  display: inline-block;
+  position: relative;
+  left: 3vw;
+  top: -15vh;
+  letter-spacing: 2px;
+}
+
+.publicacion .publicacion-content {
+  max-height: 120vh;
+  height: 100%;
+}
+
+.publicacion .left {
+  display: inline-block;
+  position: relative;
+  float: left;
+  max-width: 21vw;
+  width: 100%;
+  max-height: 54vh;
+  height: 100%;
+  background-color: black;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  top: 5vh;
+  border-radius: 2%;
+  box-shadow: -5px 5px 25px 8px white;
+}
+
+.img-publicacion {
+  display: inline-block;
+  position: relative;
+  max-width: 19vw;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  border-radius: 5%;
+  max-height: 50vh;
+  height: 100%;
+  top: 6%;
+  left: 4%;
+  background-color: black;
+  background-image: url(../img/slider/polaroid1.png);
+  background-position: center;
+  background-size: cover;
+  box-shadow: -3px 3px 15px 4px black;
+}
+
+.img-publicacion img{
+  background-color: black;
+  max-width: 74%;
+  width: 100%;
+  left: 13%;
+  position: relative;
+  top: 18%;
+
+}
+
+.publicacion .center {
+  display: inline-block;
+  position: relative;
+  float: left;
+  max-width: 45vw;
+  width: 100%;
+  max-height: 90vh;
+  height: 100%;
+  background-color: black;
+  border-radius: 2%;
+  overflow: scroll;
+  left: -5vh;
+  overflow-x: hidden;
+
+}
+
+.publicacion .center .center-scroll {
+  display: inline-block;
+  position: relative;
+  max-width: 40vw;
+  width: 100%;
+  max-height: ;
+  height: 80vh;
+  background-color: darkgrey;
+  border-radius: 2%;
+  border: 2px solid white;
+  top: 15vh;
+  left: 5vh;
+}
+
+.publicacion .center .info-publicacion {
+  width: 90%;
+  height: 25vh;
+  position: relative;
+  top: 10vh;
+  margin-left: 2vw;
+  overflow: scroll;
+  background-color: grey;
+  border-radius: 2%;
+
+}
+
+h2.title {
+  font-size: 6em;
+  position: relative;
+  left: 7vw;
+    text-shadow: -7px 6px 10px white;
+}
+
+.publicacion .center .info-publicacion h2{
+  text-align: left;
+  padding-top: 10px;
+  letter-spacing: 3px;
+  display: inline-block;
+  margin-left: 2vw;
+  text-shadow: -3px 4px 10px black;
+}
+
+.publicacion .center .info-publicacion h3{
+  text-align: right;
+  display: inline-block;
+  letter-spacing: 3px;
+  margin-left: 9vw;
+}
+
+.publicacion .center .info-publicacion p {
+  padding: 20px 20px;
+}
+
+.publicacion .right {
+  display: inline-block;
+  position: relative;
+  float: right;
+  max-width: 20vw;
+  width: 100%;
+  max-height: 60vh;
+  height: 100%;
+  background-color: black;
+  margin-top: -120vh;
+  margin-right: 5vw;
+  border-radius: 2%;
+  box-shadow: -5px 5px 25px 8px white;
+
+}
+
+#mapa  {
+  width: 100%;
+  opacity: 0.7;
+  border-top-right-radius: 2%;
+  border-top-left-radius: 2%;
+
+}
+
+#fb {
+margin-left: 1vw;
+margin-top: 2vh;
+
+}
+
+.publicacion .center-scroll .info-comentarios {
+  max-width: 34vw;
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  top: 21vh;
+  margin-left: 3vw;
+  overflow: scroll;
+  background-color: grey;
+  border-radius: 2%;
+  float: left;
+}
+
+.publicacion .center-scroll .info-comentarios .show-comentarios {
+  position: relative;
+  margin-left:  2vh;
+  margin-top: 2vh;
+  width: 90%;
+  height: 15ch;
+  background-color: #0009;
+}
+
+.publicacion .center-scroll .info-comentarios h3{
+
+  display: inline-block;
+  letter-spacing: 3px;
+  margin-left: 2vw;
+  margin-top: 2vh;
+  text-decoration: underline;
+}
+
+.publicacion .center-scroll .info-comentarios form {
+  position: relative;
+  top: 2vh;
+}
+
+.publicacion .center-scroll .info-comentarios input{
+  position: relative;
+  margin-left: 2vw;
+  margin-top: ;
+  width: 80%;
+  height: 10vh;
+  background-color: #0009;
+  color: white;
+
+}
+
+.publicacion .center-scroll .info-comentarios button {
+  position: relative;
+  top: 2vh;
+  left: 7vw;
+}
+
+.publicacion .myEvents {
+    clear: both;
+    top: -10vh;
+}
+
+
+
+
+
+/* ================ FOOTER PAGE   =================== */
+
+.footerPage .contenido {
+  height: 154vh;
+}
+
+.footerPage .back {
+  display: inline-block;
+  position: relative;
+  left: 3vw;
+  top: -15vh;
+  letter-spacing: 2px;
+}
+
+.footer-content {
+  height: 100vh;
+}
+
+.footerPage h3 {
+  display: inline-block;
+  text-decoration: underline;
+  color: white;
+  font-size: 3em;
+  font-family: 'Six Caps', sans-serif;
+  padding: 5px 5px;
+  margin-left: 2vw;
+  margin-bottom: 5vh;
+
+
+}
+
+
+.footerPage p {
+  color: white;
+  padding: 10px 50px;
+  margin-left: 5vw;
+}
+
+.filtros-publicaciones {
+  position: relative;
+  top:14vh;
+  left: 20vw;
+}
+
+.filtros-publicaciones h3{
+  display: inline-block;
+  position: relative;
+  left: -10vw;
+  top: 4vh;
+  color: white;
+}
+
+/* ============================ MEDIA QUERY =============================== */
+
+/* ============================ HOME =============================== */
+
+@media(max-width: 1400px) {
+
+  #introA{
+    position: relative;
+    top:0vh;
+    padding-left: 0;
+    margin-left: -15vw;
+    font-size:7em;
+  }
+
+  #introB {
+    position: relative;
+    padding-left: vw;
+    top : -;
+    font-size: 7em;
+    margin-right:-25vw;
+  }
+
+  #introC {
+
+    font-size: 2em;
+    top: 40vh;
+  }
+
+  .header {
+    height: 30vh;
+    font-size: 1em;
+  }
+
+
+  .header-center h2{
+      font-size: 3em;
+      letter-spacing: 5px;
+  }
+
+  .header-center p{
+    font-size: 1em;
+  }
+
+  .header-login a{
+    font-size: 0.9em;
+  }
+
+  p.home-text{
+    font-size: 0.8em;
+  }
+
+  .cartelera a{
+    font-size: 0.8em;
+  }
+
+  .cartelera a:hover{
+    font-size: 0.9em;
+  }
+
+  .next-events h2{
+    font-size: 2.2em;
+  }
+
+  .publicaciones-content{
+    height: 60vh;
+  }
+
+  .publicaciones{
+    width: 19vw;
+    height: 45vh;
+
+  }
+
+  .publicaciones h2{
+    font-size: 1em;
+  }
+
+  .portada{
+    width: 84%;
+  }
+
+  .MyEventsImg{
+    max-width: 30%;
+    left: 7%;
+  }
+
+  .MyEventsImg p{
+    top: 15.5vh;
+    left: 4vw;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  .infoEvent h2{
+    font-size: 2em;
+  }
+
+  .infoEvent p{
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  .infoEvent span{
+      top: 1vh;
+  }
+
+  .footer{
+    font-size: 0.8em;
+  }
+
+/* =========================== REGISTRO QUERYS 1400============================ */
+
+  .contenido.registro{
+    height: 160vh;
+  }
+
+  .formulario{
+    max-height: 100vh;
+  }
+
+  .formulario form {
+    height: 72vh;
+  }
+
+  .formulario h2{
+    font-size: 3em;
+    padding-top: 2vh;
+  }
+
+  .formulario span{
+    left: -9vw;
+    top: 2vh;
+  }
+
+  .formulario input{
+    top: -6vh;
+  }
+
+  .formulario button{
+    top: 1.5vh;
+    left: -8vw;
+    width: 15%;
+  }
+
+  .registro-buttons {
+    width: 50vw;
+  }
+} /* CIERRA MEDIA 1400PX */
