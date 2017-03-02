@@ -4,7 +4,7 @@
 
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Six+Caps" rel="stylesheet">
 
   </head>
@@ -16,14 +16,14 @@
 
       <video autoplay muted loop id="videoby">
 
-        <source src="img/backgrounds/audioSpectrum.mp4" type="video/mp4">
+        <source src="../img/backgrounds/audioSpectrum.mp4" type="video/mp4">
       </video>
       <!--=============== HEADER =================-->
 
       <div class="header">
         <div class="header-logo">
 
-          <img src="img/logo/logoblack.jpg" alt="Logo">
+          <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
         <div class="header-center">
@@ -52,7 +52,7 @@
             Acceder
           </button>
 
-              <a href="http://localhost:8888/Sitio%202.0/registro.php">  Registrarse </a>
+              <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
 
           </form>
 
@@ -74,7 +74,7 @@
 
       <!-- ================== MAIN-CONTENT =============-->
 
-      <h2 class="back"> <a href="http://localhost:8888/Sitio%202.0#home"> < Volver al Home </a> </h2>
+      <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2>
 
 
 
@@ -83,12 +83,12 @@
     <div class="footer">
 
       <ul>
-        <li><a href="http://localhost:8888/Sitio%202.0/footer.php">Contacto |</a></li>
-        <li><a href="http://localhost:8888/Sitio%202.0/footer.php">Sobre Ante Merídiem  |</a></li>
-        <li><a href="http://localhost:8888/Sitio%202.0/footer.php">Ayuda  |</a></li>
-        <li><a href="http://localhost:8888/Sitio%202.0/footer.php">Legales  |</a></li>
-        <li><a href="http://localhost:8888/Sitio%202.0/footer.php">Politica de Privacidad  |</a></li>
-        <li><a href="http://localhost:8888/Sitio%202.0/footer.php">© Copyright 2017  </a></li>
+        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
+        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
+        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Ayuda  |</a></li>
+        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Legales  |</a></li>
+        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Politica de Privacidad  |</a></li>
+        <li><a href="http://localhost/WebMaster/php/screen_footer.php">© Copyright 2017  </a></li>
       </ul>
 
     </div>

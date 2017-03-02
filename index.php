@@ -64,7 +64,7 @@
             Acceder
           </button>
 
-              <a href="http://localhost:8888/Sitio%202.0/registro.php">  Registrarse </a>
+              <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
 
           </form>
 
@@ -98,11 +98,11 @@
           <h2> Proximos Eventos</h2>
           <div class="cartelera">
             <ul>
-              <li><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> Jack - Piluso 27.08.17 </a></li>
-              <li><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> Oesterheld - La Ronda 27.08.17 </a></li>
-              <li><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> La Parna - Bartolo 27.08.17 </a></li>
-              <li><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> Jack - Los indios 27.08.17 </a></li>
-              <li><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> La Parna - Bartolo 27.08.17 </a></li>
+              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> Jack - Piluso 27.08.17 </a></li>
+              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> Oesterheld - La Ronda 27.08.17 </a></li>
+              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> La Parna - Bartolo 27.08.17 </a></li>
+              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> Jack - Los indios 27.08.17 </a></li>
+              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> La Parna - Bartolo 27.08.17 </a></li>
 
             </ul>
           </div>
@@ -120,7 +120,7 @@
               <img class="portada" src="img/images/jack.jpeg">
               <span>Sabado a la hora que pinte</span>
               <br>
-              <a href="http://localhost:8888/Sitio%202.0/publicacion.php"> mas informacion</a>
+              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
 
@@ -130,7 +130,7 @@
               <img class="portada" src="img/images/a.jpeg">
               <span>Sabado a la hora que pinte</span>
               <br>
-              <a href="http://localhost:8888/Sitio%202.0/publicacion.php"> mas informacion</a>
+              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
 
@@ -140,7 +140,7 @@
               <img class="portada" src="img/publicaciones/modelimg.png">
               <span>Sabado a la hora que pinte</span>
               <br>
-              <a href="http://localhost:8888/Sitio%202.0/publicacion.php"> mas informacion</a>
+              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
 
@@ -150,7 +150,7 @@
               <img class="portada"  src="img/publicaciones/modelimg.png">
               <span>Sabado a la hora que pinte</span>
               <br>
-              <a href="http://localhost:8888/Sitio%202.0/publicacion.php"> mas informacion</a>
+              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
 
@@ -160,7 +160,7 @@
               <img class="portada" src="img/publicaciones/modelimg.png">
               <span>Sabado a la hora que pinte</span>
               <br>
-              <a href=""> mas informacion</a>
+              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
 
@@ -170,7 +170,7 @@
               <img class="portada" src="img/publicaciones/modelimg.png">
               <span>Sabado a la hora que pinte</span>
               <br>
-              <a href=""> mas informacion</a>
+              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
 
@@ -180,7 +180,7 @@
               <img class="portada" src="img/publicaciones/modelimg.png">
               <span>Sabado a la hora que pinte</span>
               <br>
-              <a href=""> mas informacion</a>
+              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
 
@@ -190,7 +190,7 @@
               <img class="portada" src="img/publicaciones/modelimg.png">
               <span>Sabado a la hora que pinte</span>
               <br>
-              <a href=""> mas informacion</a>
+              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
 
@@ -252,7 +252,7 @@
                     <div class="infoEvent">
                       <h2> Jack - Piluso </h2>
                       <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tincidunt mauris vel sodales. Praesent eget nisl ac purus dapibus aliquam a quis diam. Sed feugiat sit amet dui eu molestie. Nam vitae dignissim odio.</p>
-                      <span><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> Mas info </a></span>
+                      <span><a href="http://localhost/WebMaster/php/screen_publication.php"> Mas info </a></span>
 
                     </div>
 
@@ -266,7 +266,7 @@
                     <div class="infoEvent">
                       <h2> AC/DC - River Plate </h2>
                       <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tincidunt mauris vel sodales. Praesent eget nisl ac purus dapibus aliquam a quis diam. Sed feugiat sit amet dui eu molestie. Nam vitae dignissim odio.</p>
-                      <span><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> Mas info </a></span>
+                      <span><a href="http://localhost/WebMaster/php/screen_publication.php"> Mas info </a></span>
 
                     </div>
                   </div>
@@ -279,7 +279,7 @@
                     <div class="infoEvent">
                       <h2> Jack - Piluso </h2>
                       <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tincidunt mauris vel sodales. Praesent eget nisl ac purus dapibus aliquam a quis diam. Sed feugiat sit amet dui eu molestie. Nam vitae dignissim odio.</p>
-                      <span><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> Mas info </a></span>
+                      <span><a href="http://localhost/WebMaster/php/screen_publication.php"> Mas info </a></span>
 
                     </div>
                   </div>
@@ -292,7 +292,7 @@
                     <div class="infoEvent">
                       <h2> Jack - Piluso </h2>
                       <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tincidunt mauris vel sodales. Praesent eget nisl ac purus dapibus aliquam a quis diam. Sed feugiat sit amet dui eu molestie. Nam vitae dignissim odio.</p>
-                      <span><a href="http://localhost:8888/Sitio%202.0/publicacion.php"> Mas info </a></span>
+                      <span><a href="http://localhost/WebMaster/php/screen_publication.php"> Mas info </a></span>
 
                     </div>
                   </div>
@@ -309,12 +309,12 @@
 
 
           <ul>
-						<li><a href="http://localhost:8888/Sitio%202.0/footer.php">Contacto |</a></li>
-						<li><a href="http://localhost:8888/Sitio%202.0/footer.php">Sobre Ante Merídiem  |</a></li>
-						<li><a href="http://localhost:8888/Sitio%202.0/footer.php">Ayuda  |</a></li>
-						<li><a href="http://localhost:8888/Sitio%202.0/footer.php">Legales  |</a></li>
-						<li><a href="http://localhost:8888/Sitio%202.0/footer.php">Politica de Privacidad  |</a></li>
-						<li><a href="http://localhost:8888/Sitio%202.0/footer.php">© Copyright 2017  </a></li>
+						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
+						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
+						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Ayuda  |</a></li>
+						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Legales  |</a></li>
+						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Politica de Privacidad  |</a></li>
+						<li><a href="http://localhost/WebMaster/php/screen_footer.php">© Copyright 2017  </a></li>
 					</ul>
 
         </div>

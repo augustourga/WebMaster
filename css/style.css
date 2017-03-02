@@ -1101,4 +1101,9 @@ margin-top: 2vh;
   .registro-buttons {
     width: 50vw;
   }
+
+  #fb {
+    width: 84%;
+    height: 55vh;
+  }
 } /* CIERRA MEDIA 1400PX */
