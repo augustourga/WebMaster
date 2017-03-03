@@ -54,20 +54,20 @@ session_start();
 
           <img src="img/images/icon-user.png" alt="User">
           <form method="POST" action="php/login.php" >
-                
+
               <?php
-              
+
               if (isset($_GET["estado"])) {
 
                   if($_GET["estado"]== "error"){ ?>
                     <script type="text/javascript">
-                      window.alert("Los datos ingresados son incorrectos");   
+                      window.alert("Los datos ingresados son incorrectos");
                       window.location.href= 'http://localhost/WebMaster/index.php#home';
-                  
+
 
                     </script>
                   <?php
-                  
+
                   unset($_GET["estado"]);
 
                 }else{ if($_GET["estado"]== "bloqueado"){?>
@@ -77,20 +77,20 @@ session_start();
                       window.location.href= 'http://localhost/WebMaster/index.php#home';
                     </script>
 
-                
+
 
 
               <?php
-                  
+
                 }
               }
 
               } else{
 
               if(isset($_SESSION['user_name']))  {
-                
+
               ?>
-                <ul class="show_name"> 
+                <ul class="show_name">
                     <li>
                       <a href=""><?php echo $_SESSION['user_name'];
                          ?>                   </a>
@@ -104,10 +104,10 @@ session_start();
                     </script>
                     Cerrar sesion</button>
                 </ul>
-              <?php 
-              
-              } else { 
-          
+              <?php
+
+              } else {
+
 
                   ?>
 
@@ -130,10 +130,10 @@ session_start();
 
               <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
 
-              <?php 
-              } /*cierra el else isset($_SESSION['user_name']) */ 
+              <?php
+              } /*cierra el else isset($_SESSION['user_name']) */
             }/*Cierra el else isset($_GET["estado"])*/
-            ?> 
+            ?>
 
           </form>
 
@@ -297,12 +297,12 @@ session_start();
                 </label>
           </div>
 
-          <a href=""> Crear Evento </a>
+          <a href="http://localhost/WebMaster/php/screen_add_event.php"> Crear Evento </a>
 
         </div> <!-- CIERRA EVENTS -->
 
 
-       
+
         <div class="myEvents">
 
           <div class="home-text">
@@ -311,13 +311,13 @@ session_start();
            <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
              <?php if(isset($_SESSION['user_name']))  {
 
-            ?> 
+            ?>
 
             <h2 class="home-text">Mis Eventos</h2>
             <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
 
 
-       
+
           </div>
               <div id="slideshow-container">
                 <div id="slideshow">
@@ -380,7 +380,7 @@ session_start();
         </div>
 
           <?php
-                }/*Cierra el  if(isset($_SESSION['user_name'])) */ 
+                }/*Cierra el  if(isset($_SESSION['user_name'])) */
            ?>
 
 
