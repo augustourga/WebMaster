@@ -9,6 +9,8 @@ session_start();
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/logo/favicon.ico">
+    <title> Ante Meridiem </title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Six+Caps" rel="stylesheet">
 
   </head>
@@ -300,14 +302,23 @@ session_start();
         </div> <!-- CIERRA EVENTS -->
 
 
+       
         <div class="myEvents">
 
           <div class="home-text">
+
+
+           <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
+             <?php if(isset($_SESSION['user_name']))  {
+
+            ?> 
+
             <h2 class="home-text">Mis Eventos</h2>
             <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
+
+
+       
           </div>
-
-
               <div id="slideshow-container">
                 <div id="slideshow">
                   <div id="box1">
@@ -364,12 +375,14 @@ session_start();
                     </div>
                   </div>
                 </div>  <!--CIERRA SLIDESHOW -->
-
-
-
               </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
 
         </div>
+
+          <?php
+                }/*Cierra el  if(isset($_SESSION['user_name'])) */ 
+           ?>
+
 
 
         <div class="footer">

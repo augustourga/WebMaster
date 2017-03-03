@@ -55,9 +55,9 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 					}
 		}else{ //error en la consulta
 			// header("Location: http://localhost/WebMaster/index.php?formulario_estado=ok&id=$user_name");
-			header("Location: http://localhost/WebMaster/index.php");
+			header("Location: http://localhost/WebMaster/index.php");																																																																													
 
 				}
-// }
+
 
 ?>

@@ -5,6 +5,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/logo/favicon.ico">
+    <title> Ante Meridiem </title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Six+Caps" rel="stylesheet">
 
   </head>
