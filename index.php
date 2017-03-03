@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -48,8 +52,66 @@
 
           <img src="img/images/icon-user.png" alt="User">
           <form method="POST" action="php/login.php" >
+                
+              <?php
+              
+              if (isset($_GET["estado"])) {
+
+                  if($_GET["estado"]== "error"){ ?>
+                    <script type="text/javascript">
+                      window.alert("Los datos ingresados son incorrectos");   
+                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+                  
+
+                    </script>
+                  <?php
+                  
+                  unset($_GET["estado"]);
+
+                }else{ if($_GET["estado"]== "bloqueado"){?>
+
+                    <script type="text/javascript">
+                      window.alert("Usuario Bloqueado");
+                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+                    </script>
+
+                
+
+
+              <?php
+                  
+                }
+              }
+
+              } else{
+
+              if(isset($_SESSION['user_name']))  {
+                
+              ?>
+                <ul class="show_name"> 
+                    <li>
+                      <a href=""><?php echo $_SESSION['user_name'];
+                         ?>                   </a>
+                    </li>
+                    <button id="button_close_session" onclick="redirect_unlogin()" >
+                    <script type="text/javascript">
+                    function redirect_unlogin(){
+                      window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                    }
+
+                    </script>
+                    Cerrar sesion</button>
+                </ul>
+              <?php 
+              
+              } else { 
+          
+
+                  ?>
+
+
             <label class="user">
-              <input type="text" placeholder="User" name="user_name" required>
+              <input type="text" placeholder="User or Email" name="user_name" required>
             </label>
 
             <br>
@@ -65,6 +127,11 @@
           </button>
 
               <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
+
+              <?php 
+              } /*cierra el else isset($_SESSION['user_name']) */ 
+            }/*Cierra el else isset($_GET["estado"])*/
+            ?> 
 
           </form>
 
