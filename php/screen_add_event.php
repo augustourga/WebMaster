@@ -1,3 +1,7 @@
+<?php
+session_start(); 
+ ?>
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -5,6 +9,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/logo/favicon.ico">
+    <title> Ante Meridiem </title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Six+Caps" rel="stylesheet">
 
 	<style>
@@ -36,8 +42,42 @@
 
         </div>
         <div class="header-login">
+     
+       <?php    if(isset($_SESSION['user_name']))  {
 
-          <img src="../img/images/icon-user.png" alt="User">
+              ?>
+             <!-- Cerrar sesion</button> -->
+                <ul class="show_name">
+     
+                    <li>
+                      <a href=""><?php echo $_SESSION['user_name'];
+                         ?>                   </a>
+                    </li>
+                    <input type="button" id="button_close_session" value="Cerrar Sesión">
+                   
+                 </ul>
+
+                   <script type="text/javascript">
+
+                     function redirect_unlogin(){
+                     window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                    }
+
+                    var button_close_session = document.getElementById("button_close_session");
+                    button_close_session.addEventListener("click", redirect_unlogin);
+
+                      </script>
+            <!--  TERMINA Cerrar sesion</button> -->
+              <?php
+
+              } else {
+              			header("Location: http://localhost/WebMaster/index.php#home");
+              		}
+
+                  ?>
+
+
+  <!--         <img src="../img/images/icon-user.png" alt="User">
           <form method="POST" action="php/login.php" >
             <label class="user">
               <input type="text" placeholder="User" name="user_name" required>
@@ -56,9 +96,9 @@
           </button>
 
               <a href="http://localhost:8888/Sitio%202.0/registro.php">  Registrarse </a>
-
+ 
           </form>
-
+-->
 
 
         </div> <!-- Cierra LOGIN-->
@@ -69,20 +109,20 @@
 
         <div class="buscador">
 
-            <form action="" method="">
+   <!--          <form action="" method="">
                 <input class="busqueda" type="" placeholder="Ingrese aqui su busqueda" required>
                 <input type="submit" value="Buscar">
               </form>
-        </div>
+    -->     </div>
 
       <!-- ================== MAIN-CONTENT =============-->
 
-      <h2 class="back"> <a href="http://localhost:8888/Sitio%202.0#home"> < Volver al Home </a> </h2>
+      <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2>
 
-		<div class="home-text">
+		<!-- <div class="home-text">
           <h2 class="home-text">Lorem ipsum dolor sit amet</h2>
           <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
-        </div>
+        </div> -->
 
 		<div class="addEvent-mainContent">
 
@@ -91,50 +131,52 @@
 				<h2> Crear Evento </h2>
 
 				<div class="addEvent-left">
-					<form action="" method="" id="crearEvento">
+					<form action="add_event.php" method="POST" id="crearEvento">
 
 						<label>
 							Nombre del Evento:
 							<br>
-							<input type="text" >
+							<input type="text" name="title"  required>
 						</label>
 						<br>
 						<label>
 							Direccion:
 							<br>
-							<input type="text" >
+							<input type="text" name="address" required >
 						</label>
 						<br>
 						<label>
 						Inicia:
 							<br>
-							<input class="date" type="datetime-local" >
+							<input class="date" type="datetime-local" name="date_initiation" required>
 						</label>
 						<br>
 						<label>
 							Finaliza:
 							<br>
-							<input class="date" type="datetime-local" >
+							<input class="date" type="datetime-local" name ="date_end" required>
 						</label>
 						<br>
 						<label>
 							Genero:
 
-							<select name="genero">
+							<select name="gender" >
 								<option value="rock">Rock</option>
 								<option value="funk">Funk</option>
 								<option value="soul">Soul</option>
 								<option value="reggae">Reggae</option>
+                <option value="reggae">Otro</option>
 							</select>
 
 
 						</label>
 						<br>
-						<label class="upImage">
+						<label class="upImage" >
 							Imagen:
 
-							<input type="file" >
+							<input type="file" name="image">
 						</label>
+						<input id="enviarEvento" type="submit" value="Crear Evento">
 
 					</form>
 				</div>
@@ -145,20 +187,20 @@
 						<label>
 							Informacion:
 							<br>
-							<textarea form="crearEvento" rows="3" cols="50" placeholder="Describe yourself here..."></textarea>
+							<textarea form="crearEvento" rows="3" cols="50" placeholder="Describe yourself here..." name= "text"></textarea>
 						</label>
 						<br>
 						<label>
 							Descripcion:
 							<br>
-							<textarea form="crearEvento" rows="6" cols="50" placeholder="Describe yourself here..."></textarea>
+							<textarea form="crearEvento" rows="6" cols="50" placeholder="Describe yourself here..." name="description" required></textarea>
 						</label>
 
 					<br>
 
 
-				</div>
-				<input id="enviarEvento" type="submit" value="Crear Evento">
+				</div> 
+				
 			</div>
 
 		</div>

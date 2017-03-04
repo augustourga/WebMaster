@@ -376,7 +376,11 @@ p.home-text {
   margin-left: 6vw;
 }
 
-
+.limiador {
+  width: 100vw;
+  height: 5vh;
+  clear: both;
+}
 
 
 .myEvents {

@@ -90,26 +90,35 @@ session_start();
               if(isset($_SESSION['user_name']))  {
 
               ?>
+                 <!-- Cerrar sesion</button> -->
                 <ul class="show_name">
                     <li>
                       <a href=""><?php echo $_SESSION['user_name'];
                          ?>                   </a>
                     </li>
-                    <button id="button_close_session" onclick="redirect_unlogin()" >
-                    <script type="text/javascript">
-                    function redirect_unlogin(){
+                    <input type="button" id="button_close_session" value="Cerrar Sesión">
+                                              
+                </ul>
+
+                   <script type="text/javascript">
+
+                      function redirect_unlogin(){
                       window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
                     }
 
-                    </script>
-                    Cerrar sesion</button>
-                </ul>
+                    var button_close_session = document.getElementById("button_close_session");
+                    button_close_session.addEventListener("click", redirect_unlogin);
+
+                      </script>
+                  <!--  TERMINA Cerrar sesion</button> -->
               <?php
 
               } else {
 
 
                   ?>
+
+                    
 
 
             <label class="user">
@@ -296,11 +305,25 @@ session_start();
                   </select>
                 </label>
           </div>
-
-          <a href="http://localhost/WebMaster/php/screen_add_event.php"> Crear Evento </a>
-
+              
         </div> <!-- CIERRA EVENTS -->
 
+          <!-- CREAR EVENTO -->
+            <div class="limpiador"> </div>  
+                 <?php if(isset($_SESSION['user_name']))  {
+
+                  ?> 
+                  <a href="http://localhost/WebMaster/php/screen_add_event.php"> Crear Evento </a>
+          
+
+                  <?php
+                      }/*Cierra el  if(isset($_SESSION['user_name'])) */
+
+                  ?>
+                
+          
+
+          <!-- CIERRA CREAR EVENTO -->
 
 
         <div class="myEvents">
