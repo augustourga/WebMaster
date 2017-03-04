@@ -323,18 +323,24 @@ session_start();
                 
           
 
+<<<<<<< HEAD
           <!-- CIERRA CREAR EVENTO -->
+=======
+        <div class="break">
+        </div>
 
+>>>>>>> 8b136dbe1f5f19c1b3efd7e2e293693e0639a33d
 
+                   <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
+                     <?php if(isset($_SESSION['user_name']))  {
+
+                    ?>
+                    
         <div class="myEvents">
 
           <div class="home-text">
 
 
-           <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
-             <?php if(isset($_SESSION['user_name']))  {
-
-            ?>
 
             <h2 class="home-text">Mis Eventos</h2>
             <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
