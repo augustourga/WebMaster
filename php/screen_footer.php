@@ -66,14 +66,6 @@
 
     <!-- ================ BUSCADOR ======================-->
 
-        <div class="buscador">
-
-            <form action="" method="">
-                <input class="busqueda" type="" placeholder="Ingrese aqui su busqueda" required>
-                <input type="submit" value="Buscar">
-              </form>
-        </div>
-
       <!-- ================== MAIN-CONTENT =============-->
 
       <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2>

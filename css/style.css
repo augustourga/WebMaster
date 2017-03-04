@@ -237,8 +237,7 @@ p.home-text {
 
 .contenido {
   background-color: black;
-  max-height: 200vh;
-  height: auto;
+  height: 150vh;
 }
 
 .next-events {
@@ -377,7 +376,12 @@ p.home-text {
 }
 
 
-
+.break{
+  clear:both;
+  width: 100vw;
+  height: 5vh;
+  background-color: black;
+}
 
 .myEvents {
   clear: both;
@@ -681,7 +685,7 @@ display: inline-block;
 /* ================== PUBLICACION ==================== */
 
 .publicacion .contenido {
-  height: 300vh;
+  height: 200vh;
 }
 
 .publicacion .back {
@@ -695,6 +699,7 @@ display: inline-block;
 .publicacion .publicacion-content {
   max-height: 120vh;
   height: 100%;
+
 }
 
 .publicacion .left {
@@ -896,9 +901,11 @@ margin-top: 2vh;
 
 .publicacion .myEvents {
     clear: both;
-    top: -10vh;
 }
 
+.publicacion .footer{
+  position: relative;
+}
 
 
 
@@ -913,12 +920,13 @@ margin-top: 2vh;
   display: inline-block;
   position: relative;
   left: 3vw;
-  top: -15vh;
+  top: vh;
   letter-spacing: 2px;
 }
 
 .footer-content {
-  height: 100vh;
+  height: 155vh;
+ background-color: black;
 }
 
 .footerPage h3 {
@@ -928,7 +936,7 @@ margin-top: 2vh;
   font-size: 3em;
   font-family: 'Six Caps', sans-serif;
   padding: 5px 5px;
-  margin-left: 2vw;
+  margin-left: 45vw;
   margin-bottom: 5vh;
 
 
