@@ -1,3 +1,40 @@
+<?php
+session_start();
+ if (!isset($_GET['id_publication'])) {
+    
+      header("Location: http://localhost/WebMaster/index.php#home");
+
+  }/*Cierro el if!isset*/
+  else{ 
+      $id_publication = $_GET['id_publication'];
+      
+      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
+      $a="SELECT  id_publication , user_name , title , description , text , address , date_initiation , date_end , gender FROM publicaciones WHERE id_publication = $id_publication"; 
+
+      $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
+
+      if($consulta){
+        
+
+            $cant_reg_consulta= mysqli_num_rows($consulta);
+
+               if ($cant_reg_consulta>0) {
+                    
+                        $publicacion = mysqli_fetch_row($consulta);
+      
+                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender*/ 
+                                    
+                          /*   0                   1        2           3        4       5            6               7          8  */
+
+                    }/*Cierro el if $cant_reg_consulta>0*/else{
+                      echo "no traje nada";
+                    }
+                  }/*Cierro el if Consulta*/else{
+                                    echo "fallo la consulta";
+                  }
+
+     }/*Cierro el else if!isset*/
+ ?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -87,16 +124,19 @@
 
         </div>
 
-        <h2 class="title"> Nombre del Evento </h2>
+        <h2 class="title"> <?php echo $publicacion[2];  ?> </h2>
 
         <div class="center">
 
           <div class="center-scroll">
-          <iframe style="pointer-events:none;" id="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.2829212771367!2d-60.021568284287184!3d-34.899348880708104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bea536b1f6171f%3A0x3e79c823b98957d3!2sLavalle+79%2C+Chivilcoy%2C+Buenos+Aires!5e0!3m2!1ses!2sar!4v1488186616396" width="600" height="350" frameborder="0" style="border:0" allowfullscreen scrolling="no"></iframe>
+         <!--  <iframe style="pointer-events:none;" id="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.2829212771367!2d-60.021568284287184!3d-34.899348880708104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bea536b1f6171f%3A0x3e79c823b98957d3!2sLavalle+79%2C+Chivilcoy%2C+Buenos+Aires!5e0!3m2!1ses!2sar!4v1488186616396" width="600" height="350" frameborder="0" style="border:0" allowfullscreen scrolling="no"></iframe> -->
           <div class="info-publicacion">
-            <h2> Descripcion del Evento</h2>
+            <h2> Descripcion del Evento: <br>
+            
+            </h2>
+            <p><?php echo $publicacion[3]?></p>
             <h3> Asistentes: </h3>
-            <p>
+            <!-- <p>
 
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim iaculis augue, nec consectetur dui maximus sed. In in enim dolor. Praesent tristique ac lacus sed congue. Nam lacinia efficitur tortor. Donec aliquam porttitor ipsum, sed lobortis dolor. Integer venenatis dapibus ultricies. Proin consectetur velit id porttitor feugiat. Quisque metus massa, vehicula eu libero quis, auctor malesuada lectus. Sed elementum libero eu leo maximus, sed pretium dolor commodo. Fusce ut nunc sed felis blandit euismod quis eget odio. Nunc facilisis leo quis convallis sagittis. Aenean eget eros gravida, laoreet ipsum ac, elementum massa.
 
@@ -109,7 +149,7 @@
 
              Quisque vulputate tortor vestibulum accumsan egestas. In posuere magna justo, quis egestas libero consectetur ut. Fusce vitae molestie urna, sed porta ante. Cras faucibus orci orci, sed tempor leo viverra vitae. Fusce vestibulum nibh nec tempus vestibulum. Pellentesque placerat sagittis urna, a dignissim orci eleifend et. Nulla suscipit hendrerit ex. Quisque maximus a turpis et faucibus. Aliquam in congue mi. Ut aliquam, risus eget blandit pulvinar, massa quam tincidunt felis, quis mollis massa est ut leo. Sed ornare nulla velit, in ullamcorper nulla mattis id. Integer fermentum quam eu enim condimentum, sit amet congue lorem venenatis. Nulla vel metus aliquet, tincidunt ipsum in, sollicitudin libero. Suspendisse faucibus varius nisl eget vehicula.
 
-           </p>
+           </p> -->
           </div>
           <div class="info-comentarios">
             <h3> Comentarios: </h3>
@@ -128,9 +168,9 @@
         </div>
 
         <div class="right">
-
+<!-- 
             <iframe id="fb" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FACDC-1466991096895768%2F%3Ffref%3Dts&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="700px" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-
+ -->
         </div>
       </div>
 

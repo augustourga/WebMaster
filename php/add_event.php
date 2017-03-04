@@ -1,6 +1,8 @@
 <?php 
 session_start();
 
+if( isset($_SESSION["user_name")&& isset($_POST['title'])){
+
 $user_name = $_SESSION["user_name"];
 $description = $_POST["description"];
 $text = $_POST["text"];	
@@ -29,7 +31,7 @@ if($consulta){ if ($consulta1) {
 	$fila = mysqli_fetch_row($consulta1);
 	
 	$codigo_publicacion $fila[0];
-			header("Location: http://localhost/WebMaster/screen_publication.php?id_publicacion=$codigo_publicacion");
+			header("Location: http://localhost/WebMaster/screen_publication.php?id_publication=$codigo_publicacion");
 	}/*Cierro el if ($cant_reg_consulta>0) */
 	else{
 		echo "no traje nada";
@@ -45,4 +47,5 @@ else{
 	header("Location: http://localhost/WebMaster/screen_add_event.php?code=$code");
 
 }/*Cierro el else if ($consulta)*/
+}/*Cierro el if isset $_SESSION*/
  ?>}

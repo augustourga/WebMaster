@@ -165,7 +165,7 @@ session_start();
 								<option value="funk">Funk</option>
 								<option value="soul">Soul</option>
 								<option value="reggae">Reggae</option>
-                <option value="reggae">Otro</option>
+                <option value="Otro">Otro</option>
 							</select>
 
 
@@ -176,8 +176,12 @@ session_start();
 
 							<input type="file" name="image">
 						</label>
-						<input id="enviarEvento" type="submit" value="Crear Evento">
+           
+             
+					<label>
 
+          	<input id="enviarEvento" type="submit" value="Crear Evento">
+          </label> 
 					</form>
 				</div>
 				<div class="addEvent-right">
