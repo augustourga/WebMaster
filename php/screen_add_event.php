@@ -68,7 +68,18 @@ session_start();
 
                       </script>
             <!--  TERMINA Cerrar sesion</button> -->
+
               <?php
+                if (isset($_GET['code'])&& $_GET['code']=='errorInsert') {
+                ?> 
+                   <script type="text/javascript">
+                      window.alert("Se produjo un error al crear la publicación, por favor, intente de nuevo");
+                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+
+
+                    </script>
+                <?php
+                }/*Cierra el if (isset($_GET['code'])&& $_GET['code']=='errorInsert'*/
 
               } else {
               			header("Location: http://localhost/WebMaster/index.php#home");
