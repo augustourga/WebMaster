@@ -692,11 +692,11 @@ display: inline-block;
 
 /* ================== PUBLICACION ==================== */
 
-.publicacion .contenido {
+.screen_publication .contenido {
   height: 200vh;
 }
 
-.publicacion .back {
+.screen_publication .back {
   display: inline-block;
   position: relative;
   left: 3vw;
@@ -704,214 +704,156 @@ display: inline-block;
   letter-spacing: 2px;
 }
 
-.publicacion .publicacion-content {
-  max-height: 120vh;
-  height: 100%;
+.screen_publication .publication-content {
 
-}
-
-.publicacion .left {
-  display: inline-block;
-  position: relative;
-  float: left;
-  max-width: 21vw;
-  width: 100%;
-  max-height: 54vh;
-  height: 100%;
-  background-color: black;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  top: 5vh;
-  border-radius: 2%;
-  box-shadow: -5px 5px 25px 8px white;
-}
-
-.img-publicacion {
-  display: inline-block;
-  position: relative;
-  max-width: 19vw;
-  width: 100%;
-  position: relative;
-  display: inline-block;
-  border-radius: 5%;
-  max-height: 50vh;
-  height: 100%;
-  top: 6%;
-  left: 4%;
-  background-color: black;
-  background-image: url(../img/slider/polaroid1.png);
+  width: 100vw;
+  height: 120vh;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  background-image: url("../img/backgrounds/7.jpg");
   background-position: center;
   background-size: cover;
-  box-shadow: -3px 3px 15px 4px black;
 }
 
-.img-publicacion img{
+
+.publication-break {
+  width: 100vw;
+  height: 20vh;
   background-color: black;
-  max-width: 74%;
-  width: 100%;
-  left: 13%;
-  position: relative;
-  top: 18%;
-
 }
 
-.publicacion .center {
+
+.publication{
   display: inline-block;
   position: relative;
-  float: left;
-  max-width: 45vw;
-  width: 100%;
-  max-height: 90vh;
-  height: 100%;
-  background-color: black;
+  width: 90vw;
+  height: 100vh;
+  background-color: rgba(33, 37, 39, 0.78);
+  margin-left: 10vh;
+  top:10vh;
   border-radius: 2%;
+}
+
+.publication .publication-img{
+  display: inline-block;
+  z-index: 2;
+  position: relative;
+  margin: 5vh 5vw;
+
+}
+
+.publication-img img{
+  display: inline-block;
+  width: 50%;
+  border: 3px solid darkgrey;
+  border-radius: 5%;
+}
+
+.publication h2{
+  display: inline-block;
+  position: relative;
+  left: -20vw;
+  top: -20vh;
+  font-size: 5em;
+}
+
+.publication ul{
+  float: right;
+  top: -40vh;
+  color: white;
+  margin-right: 4vw;
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+}
+
+.publication li{
+  display: inline-block;
+}
+
+.publication h3{
+  float: right;
+  color: #b5b5b5;
+  top: -15vh;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 2em;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.publication span{
+  position: relative;
+  top: 5vh;
+  margin-left: 7vw;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 2em;
+  color: #b5b5b5;
+}
+
+.publication a{
+  color: #b5b5b5;
+  position: relative;
+  top: 10vh;
+  margin-left: -10vw;
+}
+
+
+
+.info-publication{
+  display: inline-block;
+  position: relative;
+  width: 60vw;
+  height: 60vh;
+  background-color: rgba(80, 80, 80, 0.61);
+  margin-left: 25vw;
+  top: -15vh;
+  border-radius: 3%;
+}
+
+.info-publication h4{
+    display: inline-block;
+    position: relative;
+    margin-left: 10vw;
+    top: 5vh;
+    color:  black;
+    border: 1px solid white;
+    padding: 5px 5px;
+    background-color:rgba(255, 255, 255, 0.82);
+    border-radius: 2%;
+}
+.description{
+  width: 40vw;
+  border-radius: 3%;
+  padding: 20px 40px;
+  height: 40vh;
+  background-color:rgba(255, 255, 255, 0.82) ;
+  position: relative;
+  top: 10vh;
+  left: 10vw;
   overflow: scroll;
-  left: -5vh;
   overflow-x: hidden;
 
 }
 
-.publicacion .center .center-scroll {
-  display: inline-block;
+.description p{
   position: relative;
-  max-width: 40vw;
-  width: 100%;
-  max-height: ;
-  height: 80vh;
-  background-color: darkgrey;
-  border-radius: 2%;
-  border: 2px solid white;
-  top: 15vh;
-  left: 5vh;
-}
-
-.publicacion .center .info-publicacion {
-  width: 90%;
-  height: 25vh;
-  position: relative;
-  top: 10vh;
-  margin-left: 2vw;
-  overflow: scroll;
-  background-color: grey;
-  border-radius: 2%;
+  top: 5vh;
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  font-family: 'PT Mono', monospace;
 
 }
 
-h2.title {
-  font-size: 6em;
-  position: relative;
-  left: 7vw;
-    text-shadow: -7px 6px 10px white;
-}
-
-.publicacion .center .info-publicacion h2{
-  text-align: left;
-  padding-top: 10px;
-  letter-spacing: 3px;
-  display: inline-block;
-  margin-left: 2vw;
-  text-shadow: -3px 4px 10px black;
-}
-
-.publicacion .center .info-publicacion h3{
-  text-align: right;
-  display: inline-block;
-  letter-spacing: 3px;
-  margin-left: 9vw;
-}
-
-.publicacion .center .info-publicacion p {
-  padding: 20px 20px;
-}
-
-.publicacion .right {
-  display: inline-block;
-  position: relative;
-  float: right;
-  max-width: 20vw;
-  width: 100%;
-  max-height: 60vh;
-  height: 100%;
-  background-color: black;
-  margin-top: -120vh;
-  margin-right: 5vw;
-  border-radius: 2%;
-  box-shadow: -5px 5px 25px 8px white;
+.description h3 {
 
 }
 
-#mapa  {
-  width: 100%;
-  opacity: 0.7;
-  border-top-right-radius: 2%;
-  border-top-left-radius: 2%;
-
-}
-
-#fb {
-margin-left: 1vw;
-margin-top: 2vh;
-
-}
-
-.publicacion .center-scroll .info-comentarios {
-  max-width: 34vw;
-  width: 100%;
-  height: 40vh;
-  position: relative;
-  top: 21vh;
-  margin-left: 3vw;
-  overflow: scroll;
-  background-color: grey;
-  border-radius: 2%;
-  float: left;
-}
-
-.publicacion .center-scroll .info-comentarios .show-comentarios {
-  position: relative;
-  margin-left:  2vh;
-  margin-top: 2vh;
-  width: 90%;
-  height: 15ch;
-  background-color: #0009;
-}
-
-.publicacion .center-scroll .info-comentarios h3{
-
-  display: inline-block;
-  letter-spacing: 3px;
-  margin-left: 2vw;
-  margin-top: 2vh;
-  text-decoration: underline;
-}
-
-.publicacion .center-scroll .info-comentarios form {
-  position: relative;
-  top: 2vh;
-}
-
-.publicacion .center-scroll .info-comentarios input{
-  position: relative;
-  margin-left: 2vw;
-  margin-top: ;
-  width: 80%;
-  height: 10vh;
-  background-color: #0009;
-  color: white;
-
-}
-
-.publicacion .center-scroll .info-comentarios button {
-  position: relative;
-  top: 2vh;
-  left: 7vw;
-}
-
-.publicacion .myEvents {
+.publication .myEvents {
     clear: both;
 }
 
-.publicacion .footer{
+.publication .footer{
   position: relative;
 }
 
