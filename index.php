@@ -1,29 +1,29 @@
 <?php
 session_start();
 
-      
+
       $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
-      $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones 
+      $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
            LEFT OUTER JOIN assistants AS a USING(id_publication)
            LEFT OUTER JOIN interested AS i USING(id_publication)
            WHERE publicaciones.date_initiation> CURDATE()
-           GROUP BY id_publication "; 
+           GROUP BY id_publication ";
 
       /*Traeme*/
       $publicaciones = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
 
 
       if($publicaciones){
-        
+
 
             $cant_reg_consulta= mysqli_num_rows($publicaciones);
 
                if ($cant_reg_consulta>0) {
-                    
+
                         $estado_publicacion = true;
-      
-                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
-                                    
+
+                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
+
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
                           /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
 
@@ -222,14 +222,31 @@ session_start();
 
         <div class="events">
 
+                    <!-- CREAR EVENTO -->
+
+                           <?php if(isset($_SESSION['user_name']))  {
+
+                            ?>
+                            <a href="http://localhost/WebMaster/php/screen_add_event.php"> <img id="addEventImg" src="img/images/addButton.png" alt=""> </a>
+
+
+                            <?php
+                                }/*Cierra el  if(isset($_SESSION['user_name'])) */
+
+                            ?>
+
+
+
+
+                    <!-- CIERRA CREAR EVENTO -->
 
           <div class="publicaciones-content">
           <?php
           if ($estado_publicacion) {
-            
+
           while ($publicacion =mysqli_fetch_row($publicaciones)) {
-                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
-                                    
+                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
+
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
             ?>
             <div class="p-contenedor">
@@ -240,114 +257,37 @@ session_start();
                 <img class="portada" src="img/images/jack.jpeg">
 
                 <br>
-                <a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> mas informacion</a>
+
+                <p > <?php echo $publicacion[6]; ?></p>
 
 
 
                 <div class="publicaciones-b"   >
-                  <p> Interesados: [<?php echo $publicacion[9];  ?>] Asistentes: [<?php echo $publicacion[10];  ?>] </p>
-                  <p> <?php echo $publicacion[4];  ?> </p>
-                  <p> <?php echo $publicacion[5];  ?><br>
-                      <?php echo $publicacion[8];  ?> </p>
+                  <p> Interesados: [<?php echo $publicacion[9];  ?>] Asistentes: [<?php echo $publicacion[10];  ?>] </p><br>
+                  <p id="d"> <?php echo $publicacion[3];  ?> </p><br>
+                  <p id="l"> <?php echo $publicacion[5];  ?></p>
+                  <p id="g"> <?php echo $publicacion[8];  ?> </p>
                  <a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> mas informacion</a>
                 </div>
 
               </div>
             </div>
-            <?php  
+            <?php
               }/*cierra el while ($publicacion =mysqli_fetch_row($publicaciones))*/
              }/*Cierra el  if ($estado_publicacion)*/ else{
-              
+
               ?>
               <p>  No hay publicaciones para mostrar </p>
-              <?php  
+              <?php
              }
              ?>
-         
+
            </div>
 
-<!--
 
-            <div class="publicaciones">
-
-              <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-              <img class="portada" src="img/images/a.jpeg">
-              <span>Sabado a la hora que pinte</span>
-              <br>
-              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-            </div>
-
-            <div class="publicaciones-b">
-                <p> Interesados: [] Asistentes: [] </p>
-                <p> Info info info info info info info info info info info </p>
-                <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
-            </div>
-
-
-            <div class="publicaciones">
-
-              <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-              <img class="portada" src="img/publicaciones/modelimg.png">
-              <span>Sabado a la hora que pinte</span>
-              <br>
-              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-            </div>
-
-            <div class="publicaciones">
-
-              <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-              <img class="portada"  src="img/publicaciones/modelimg.png">
-              <span>Sabado a la hora que pinte</span>
-              <br>
-              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-            </div>
-
-            <div class="publicaciones">
-
-              <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-              <img class="portada" src="img/publicaciones/modelimg.png">
-              <span>Sabado a la hora que pinte</span>
-              <br>
-              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-            </div>
-
-            <div class="publicaciones">
-
-              <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-              <img class="portada" src="img/publicaciones/modelimg.png">
-              <span>Sabado a la hora que pinte</span>
-              <br>
-              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-            </div>
-
-            <div class="publicaciones">
-
-              <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-              <img class="portada" src="img/publicaciones/modelimg.png">
-              <span>Sabado a la hora que pinte</span>
-              <br>
-              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-            </div>
-
-            <div class="publicaciones">
-
-              <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-              <img class="portada" src="img/publicaciones/modelimg.png">
-              <span>Sabado a la hora que pinte</span>
-              <br>
-              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-            </div>
--->
           </div>
 
-          <div class="filtros-publicaciones">
+      <!--    <div class="filtros-publicaciones">
               <h3>Filtrar por:</h3>
               <form action="" method="">
                 <label>
@@ -377,27 +317,10 @@ session_start();
                     <input type="submit" value="submit">
                   </select>
                 </label>
-          </div>
+          </div> -->
 
         </div> <!-- CIERRA EVENTS -->
 
-          <!-- CREAR EVENTO -->
-            
-                 <?php if(isset($_SESSION['user_name']))  {
-
-                  ?>
-                  <a href="http://localhost/WebMaster/php/screen_add_event.php"> Crear Evento </a>
-
-
-                  <?php
-                      }/*Cierra el  if(isset($_SESSION['user_name'])) */
-
-                  ?>
-
-
-
-
-          <!-- CIERRA CREAR EVENTO -->
 
         <div class="break">
         </div>
@@ -417,17 +340,17 @@ session_start();
 
 
             <h2 class="home-text">Mis Eventos</h2>
-        
-            
 
-          
+
+
+
                  <?php
                  $usuario =$_SESSION['user_name'];
-                   $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones 
+                   $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
                                           LEFT OUTER JOIN assistants AS a USING(id_publication)
                                           LEFT OUTER JOIN interested AS i USING(id_publication)
                                          WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
-                                          GROUP BY id_publication"; 
+                                          GROUP BY id_publication";
 
       /*Traeme*/
       $consulta = mysqli_query($conexion,$consulta_mis_eventos) or die (mysqli_error($conexion));
@@ -436,10 +359,10 @@ session_start();
 
 
           if ($estado_mis_eventos>0) {
-            
+
           while ($publicacion =mysqli_fetch_row($consulta)) {
-                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
-                                    
+                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
+
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
             ?>
 
@@ -464,16 +387,16 @@ session_start();
 
                </div>  <!--CIERRA SLIDESHOW -->
               </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-                 
 
-         
-                 <?php  
+
+
+                 <?php
               }/*cierra el while ($publicacion =mysqli_fetch_row($publicaciones))*/
              }/*Cierra el  if ($estado_publicacion)*/ else{
-              
+
               ?>
                   <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
-       
+
               </div><!-- Cierra Home-text -->
 
           <div id="slideshow-container">
@@ -495,15 +418,15 @@ session_start();
 
                </div>  <!--CIERRA SLIDESHOW -->
               </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-                 
 
-            
-             
-              <?php  
+
+
+
+              <?php
              }
              ?>
 
-        
+
               </div>
 
           <?php
