@@ -97,7 +97,7 @@ session_start();
                          ?>                   </a>
                     </li>
                     <input type="button" id="button_close_session" value="Cerrar Sesión">
-                                              
+
                 </ul>
 
                    <script type="text/javascript">
@@ -118,7 +118,7 @@ session_start();
 
                   ?>
 
-                    
+
 
 
             <label class="user">
@@ -191,16 +191,133 @@ session_start();
 
           <div class="publicaciones-content">
 
-            <div class="publicaciones">
+            <div class="p-contenedor">
+              <div class="publicaciones">
 
-              <h2>Banda Show Bar Cultural 'Los Indios'</h2>
+                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
 
-              <img class="portada" src="img/images/jack.jpeg">
-              <span>Sabado a la hora que pinte</span>
-              <br>
-              <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
+                <img class="portada" src="img/images/jack.jpeg">
 
+                <br>
+                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
+
+
+
+                <div class="publicaciones-b">
+                  <p> Interesados: [] Asistentes: [] </p>
+                  <p> Info info info info info info info info info info info </p>
+                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
+                </div>
+
+              </div>
             </div>
+
+            <div class="p-contenedor">
+              <div class="publicaciones">
+
+                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
+
+                <img class="portada" src="img/images/jack.jpeg">
+
+                <br>
+                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
+
+
+
+                <div class="publicaciones-b">
+                  <p> Interesados: [] Asistentes: [] </p>
+                  <p> Info info info info info info info info info info info </p>
+                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-contenedor">
+              <div class="publicaciones">
+
+                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
+
+                <img class="portada" src="img/images/jack.jpeg">
+
+                <br>
+                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
+
+
+
+                <div class="publicaciones-b">
+                  <p> Interesados: [] Asistentes: [] </p>
+                  <p> Info info info info info info info info info info info </p>
+                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-contenedor">
+              <div class="publicaciones">
+
+                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
+
+                <img class="portada" src="img/images/jack.jpeg">
+
+                <br>
+                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
+
+
+
+                <div class="publicaciones-b">
+                  <p> Interesados: [] Asistentes: [] </p>
+                  <p> Info info info info info info info info info info info </p>
+                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-contenedor">
+              <div class="publicaciones">
+
+                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
+
+                <img class="portada" src="img/images/jack.jpeg">
+
+                <br>
+                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
+
+
+
+                <div class="publicaciones-b">
+                  <p> Interesados: [] Asistentes: [] </p>
+                  <p> Info info info info info info info info info info info </p>
+                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-contenedor">
+              <div class="publicaciones">
+
+                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
+
+                <img class="portada" src="img/images/jack.jpeg">
+
+                <br>
+                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
+
+
+
+                <div class="publicaciones-b">
+                  <p> Interesados: [] Asistentes: [] </p>
+                  <p> Info info info info info info info info info info info </p>
+                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
+                </div>
+
+              </div>
+            </div>
+
+<!--
 
             <div class="publicaciones">
 
@@ -211,6 +328,13 @@ session_start();
               <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
+
+            <div class="publicaciones-b">
+                <p> Interesados: [] Asistentes: [] </p>
+                <p> Info info info info info info info info info info info </p>
+                <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
+            </div>
+
 
             <div class="publicaciones">
 
@@ -271,7 +395,7 @@ session_start();
               <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
 
             </div>
-
+-->
           </div>
 
           <div class="filtros-publicaciones">
@@ -305,37 +429,37 @@ session_start();
                   </select>
                 </label>
           </div>
-              
+
         </div> <!-- CIERRA EVENTS -->
 
           <!-- CREAR EVENTO -->
-            <div class="limpiador"> </div>  
+            <div class="limpiador"> </div>
                  <?php if(isset($_SESSION['user_name']))  {
 
-                  ?> 
+                  ?>
                   <a href="http://localhost/WebMaster/php/screen_add_event.php"> Crear Evento </a>
-          
+
 
                   <?php
                       }/*Cierra el  if(isset($_SESSION['user_name'])) */
 
                   ?>
-                
-          
 
-<<<<<<< HEAD
+
+
+
           <!-- CIERRA CREAR EVENTO -->
-=======
+
         <div class="break">
         </div>
 
->>>>>>> 8b136dbe1f5f19c1b3efd7e2e293693e0639a33d
+
 
                    <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
                      <?php if(isset($_SESSION['user_name']))  {
 
                     ?>
-                    
+
         <div class="myEvents">
 
           <div class="home-text">
