@@ -1,5 +1,39 @@
 <?php
 session_start();
+
+      
+      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
+      $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones 
+           LEFT OUTER JOIN assistants AS a USING(id_publication)
+           LEFT OUTER JOIN interested AS i USING(id_publication)
+           WHERE publicaciones.date_initiation> CURDATE()
+           GROUP BY id_publication "; 
+
+      /*Traeme*/
+      $publicaciones = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
+
+
+      if($publicaciones){
+        
+
+            $cant_reg_consulta= mysqli_num_rows($publicaciones);
+
+               if ($cant_reg_consulta>0) {
+                    
+                        $estado_publicacion = true;
+      
+                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
+                                    
+                          /*   0                   1        2           3        4       5            6               7          8        9             10 */
+                          /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
+
+                    }/*Cierro el if $cant_reg_consulta>0*/else{
+                      $estado_publicacion = false;
+                    }
+                  }/*Cierro el if Consulta*/else{
+                                    echo "fallo la consulta";
+                  }
+
 ?>
 
 <!DOCTYPE html>
@@ -190,132 +224,47 @@ session_start();
 
 
           <div class="publicaciones-content">
-
+          <?php
+          if ($estado_publicacion) {
+            
+          while ($publicacion =mysqli_fetch_row($publicaciones)) {
+                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
+                                    
+                          /*   0                   1        2           3        4       5            6               7          8        9             10 */
+            ?>
             <div class="p-contenedor">
               <div class="publicaciones">
 
-                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
+                <h2><?php echo $publicacion[2];  ?></h2>
 
                 <img class="portada" src="img/images/jack.jpeg">
 
                 <br>
-                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
+                <a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> mas informacion</a>
 
 
 
-                <div class="publicaciones-b">
-                  <p> Interesados: [] Asistentes: [] </p>
-                  <p> Info info info info info info info info info info info </p>
-                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
+                <div class="publicaciones-b"   >
+                  <p> Interesados: [<?php echo $publicacion[9];  ?>] Asistentes: [<?php echo $publicacion[10];  ?>] </p>
+                  <p> <?php echo $publicacion[4];  ?> </p>
+                  <p> <?php echo $publicacion[5];  ?><br>
+                      <?php echo $publicacion[8];  ?> </p>
+                 <a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> mas informacion</a>
                 </div>
 
               </div>
             </div>
-
-            <div class="p-contenedor">
-              <div class="publicaciones">
-
-                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-
-                <img class="portada" src="img/images/jack.jpeg">
-
-                <br>
-                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-
-
-                <div class="publicaciones-b">
-                  <p> Interesados: [] Asistentes: [] </p>
-                  <p> Info info info info info info info info info info info </p>
-                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="p-contenedor">
-              <div class="publicaciones">
-
-                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-
-                <img class="portada" src="img/images/jack.jpeg">
-
-                <br>
-                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-
-
-                <div class="publicaciones-b">
-                  <p> Interesados: [] Asistentes: [] </p>
-                  <p> Info info info info info info info info info info info </p>
-                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="p-contenedor">
-              <div class="publicaciones">
-
-                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-
-                <img class="portada" src="img/images/jack.jpeg">
-
-                <br>
-                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-
-
-                <div class="publicaciones-b">
-                  <p> Interesados: [] Asistentes: [] </p>
-                  <p> Info info info info info info info info info info info </p>
-                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="p-contenedor">
-              <div class="publicaciones">
-
-                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-
-                <img class="portada" src="img/images/jack.jpeg">
-
-                <br>
-                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-
-
-                <div class="publicaciones-b">
-                  <p> Interesados: [] Asistentes: [] </p>
-                  <p> Info info info info info info info info info info info </p>
-                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="p-contenedor">
-              <div class="publicaciones">
-
-                <h2>Banda Show Bar Cultural 'Los Indios'</h2>
-
-                <img class="portada" src="img/images/jack.jpeg">
-
-                <br>
-                <a href="http://localhost/WebMaster/php/screen_publication.php"> mas informacion</a>
-
-
-
-                <div class="publicaciones-b">
-                  <p> Interesados: [] Asistentes: [] </p>
-                  <p> Info info info info info info info info info info info </p>
-                  <p> Aca iria el lugar, el genero y algo mas si quieren agregar </p>
-                </div>
-
-              </div>
-            </div>
+            <?php  
+              }/*cierra el while ($publicacion =mysqli_fetch_row($publicaciones))*/
+             }/*Cierra el  if ($estado_publicacion)*/ else{
+              
+              ?>
+              <p>  No hay publicaciones para mostrar </p>
+              <?php  
+             }
+             ?>
+         
+           </div>
 
 <!--
 

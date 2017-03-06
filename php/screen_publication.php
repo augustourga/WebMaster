@@ -207,6 +207,13 @@ session_start();
       <!-- ================== MY EVENTS ==================== -->
 
 
+                   <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
+                     <?php if(isset($_SESSION['user_name']))  {
+
+                    ?>
+
+
+
       <div class="myEvents">
 
         <div class="home-text">
@@ -277,6 +284,12 @@ session_start();
             </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
 
       </div>
+      
+          <?php
+                }/*Cierra el  if(isset($_SESSION['user_name'])) */
+           ?>
+
+
 
 
 
