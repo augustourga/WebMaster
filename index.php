@@ -359,17 +359,20 @@ session_start();
 
 
           if ($estado_mis_eventos>0) {
-
+            ?>
+              </div><!-- Cierra Home-text -->
+                <div id="slideshow-container">
+                <div id="slideshow">
+                <?php
           while ($publicacion =mysqli_fetch_row($consulta)) {
                      /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
 
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
             ?>
 
-            </div><!-- Cierra Home-text -->
+          
 
-              <div id="slideshow-container">
-                <div id="slideshow">
+              
                   <div id="box1">
                     <div class="MyEventsImg">
                         <img src="img/images/jack.jpeg">
@@ -385,13 +388,15 @@ session_start();
 
                   </div>
 
-               </div>  <!--CIERRA SLIDESHOW -->
-              </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-
+               
 
 
                  <?php
               }/*cierra el while ($publicacion =mysqli_fetch_row($publicaciones))*/
+                        ?>
+                        </div>  <!--CIERRA SLIDESHOW -->
+                        </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
+                        <?php
              }/*Cierra el  if ($estado_publicacion)*/ else{
 
               ?>
