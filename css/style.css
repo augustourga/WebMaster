@@ -345,9 +345,12 @@ p.home-text {
 	height: 450px;
 	background-color: black;
   margin: 46px 30px;
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 4%;
   margin-left: 2vw;
+  z-index: 2;
+  position: relative;
+
 }
 
 
@@ -372,17 +375,43 @@ p.home-text {
 }
 
 .publicaciones a{
+  position: relative;
+  top: 5vh;
   margin-left: 6vw;
 }
 
-<<<<<<< HEAD
-.limiador {
-  width: 100vw;
-  height: 5vh;
-  clear: both;
+.publicaciones:hover .publicaciones-b{
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
 }
 
-=======
+.p-contenedor{
+  width: 400px;
+  height: 450px;
+  display: inline-block;
+  margin-right: 5vw;
+  position: relative;
+  margin-bottom: 10vh;
+
+}
+
+.publicaciones-b {
+  display: inline-block;
+  position: absolute;
+	width: 400px;
+	height: 400px;
+	background-color: white;
+  opacity: 0;
+
+  border-radius: 4%;
+  top:1.2vh ;
+  left: 0.5vw;
+transition: opacity 2s ease-in-out;
+}
+
+.publicaciones-b p{
+  padding: 3vh 1vw;
+}
 
 .break{
   clear:both;
@@ -710,7 +739,7 @@ display: inline-block;
   height: 120vh;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-  background-image: url("../img/backgrounds/7.jpg");
+  background-image: url("../img/backgrounds/mapachivilblack.png");
   background-position: center;
   background-size: cover;
 }
@@ -738,13 +767,13 @@ display: inline-block;
   display: inline-block;
   z-index: 2;
   position: relative;
-  margin: 5vh 5vw;
+  margin: 10vh 5vw;
 
 }
 
 .publication-img img{
   display: inline-block;
-  width: 50%;
+  width: 40%;
   border: 3px solid darkgrey;
   border-radius: 5%;
 }
@@ -752,8 +781,8 @@ display: inline-block;
 .publication h2{
   display: inline-block;
   position: relative;
-  left: -20vw;
-  top: -20vh;
+  left: -25vw;
+  top: -15vh;
   font-size: 5em;
 }
 
@@ -788,13 +817,14 @@ display: inline-block;
   font-family: 'Six Caps', sans-serif;
   font-size: 2em;
   color: #b5b5b5;
+  z-index: 3;
 }
 
 .publication a{
   color: #b5b5b5;
   position: relative;
   top: 10vh;
-  margin-left: -10vw;
+  margin-left: -15vw;
 }
 
 
@@ -802,11 +832,11 @@ display: inline-block;
 .info-publication{
   display: inline-block;
   position: relative;
-  width: 60vw;
+  width: 74vw;
   height: 60vh;
-  background-color: rgba(80, 80, 80, 0.61);
-  margin-left: 25vw;
-  top: -15vh;
+  background-color: rgb(10, 10, 10);
+  margin-left: 9vw;
+  top: -25vh;
   border-radius: 3%;
 }
 
@@ -822,25 +852,25 @@ display: inline-block;
     border-radius: 2%;
 }
 .description{
-  width: 40vw;
-  border-radius: 3%;
-  padding: 20px 40px;
-  height: 40vh;
-  background-color:rgba(255, 255, 255, 0.82) ;
-  position: relative;
-  top: 10vh;
-  left: 10vw;
-  overflow: scroll;
-  overflow-x: hidden;
-
+ width: 61vw;
+ border-radius: 3%;
+ padding: 20px 40px;
+ height: 30vh;
+background-color: rgba(6, 6, 6, 0.92);
+position: relative;
+top: 14vh;
+left: 6vw;
+overflow: scroll;
+ overflow-x: hidden;
 }
 
 .description p{
+  color: white;
   position: relative;
   top: 5vh;
   font-weight: 200;
   letter-spacing: 1px;
-  font-size: 1.2em;
+  font-size: 0.9em;
   font-family: 'PT Mono', monospace;
 
 }
@@ -1072,9 +1102,21 @@ display: inline-block;
     height: 60vh;
   }
 
+  .p-contenedor{
+      width: 19vw;
+      height: 45vh;
+  }
+
   .publicaciones{
     width: 19vw;
     height: 45vh;
+
+  }
+
+
+  .publicaciones-b{
+      width: 18vw;
+      height: 35vh;
 
   }
 
