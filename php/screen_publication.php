@@ -208,113 +208,120 @@ session_start();
 
       <div class="publication-break">
       </div>
+
+
       <!-- ================== MY EVENTS ==================== -->
 
 
 
-                   <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
-                     <?php if(isset($_SESSION['user_name']))  {
+                         <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
+                           <?php if(isset($_SESSION['user_name']))  {
+
+                          ?>
+
+              <div class="myEvents">
+
+                <div class="home-text">
+
+
+                  <h2 class="home-text">Mis Eventos</h2>
+
+
+
+
+                       <?php
+                       $usuario =$_SESSION['user_name'];
+                         $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
+                                                LEFT OUTER JOIN assistants AS a USING(id_publication)
+                                                LEFT OUTER JOIN interested AS i USING(id_publication)
+                                               WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
+                                                GROUP BY id_publication";
+
+            /*Traeme*/
+            $consulta = mysqli_query($conexion,$consulta_mis_eventos) or die (mysqli_error($conexion));
+
+            $estado_mis_eventos = mysqli_num_rows($consulta);
+
+
+                if ($estado_mis_eventos>0) {
+                  ?>
+                    </div><!-- Cierra Home-text -->
+                      <div id="slideshow-container">
+                      <div id="slideshow">
+                      <?php
+                while ($publicacion =mysqli_fetch_row($consulta)) {
+                           /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
+
+                                /*   0                   1        2           3        4       5            6               7          8        9             10 */
+                  ?>
+
+
+
+
+                        <div id="box1">
+                          <div class="MyEventsImg">
+                              <img src="../img/images/jack.jpeg">
+                              <p> <?php echo $publicacion[6];  ?> </p>
+                          </div>
+
+                          <div class="infoEvent">
+                            <h2> <?php echo $publicacion[2];  ?> </h2>
+                            <p> <?php echo $publicacion[4];  ?>.</p>
+                            <span><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
+
+                          </div>
+
+                        </div>
+
+
+
+
+                       <?php
+                    }/*cierra el while ($publicacion =mysqli_fetch_row($publicaciones))*/
+                              ?>
+                              </div>  <!--CIERRA SLIDESHOW -->
+                              </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
+                              <?php
+                   }/*Cierra el  if ($estado_publicacion)*/ else{
 
                     ?>
+                        <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
 
-        <div class="myEvents">
+                    </div><!-- Cierra Home-text -->
 
-          <div class="home-text">
+                <div id="slideshow-container">
+                      <div id="slideshow">
+                        <div id="box1">
+                          <div class="MyEventsImg">
+                              <img src="../img/images/jack.jpeg">
+                              <p> Agrega publicaciones </p>
+                          </div>
+
+                          <div class="infoEvent">
+                            <h2> Gil </h2>
+                            <p> bobo.</p>
+                            <span><a > Mas info Llena la cancha </a></span>
+
+                          </div>
+
+                        </div>
+
+                     </div>  <!--CIERRA SLIDESHOW -->
+                    </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
 
 
-            <h2 class="home-text">Mis Eventos</h2>
 
 
+                    <?php
+                   }
+                   ?>
 
-
-                 <?php
-                 $usuario =$_SESSION['user_name'];
-                   $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
-                                          LEFT OUTER JOIN assistants AS a USING(id_publication)
-                                          LEFT OUTER JOIN interested AS i USING(id_publication)
-                                         WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
-                                          GROUP BY id_publication";
-
-      /*Traeme*/
-      $consulta = mysqli_query($conexion,$consulta_mis_eventos) or die (mysqli_error($conexion));
-
-      $estado_mis_eventos = mysqli_num_rows($consulta);
-
-
-          if ($estado_mis_eventos>0) {
-
-          while ($publicacion =mysqli_fetch_row($consulta)) {
-                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
-
-                          /*   0                   1        2           3        4       5            6               7          8        9             10 */
-            ?>
-
-            </div><!-- Cierra Home-text -->
-
-              <div id="slideshow-container">
-                <div id="slideshow">
-                  <div id="box1">
-                    <div class="MyEventsImg">
-                        <img src="../img/images/jack.jpeg">
-                        <p> <?php echo $publicacion[6];  ?> </p>
-                    </div>
-
-                    <div class="infoEvent">
-                      <h2> <?php echo $publicacion[2];  ?> </h2>
-                      <p> <?php echo $publicacion[4];  ?>.</p>
-                      <span><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
 
                     </div>
 
-                  </div>
-
-               </div>  <!--CIERRA SLIDESHOW -->
-              </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-
-
-
-                 <?php
-              }/*cierra el while ($publicacion =mysqli_fetch_row($publicaciones))*/
-             }/*Cierra el  if ($estado_publicacion)*/ else{
-
-              ?>
-                  <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
-
-              </div><!-- Cierra Home-text -->
-
-          <div id="slideshow-container">
-                <div id="slideshow">
-                  <div id="box1">
-                    <div class="MyEventsImg">
-                        <img src="../img/images/jack.jpeg">
-                        <p> Agrega publicaciones </p>
-                    </div>
-
-                    <div class="infoEvent">
-                      <h2> Gil </h2>
-                      <p> bobo.</p>
-                      <span><a > Mas info Llena la cancha </a></span>
-
-                    </div>
-
-                  </div>
-
-               </div>  <!--CIERRA SLIDESHOW -->
-              </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-
-
-
-
-              <?php
-             }
-             ?>
-
-
-              </div>
-
-          <?php
-                }/*Cierra el  if(isset($_SESSION['user_name'])) */
-           ?>
+                <?php
+                      }/*Cierra el  if(isset($_SESSION['user_name'])) */
+                 ?>
 
 
 
