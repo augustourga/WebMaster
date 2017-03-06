@@ -402,6 +402,8 @@ session_start();
         <div class="break">
         </div>
 
+         <!-- ================== MY EVENTS ==================== -->
+
 
 
                    <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
@@ -414,26 +416,24 @@ session_start();
           <div class="home-text">
 
 
-
             <h2 class="home-text">Mis Eventos</h2>
-            <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
+        
             
 
-          </div>
+          
                  <?php
                  $usuario =$_SESSION['user_name'];
                    $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones 
                                           LEFT OUTER JOIN assistants AS a USING(id_publication)
                                           LEFT OUTER JOIN interested AS i USING(id_publication)
-                                          WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
+                                         WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
                                           GROUP BY id_publication"; 
 
       /*Traeme*/
       $consulta = mysqli_query($conexion,$consulta_mis_eventos) or die (mysqli_error($conexion));
 
       $estado_mis_eventos = mysqli_num_rows($consulta);
-               ?> <div id="slideshow-container">
-                <div id="slideshow"><?php
+
 
           if ($estado_mis_eventos>0) {
             
@@ -443,9 +443,10 @@ session_start();
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
             ?>
 
+            </div><!-- Cierra Home-text -->
 
-
-              
+              <div id="slideshow-container">
+                <div id="slideshow">
                   <div id="box1">
                     <div class="MyEventsImg">
                         <img src="img/images/jack.jpeg">
@@ -460,6 +461,9 @@ session_start();
                     </div>
 
                   </div>
+
+               </div>  <!--CIERRA SLIDESHOW -->
+              </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
                  
 
          
@@ -468,7 +472,12 @@ session_start();
              }/*Cierra el  if ($estado_publicacion)*/ else{
               
               ?>
-         
+                  <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
+       
+              </div><!-- Cierra Home-text -->
+
+          <div id="slideshow-container">
+                <div id="slideshow">
                   <div id="box1">
                     <div class="MyEventsImg">
                         <img src="img/images/jack.jpeg">
@@ -483,6 +492,9 @@ session_start();
                     </div>
 
                   </div>
+
+               </div>  <!--CIERRA SLIDESHOW -->
+              </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
                  
 
             
@@ -492,8 +504,6 @@ session_start();
              ?>
 
         
-               </div>  <!--CIERRA SLIDESHOW -->
-              </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
               </div>
 
           <?php
