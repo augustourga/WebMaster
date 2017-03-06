@@ -1,3 +1,41 @@
+<?php
+session_start();
+ if (!isset($_GET['id_publication'])) {
+    
+      header("Location: http://localhost/WebMaster/index.php#home");
+
+  }/*Cierro el if!isset*/
+  else{ 
+      $id_publication = $_GET['id_publication'];
+      
+      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
+      $a="SELECT  id_publication , user_name , title , description , text , address , date_initiation , date_end , gender FROM publicaciones WHERE id_publication = $id_publication"; 
+
+      $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
+
+      if($consulta){
+        
+
+            $cant_reg_consulta= mysqli_num_rows($consulta);
+
+               if ($cant_reg_consulta>0) {
+                    
+                        $publicacion = mysqli_fetch_row($consulta);
+      
+                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender*/ 
+                                    
+                          /*   0                   1        2           3        4       5            6               7          8  */
+                          /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
+
+                    }/*Cierro el if $cant_reg_consulta>0*/else{
+                      echo "no traje nada";
+                    }
+                  }/*Cierro el if Consulta*/else{
+                                    echo "fallo la consulta";
+                  }
+
+     }/*Cierro el else if!isset*/
+ ?>
 
 <!DOCTYPE html>
 
@@ -37,8 +75,49 @@
         </div>
         <div class="header-login">
 
+         <?php    if(isset($_SESSION['user_name']))  {
+
+              ?>
+             <!-- Cerrar sesion</button> -->
+                <ul class="show_name">
+     
+                    <li>
+                      <a href=""><?php echo $_SESSION['user_name'];
+                         ?>                   </a>
+                    </li>
+                    <input type="button" id="button_close_session" value="Cerrar Sesión">
+                   
+                 </ul>
+
+                   <script type="text/javascript">
+
+                     function redirect_unlogin(){
+                     window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                    }
+
+                    var button_close_session = document.getElementById("button_close_session");
+                    button_close_session.addEventListener("click", redirect_unlogin);
+
+                      </script>
+            <!--  TERMINA Cerrar sesion</button> -->
+
+              <?php
+                if (isset($_GET['code'])&& $_GET['code']=='errorInsert') {
+                ?> 
+                   <script type="text/javascript">
+                      window.alert("Se produjo un error al crear la publicación, por favor, intente de nuevo");
+                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+
+
+                    </script>
+                <?php
+                }/*Cierra el if (isset($_GET['code'])&& $_GET['code']=='errorInsert'*/
+
+              } else {
+                    ?> 
+
           <img src="../img/images/icon-user.png" alt="User">
-          <form method="POST" action="php/login.php" >
+          <form method="POST" action="login.php" >
             <label class="user">
               <input type="text" placeholder="User" name="user_name" required>
             </label>
@@ -58,6 +137,11 @@
             <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
 
           </form>
+              <?php
+
+                  }
+
+                  ?>
 
 
 
@@ -77,7 +161,7 @@
 
       <!-- ================== MAIN-CONTENT =============-->
 
-      <h2 class="back"> <a href="http://localhost/WebMaster/  index.php#home"> < Volver al Home </a> </h2>
+      <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2>
 
       <div class="publication-content">
         <div class="publication">
@@ -85,24 +169,25 @@
             <img src="../img/images/jack.jpeg" alt="imagen del evento">
           </div>
 
-          <h2> Jack en Piluso Bar</h2>
+          <h2> <?php echo $publicacion[2];  ?></h2>
           <ul>
             <li> [117] </li>
             <li> [32]</li>
           </ul>
 
-          <h3> Lugar: Zaraza </h3>
+          <h3> Lugar: <?php echo $publicacion[5];?> </h3>
           <span> Invita: </span>
-          <span><a href=""> Tu puta madre, cabron </a></span>
+          <!-- Deberiamos redireccionar a la pagina del usuario -->
+          <span><a href=""> <?php echo $publicacion[1];?> </a></span>
 
           <div class="info-publication">
-            <h4> 14.18.17 - 00.30 hs </h3>
-            <h4> 14.18.17 - 04.30 hs </h3>
+            <h4> <?php echo $publicacion[6];?> </h3>
+            <h4> <?php echo $publicacion[7];?> </h3>
               <div class="description">
                 <h3> Descripcion </h3>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat tempor urna, pellentesque suscipit metus feugiat id. Curabitur faucibus et turpis vel eleifend. Phasellus semper hendrerit lectus, in rhoncus ex facilisis ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tincidunt lorem quam, at tincidunt eros volutpat et. Nunc quis varius ex, id lacinia mauris. Ut quis bibendum mi. Praesent aliquam magna a orci lacinia, at iaculis metus sodales. Nam rutrum vitae elit eget euismod. Ut vel molestie leo, quis rutrum magna. Integer ornare quam lectus, ut molestie augue ullamcorper vitae
+                    <?php echo $publicacion[3];?>
                  </p>
               </div>
 
