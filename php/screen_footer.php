@@ -1,3 +1,5 @@
+<?php 
+session_start();?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -38,8 +40,44 @@
 
           <img src="../img/images/icon-user.png" alt="User">
           <form method="POST" action="php/login.php" >
+
+          <?php
+           if(isset($_SESSION['user_name']))  {
+
+              ?>
+                 <!-- Cerrar sesion</button> -->
+                <ul class="show_name">
+                    <li>
+                      <a href=""><?php echo $_SESSION['user_name'];
+                         ?>                   </a>
+                    </li>
+                    <input type="button" id="button_close_session" value="Cerrar Sesión">
+
+                </ul>
+
+                   <script type="text/javascript">
+
+                      function redirect_unlogin(){
+                      window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                    }
+
+                    var button_close_session = document.getElementById("button_close_session");
+                    button_close_session.addEventListener("click", redirect_unlogin);
+
+                      </script>
+                  <!--  TERMINA Cerrar sesion</button> -->
+              <?php
+
+              } else {
+
+
+                  ?>
+
+
+
+
             <label class="user">
-              <input type="text" placeholder="User" name="user_name" required>
+              <input type="text" placeholder="User or Email" name="user_name" required>
             </label>
 
             <br>
@@ -55,6 +93,10 @@
           </button>
 
               <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
+
+              <?php
+              } /*cierra el else isset($_SESSION['user_name']) */
+            ?>
 
           </form>
 
