@@ -210,11 +210,46 @@ session_start();
           <h2> Proximos Eventos</h2>
           <div class="cartelera">
             <ul>
-              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> Jack - Piluso 27.08.17 </a></li>
-              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> Oesterheld - La Ronda 27.08.17 </a></li>
-              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> La Parna - Bartolo 27.08.17 </a></li>
-              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> Jack - Los indios 27.08.17 </a></li>
-              <li><a href="http://localhost/WebMaster/php/screen_publication.php"> La Parna - Bartolo 27.08.17 </a></li>
+             <?php $consulta_cartelera="
+                    SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones 
+                    LEFT OUTER JOIN assistants AS a USING(id_publication)
+                    LEFT OUTER JOIN interested AS i USING(id_publication)
+                    WHERE publicaciones.date_initiation BETWEEN CURDATE() AND CURDATE()+7
+                    GROUP BY id_publication "; 
+
+      /*Traeme*/
+      $publicaciones_cartelera = mysqli_query($conexion,$consulta_cartelera) or die (mysqli_error($conexion));
+
+       if($publicaciones_cartelera){ 
+            
+
+            $cant_reg_consulta_cartelera= mysqli_num_rows($publicaciones_cartelera);
+            if ($cant_reg_consulta_cartelera>0) {
+                while ($publicacion_cartelera =mysqli_fetch_row($publicaciones_cartelera)) {
+                   /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
+                                    
+                          /*   0                   1        2           3        4       5            6               7          8        9             10 */
+                  ?>
+                    
+                          <li><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> <?php echo $publicacion_cartelera[2];  ?> -  <?php echo $publicacion_cartelera[6];  ?> </a></li>
+
+             <?php 
+                      }/*<!-- Cierra el While  Publicaciones_cartelera-->*/
+                    }/*Cierra el if cant_reg_ carteñera*/else{    
+                      ?>
+                           <li><a > No hay eventos proximos </a></li>
+
+                      <?php
+
+                    }/*Cierra el else cant_reg_ carteñera */
+                  }/*Cierra el if(publicaciones_cartelera)*/
+                  else{    
+                      ?>
+                           <li><a > No hay eventos proximos </a></li>
+
+                      <?php
+                          }
+                    ?>
 
             </ul>
           </div>
