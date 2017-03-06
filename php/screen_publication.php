@@ -9,9 +9,15 @@ session_start();
       $id_publication = $_GET['id_publication'];
       
       $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
-      $a="SELECT  id_publication , user_name , title , description , text , address , date_initiation , date_end , gender FROM publicaciones WHERE id_publication = $id_publication"; 
+      $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones 
+           LEFT OUTER JOIN assistants AS a USING(id_publication)
+           LEFT OUTER JOIN interested AS i USING(id_publication)
+           WHERE publicaciones.id_publication = '$id_publication' 
+          GROUP BY user_name "; 
 
+      /*Traeme*/
       $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
+
 
       if($consulta){
         
@@ -22,9 +28,9 @@ session_start();
                     
                         $publicacion = mysqli_fetch_row($consulta);
       
-                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender*/ 
+                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
                                     
-                          /*   0                   1        2           3        4       5            6               7          8  */
+                          /*   0                   1        2           3        4       5            6               7          8        9             10 */
                           /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
 
                     }/*Cierro el if $cant_reg_consulta>0*/else{
@@ -171,8 +177,8 @@ session_start();
 
           <h2> <?php echo $publicacion[2];  ?></h2>
           <ul>
-            <li> [117] </li>
-            <li> [32]</li>
+            <li> Interesados : [<?php echo $publicacion[9];  ?>]</li>
+            <li> Asistentes  :[<?php echo $publicacion[10];  ?>]</li>
           </ul>
 
           <h3> Lugar: <?php echo $publicacion[5];?> </h3>
