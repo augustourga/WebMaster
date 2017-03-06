@@ -826,8 +826,8 @@ display: inline-block;
 .publication h2{
   display: inline-block;
   position: relative;
-  left: -25vw;
-  top: -15vh;
+  left: 28vw;
+  top: -38vh;
   font-size: 5em;
 }
 
@@ -848,17 +848,24 @@ display: inline-block;
 .publication h3{
   float: right;
   color: #b5b5b5;
-  top: -15vh;
+  top:  40vh;
+  z-index: 2;
+  left: 60vw;
   font-family: 'Six Caps', sans-serif;
   font-size: 2em;
   letter-spacing: 2px;
-  position: relative;
+  position: absolute;
+}
+
+.info-publication h3{
+  float: left;
+  top: 0;
 }
 
 .publication span{
   position: relative;
-  top: 5vh;
-  margin-left: 7vw;
+  top: -20vh;
+  margin-left: -15vw;
   font-family: 'Six Caps', sans-serif;
   font-size: 2em;
   color: #b5b5b5;
@@ -868,8 +875,8 @@ display: inline-block;
 .publication a{
   color: #b5b5b5;
   position: relative;
-  top: 10vh;
-  margin-left: -15vw;
+  top: 1vh;
+  margin-left: 17vw;
 }
 
 
@@ -881,20 +888,23 @@ display: inline-block;
   height: 60vh;
   background-color: rgb(10, 10, 10);
   margin-left: 9vw;
-  top: -25vh;
+  top: -35vh;
   border-radius: 3%;
 }
 
 .info-publication h4{
     display: inline-block;
     position: relative;
-    margin-left: 10vw;
-    top: 5vh;
-    color:  black;
-    border: 1px solid white;
+    margin-left: vw;
+    margin-right: 2vw;
+    float: right;
+    top: -5vh;
+    color:  white;
+    border-top-right-radius: 15%;
+    border-top-left-radius: 15%;
     padding: 5px 5px;
-    background-color:rgba(255, 255, 255, 0.82);
-    border-radius: 2%;
+    background-color:rgb(10, 10, 10);
+
 }
 .description{
  width: 61vw;

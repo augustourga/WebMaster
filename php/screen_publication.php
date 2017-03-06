@@ -1,35 +1,35 @@
 <?php
 session_start();
  if (!isset($_GET['id_publication'])) {
-    
+
       header("Location: http://localhost/WebMaster/index.php#home");
 
   }/*Cierro el if!isset*/
-  else{ 
+  else{
       $id_publication = $_GET['id_publication'];
-      
+
       $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
-      $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones 
+      $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
            LEFT OUTER JOIN assistants AS a USING(id_publication)
            LEFT OUTER JOIN interested AS i USING(id_publication)
-           WHERE publicaciones.id_publication = '$id_publication' 
-          GROUP BY user_name "; 
+           WHERE publicaciones.id_publication = '$id_publication'
+          GROUP BY user_name ";
 
       /*Traeme*/
       $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
 
 
       if($consulta){
-        
+
 
             $cant_reg_consulta= mysqli_num_rows($consulta);
 
                if ($cant_reg_consulta>0) {
-                    
+
                         $publicacion = mysqli_fetch_row($consulta);
-      
-                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
-                                    
+
+                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
+
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
                           /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
 
@@ -86,13 +86,13 @@ session_start();
               ?>
              <!-- Cerrar sesion</button> -->
                 <ul class="show_name">
-     
+
                     <li>
                       <a href=""><?php echo $_SESSION['user_name'];
                          ?>                   </a>
                     </li>
                     <input type="button" id="button_close_session" value="Cerrar Sesión">
-                   
+
                  </ul>
 
                    <script type="text/javascript">
@@ -109,7 +109,7 @@ session_start();
 
               <?php
                 if (isset($_GET['code'])&& $_GET['code']=='errorInsert') {
-                ?> 
+                ?>
                    <script type="text/javascript">
                       window.alert("Se produjo un error al crear la publicación, por favor, intente de nuevo");
                       window.location.href= 'http://localhost/WebMaster/index.php#home';
@@ -120,7 +120,7 @@ session_start();
                 }/*Cierra el if (isset($_GET['code'])&& $_GET['code']=='errorInsert'*/
 
               } else {
-                    ?> 
+                    ?>
 
           <img src="../img/images/icon-user.png" alt="User">
           <form method="POST" action="login.php" >
@@ -195,10 +195,14 @@ session_start();
                 <p>
                     <?php echo $publicacion[3];?>
                  </p>
+
+
               </div>
 
+              <p style="color:white; position:relative; top:13vh; left:30vw; font-size:3em;"># <?php echo $publicacion[8]; ?></p>
 
           </div>
+
         </div>
       </div>
 
@@ -207,7 +211,7 @@ session_start();
       <!-- ================== MY EVENTS ==================== -->
 
 
-      
+
                    <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
                      <?php if(isset($_SESSION['user_name']))  {
 
@@ -219,17 +223,17 @@ session_start();
 
 
             <h2 class="home-text">Mis Eventos</h2>
-        
-            
 
-          
+
+
+
                  <?php
                  $usuario =$_SESSION['user_name'];
-                   $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones 
+                   $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
                                           LEFT OUTER JOIN assistants AS a USING(id_publication)
                                           LEFT OUTER JOIN interested AS i USING(id_publication)
                                          WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
-                                          GROUP BY id_publication"; 
+                                          GROUP BY id_publication";
 
       /*Traeme*/
       $consulta = mysqli_query($conexion,$consulta_mis_eventos) or die (mysqli_error($conexion));
@@ -238,10 +242,10 @@ session_start();
 
 
           if ($estado_mis_eventos>0) {
-            
+
           while ($publicacion =mysqli_fetch_row($consulta)) {
-                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/ 
-                                    
+                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
+
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
             ?>
 
@@ -266,18 +270,18 @@ session_start();
 
                </div>  <!--CIERRA SLIDESHOW -->
               </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-                 
 
-         
-                 <?php  
+
+
+                 <?php
               }/*cierra el while ($publicacion =mysqli_fetch_row($publicaciones))*/
              }/*Cierra el  if ($estado_publicacion)*/ else{
-              
+
               ?>
                   <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
-       
+
               </div><!-- Cierra Home-text -->
-              
+
           <div id="slideshow-container">
                 <div id="slideshow">
                   <div id="box1">
@@ -297,15 +301,15 @@ session_start();
 
                </div>  <!--CIERRA SLIDESHOW -->
               </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-                 
 
-            
-             
-              <?php  
+
+
+
+              <?php
              }
              ?>
 
-        
+
               </div>
 
           <?php
