@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 03-03-2017 a las 21:56:52
--- Versión del servidor: 5.7.17-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.15-0ubuntu0.16.04.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 06-03-2017 a las 20:40:43
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,6 +32,20 @@ CREATE TABLE `assistants` (
   `user_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `assistants`
+--
+
+INSERT INTO `assistants` (`id_assistants`, `id_publication`, `user_name`) VALUES
+(1, 6, 'augusto'),
+(4, 6, 'bloqueado'),
+(5, 6, 'tomas'),
+(8, 10, 'malvado'),
+(9, 10, 'bloqueado'),
+(10, 11, 'augusto'),
+(11, 11, 'ruben'),
+(12, 11, 'malvado');
+
 -- --------------------------------------------------------
 
 --
@@ -43,6 +57,18 @@ CREATE TABLE `interested` (
   `id_publication` int(10) NOT NULL,
   `user_name` varchar(29) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabla de interesados en un evento';
+
+--
+-- Volcado de datos para la tabla `interested`
+--
+
+INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
+(1, 6, 'augusto'),
+(9, 6, 'ruben'),
+(12, 10, 'malvado'),
+(13, 10, 'augusto'),
+(14, 11, 'augusto'),
+(15, 11, 'tomas');
 
 -- --------------------------------------------------------
 
@@ -69,11 +95,12 @@ CREATE TABLE `publicaciones` (
 --
 
 INSERT INTO `publicaciones` (`description`, `text`, `user_name`, `id_publication`, `address`, `title`, `date_emit`, `date_initiation`, `date_end`, `gender`, `image`) VALUES
-('kansdka', 'nasdk', 'augusto', 1, 'sndak', 'tuben', '2017-03-03 21:09:48', '0101-01-01 02:20:00', '0202-02-02 21:21:00', 'rock', NULL),
-('kansdka', 'nasdk', 'augusto', 2, 'sndak', 'tuben', '2017-03-03 21:11:57', '0101-01-01 02:20:00', '0202-02-02 21:21:00', 'rock', NULL),
-('kansdka', 'nasdk', 'augusto', 3, 'sndak', 'holas', '2017-03-03 21:12:18', '0101-01-01 02:20:00', '0202-02-02 21:21:00', 'rock', NULL),
-('as', 'asd', 'augusto', 4, 'askdnka', 'holas', '2017-03-03 21:35:21', '2017-01-01 00:00:00', '2017-01-01 00:00:00', 'rock', NULL),
-('as', 'asd', 'augusto', 5, 'askdnka', 'holas', '2017-03-03 21:35:31', '2017-01-01 00:00:00', '2017-01-01 00:00:00', 'rock', NULL);
+('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit ame', 'Una noche a puro rock', 'augusto', 6, 'Cheers', 'Oesterheld En Cheers', '2017-03-06 03:07:24', '2018-02-02 02:00:00', '2017-02-03 03:01:00', 'rock', NULL),
+('\r\nFestival de música, dedicado a la fusión y difusión de Bandas emergentes de el under Argentino', 'Vuelve a Chivilcoy para desplegar toda su energia molecular y sus armonias demoledoras y para presentar su ultimo material, haciendo un repaso por su corta pero rica historia SAMBARA, junto a ellos se presentara la banda chivilcoyana, TU PUEDES BRUCE.\r\nENTRADAS ANTICIPADAS \r\nRESKATE av Soarez 124', 'tomas', 7, 'Bartolo bar', 'Sambara + TU Puedes BRUCE en Bartolo', '2017-03-06 16:25:06', '2017-03-31 00:30:00', '2017-04-01 08:00:00', 'Rock', NULL),
+('Organizado por CIRQUE NATION', 'Estreno de #septimodia el show del Cirque du Soleil sobre la historia de Soda Stereo.\r\n\r\nVenta de entradas a partir del lunes 1 de Agosto para clientes del Banco Frances en 6 cuotas sin interés.\r\n\r\nA partir del 10 de agosto las entradas para público general.\r\n\r\nPrecios entre $680 y $3650\r\n\r\nTapis Rouge con servicio gastronómico y souvenir sorpresa una hora antes del show.\r\n', 'augusto', 8, 'Ozono', 'Sep7imo Día (Soda Cirque)', '2017-03-06 16:27:04', '2017-04-14 00:00:00', '2017-04-15 05:00:00', 'Espectaculo', NULL),
+('andarine Park & Tent\r\nAvenida Costanera y Sarmiento, 1087 Buenos Aires', 'EARLY TICKETS A $800\r\nMESAS VIP DISPONIBLES\r\n\r\nConsultas\r\nEventos Masivos Electronica\r\n15.6378.7988', 'malvado', 9, 'Parque lacunario Alejandro Martija', 'Armin van Buuren | La Martija', '2017-03-06 16:29:42', '2017-05-19 12:00:00', '2017-05-20 23:00:00', 'Electronica', NULL),
+('Se presenta John Digwed Lorem Ipsum ', 'JOHN DIGWEED en Cementerio Chivilcoy\r\nProximamente info de mesas y tickets\r\n', 'malvado', 10, 'Cementerio Chivilcoy', 'John Digweed | Cementerio', '2017-03-06 16:31:46', '2017-03-24 00:00:00', '2017-03-24 15:00:00', '', NULL),
+('Bizarrem Fest', 'La banda chivilcoyana que revoluciona el Hard-Pop-Punk-Funk-Soul-Jazz Mostrando su bizarrez plena, en una muestra en vivo donde prometen rosear de whiskey a un cura a eleccion  y prenderlo fuego.', 'augusto', 11, 'Piluso', 'Sobredosis de Cafe', '2017-03-06 16:34:37', '2017-04-07 14:00:00', '2017-04-22 00:00:00', 'Hard-Pop-Punk-Funk-Soul-Jazz', NULL);
 
 -- --------------------------------------------------------
 
@@ -118,11 +145,8 @@ CREATE TABLE `usuarios_filtrados` (
 INSERT INTO `usuarios_filtrados` (`user_name`, `name`, `last_name`, `state`, `type`, `mail`, `image_profile`, `description`, `usuario_date_emit`, `password`) VALUES
 ('augusto', 'augusto', 'urga', b'0', b'0', 'augusto@urga.com', NULL, NULL, '2017-03-03 14:57:20', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('bloqueado', 'nestor', 'bloqueqdo', b'1', b'0', 'nestor@bloqueado.com', NULL, NULL, '2017-03-03 14:18:47', 'caf1a3dfb505ffed0d024130f58c5cfa'),
-('nd', 'nd', 'nd', b'0', b'0', 'nd@nd.com', NULL, NULL, '2017-03-02 00:38:08', 'caf1a3dfb505ffed0d024130f58c5cfa'),
-('PEPITO', 'pepito', 'juarez', b'0', b'0', 'pepito@juarez.com', NULL, NULL, '2017-03-03 15:06:39', 'caf1a3dfb505ffed0d024130f58c5cfa'),
-('resto', 'resto', 'bar', b'0', b'0', 'resto@bar.com', NULL, NULL, '2017-03-03 15:17:08', 'caf1a3dfb505ffed0d024130f58c5cfa'),
+('malvado', 'santiago', 'pitelli', b'0', b'0', 'santiago@pitelli.com', NULL, NULL, '2017-03-06 19:21:11', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('ruben', 'ruben', 'dario', b'0', b'0', 'ruben@dario.com', NULL, NULL, '2017-03-03 15:13:25', 'caf1a3dfb505ffed0d024130f58c5cfa'),
-('sarapa', 'nelson', 'bloqueado', b'0', b'0', 'nelson@bloqueado.com', NULL, NULL, '2017-03-03 14:52:57', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('tomas', 'tomas', 'ponzone', b'0', b'0', 'tomas@ponzone.com', NULL, NULL, '2017-03-03 15:24:08', 'caf1a3dfb505ffed0d024130f58c5cfa');
 
 --
@@ -136,6 +160,13 @@ DELIMITER ;
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `assistants`
+--
+ALTER TABLE `assistants`
+  ADD PRIMARY KEY (`id_assistants`),
+  ADD UNIQUE KEY `id_assistants` (`id_assistants`);
 
 --
 -- Indices de la tabla `interested`
@@ -171,15 +202,20 @@ ALTER TABLE `usuarios_filtrados`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `assistants`
+--
+ALTER TABLE `assistants`
+  MODIFY `id_assistants` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT de la tabla `interested`
 --
 ALTER TABLE `interested`
-  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
