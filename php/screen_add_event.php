@@ -25,8 +25,8 @@ session_start();
       <script >
         $(document).ready(function(){
      
-        $("#campofecha").datetimepicker();
-         $("#campofecha2").datetimepicker();
+        $("#campofecha").datetimepicker({ minDate: 0 });
+         $("#campofecha2").datetimepicker({ minDate: 0 });
         })
       </script>
 
@@ -135,13 +135,13 @@ session_start();
 						<label>
 							Nombre del Evento:
 							<br>
-							<input type="text" name="title"  required>
+							<input type="text" name="title" maxlength="40"  required>
 						</label>
 						<br>
 						<label>
 							Direccion:
 							<br>
-							<input type="text" name="address" required >
+							<input type="text" name="address" maxlength="30" required >
 						</label>
 						<br>
 						<label>
@@ -190,13 +190,13 @@ session_start();
 						<label>
 							Informacion:
 							<br>
-							<textarea form="crearEvento" rows="3" cols="50" placeholder="Describe yourself here..." name= "text"></textarea>
+							<textarea form="crearEvento" rows="3" cols="50"  maxlength="60" placeholder="Información breve acerca del evento..." name= "text"></textarea>
 						</label>
 						<br>
 						<label>
 							Descripcion:
 							<br>
-							<textarea form="crearEvento" rows="6" cols="50" placeholder="Describe yourself here..." name="description" required></textarea>
+							<textarea form="crearEvento" rows="6" cols="50"  placeholder="Información más amplia acerca del evento..." name="description" required></textarea>
 						</label>
 
 					<br>
