@@ -3,7 +3,7 @@ session_start();
 
 
       $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
-      $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
+      $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes, publicaciones.image FROM publicaciones AS publicaciones
            LEFT OUTER JOIN assistants AS a USING(id_publication)
            LEFT OUTER JOIN interested AS i USING(id_publication)
            WHERE publicaciones.date_initiation> CURDATE()
@@ -22,9 +22,9 @@ session_start();
 
                         $estado_publicacion = true;
 
-                          /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
+                         /* /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes img*/
 
-                          /*   0                   1        2           3        4       5            6               7          8        9             10 */
+                          /*   0                   1        2           3        4       5            6               7          8        9             10 *     11/*/
                           /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
 
                     }/*Cierro el if $cant_reg_consulta>0*/else{
@@ -211,7 +211,7 @@ session_start();
           <div class="cartelera">
             <ul>
              <?php $consulta_cartelera="
-                    SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
+                    SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes,publicaciones.image FROM publicaciones AS publicaciones
                     LEFT OUTER JOIN assistants AS a USING(id_publication)
                     LEFT OUTER JOIN interested AS i USING(id_publication)
                     WHERE publicaciones.date_initiation BETWEEN CURDATE() AND CURDATE()+7
@@ -280,16 +280,16 @@ session_start();
           if ($estado_publicacion) {
 
           while ($publicacion =mysqli_fetch_row($publicaciones)) {
-                     /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes*/
+                 /*/* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes img*/
 
-                          /*   0                   1        2           3        4       5            6               7          8        9             10 */
+                          /*   0                   1        2           3        4       5            6               7          8        9             10 *     11/*/
             ?>
             <div class="p-contenedor">
               <div class="publicaciones">
 
                 <h2><?php echo $publicacion[2];  ?></h2>
 
-                <img class="portada" src="img/images/jack.jpeg">
+                <img class="portada" src="<?php echo $publicacion[11];  ?>">
 
                 <br>
 
@@ -381,7 +381,7 @@ session_start();
 
                  <?php
                  $usuario =$_SESSION['user_name'];
-                   $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes FROM publicaciones AS publicaciones
+                   $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes, publicaciones.image FROM publicaciones AS publicaciones
                                           LEFT OUTER JOIN assistants AS a USING(id_publication)
                                           LEFT OUTER JOIN interested AS i USING(id_publication)
                                          WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
@@ -410,12 +410,12 @@ session_start();
 
                   <div id="box1">
                     <div class="MyEventsImg">
-                        <img src="img/images/jack.jpeg">
-                        <p> <?php echo $publicacion[6];  ?> </p>
+                        <img src="<?php echo $publicacion[11];/*6*/  ?> ">
+                        <p> <?php echo $publicacion[6];/*6*/  ?> </p>
                     </div>
 
                     <div class="infoEvent">
-                      <h2> <?php echo $publicacion[2];  ?> </h2>
+                      <h2> <?php echo $publicacion[2]; /*2*/ ?> </h2>
                       <p> <?php echo $publicacion[4];  ?>.</p>
                       <span><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
 

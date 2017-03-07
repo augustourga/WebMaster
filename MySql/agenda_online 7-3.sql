@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-03-2017 a las 20:40:43
+-- Tiempo de generación: 07-03-2017 a las 16:14:11
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -68,7 +68,8 @@ INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
 (12, 10, 'malvado'),
 (13, 10, 'augusto'),
 (14, 11, 'augusto'),
-(15, 11, 'tomas');
+(15, 11, 'tomas'),
+(16, 22, 'augusto');
 
 -- --------------------------------------------------------
 
@@ -95,12 +96,15 @@ CREATE TABLE `publicaciones` (
 --
 
 INSERT INTO `publicaciones` (`description`, `text`, `user_name`, `id_publication`, `address`, `title`, `date_emit`, `date_initiation`, `date_end`, `gender`, `image`) VALUES
-('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit ame', 'Una noche a puro rock', 'augusto', 6, 'Cheers', 'Oesterheld En Cheers', '2017-03-06 03:07:24', '2018-02-02 02:00:00', '2017-02-03 03:01:00', 'rock', NULL),
-('\r\nFestival de música, dedicado a la fusión y difusión de Bandas emergentes de el under Argentino', 'Vuelve a Chivilcoy para desplegar toda su energia molecular y sus armonias demoledoras y para presentar su ultimo material, haciendo un repaso por su corta pero rica historia SAMBARA, junto a ellos se presentara la banda chivilcoyana, TU PUEDES BRUCE.\r\nENTRADAS ANTICIPADAS \r\nRESKATE av Soarez 124', 'tomas', 7, 'Bartolo bar', 'Sambara + TU Puedes BRUCE en Bartolo', '2017-03-06 16:25:06', '2017-03-31 00:30:00', '2017-04-01 08:00:00', 'Rock', NULL),
-('Organizado por CIRQUE NATION', 'Estreno de #septimodia el show del Cirque du Soleil sobre la historia de Soda Stereo.\r\n\r\nVenta de entradas a partir del lunes 1 de Agosto para clientes del Banco Frances en 6 cuotas sin interés.\r\n\r\nA partir del 10 de agosto las entradas para público general.\r\n\r\nPrecios entre $680 y $3650\r\n\r\nTapis Rouge con servicio gastronómico y souvenir sorpresa una hora antes del show.\r\n', 'augusto', 8, 'Ozono', 'Sep7imo Día (Soda Cirque)', '2017-03-06 16:27:04', '2017-04-14 00:00:00', '2017-04-15 05:00:00', 'Espectaculo', NULL),
-('andarine Park & Tent\r\nAvenida Costanera y Sarmiento, 1087 Buenos Aires', 'EARLY TICKETS A $800\r\nMESAS VIP DISPONIBLES\r\n\r\nConsultas\r\nEventos Masivos Electronica\r\n15.6378.7988', 'malvado', 9, 'Parque lacunario Alejandro Martija', 'Armin van Buuren | La Martija', '2017-03-06 16:29:42', '2017-05-19 12:00:00', '2017-05-20 23:00:00', 'Electronica', NULL),
-('Se presenta John Digwed Lorem Ipsum ', 'JOHN DIGWEED en Cementerio Chivilcoy\r\nProximamente info de mesas y tickets\r\n', 'malvado', 10, 'Cementerio Chivilcoy', 'John Digweed | Cementerio', '2017-03-06 16:31:46', '2017-03-24 00:00:00', '2017-03-24 15:00:00', '', NULL),
-('Bizarrem Fest', 'La banda chivilcoyana que revoluciona el Hard-Pop-Punk-Funk-Soul-Jazz Mostrando su bizarrez plena, en una muestra en vivo donde prometen rosear de whiskey a un cura a eleccion  y prenderlo fuego.', 'augusto', 11, 'Piluso', 'Sobredosis de Cafe', '2017-03-06 16:34:37', '2017-04-07 14:00:00', '2017-04-22 00:00:00', 'Hard-Pop-Punk-Funk-Soul-Jazz', NULL);
+('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit ame', 'Una noche a puro rock', 'augusto', 6, 'Cheers', 'Oesterheld En Cheers', '2017-03-06 03:07:24', '2018-02-02 02:00:00', '2017-02-03 03:01:00', 'rock', 'img/images/events_img/oesterheld.jpg'),
+('\r\nFestival de música, dedicado a la fusión y difusión de Bandas emergentes de el under Argentino', 'Vuelve a Chivilcoy para desplegar toda su energia molecular y sus armonias demoledoras y para presentar su ultimo material, haciendo un repaso por su corta pero rica historia SAMBARA, junto a ellos se presentara la banda chivilcoyana, TU PUEDES BRUCE.\r\nENTRADAS ANTICIPADAS \r\nRESKATE av Soarez 124', 'tomas', 7, 'Bartolo bar', 'Sambara + TU Puedes BRUCE en Bartolo', '2017-03-06 16:25:06', '2017-03-31 00:30:00', '2017-04-01 08:00:00', 'Rock', 'img/images/events_img/sambara.jpg'),
+('Organizado por CIRQUE NATION', 'Estreno de #septimodia el show del Cirque du Soleil sobre la historia de Soda Stereo.\r\n\r\nVenta de entradas a partir del lunes 1 de Agosto para clientes del Banco Frances en 6 cuotas sin interés.\r\n\r\nA partir del 10 de agosto las entradas para público general.\r\n\r\nPrecios entre $680 y $3650\r\n\r\nTapis Rouge con servicio gastronómico y souvenir sorpresa una hora antes del show.\r\n', 'augusto', 8, 'Ozono', 'Sep7imo Día (Soda Cirque)', '2017-03-06 16:27:04', '2017-04-14 00:00:00', '2017-04-15 05:00:00', 'Espectaculo', 'img/images/events_img/septimo.jpg'),
+('andarine Park & Tent\r\nAvenida Costanera y Sarmiento, 1087 Buenos Aires', 'EARLY TICKETS A $800\r\nMESAS VIP DISPONIBLES\r\n\r\nConsultas\r\nEventos Masivos Electronica\r\n15.6378.7988', 'malvado', 9, 'Parque lacunario Alejandro Martija', 'Armin van Buuren | La Martija', '2017-03-06 16:29:42', '2017-05-19 12:00:00', '2017-05-20 23:00:00', 'Electronica', 'img/images/events_img/armin.jpg'),
+('Se presenta John Digwed Lorem Ipsum ', 'JOHN DIGWEED en Cementerio Chivilcoy\r\nProximamente info de mesas y tickets\r\n', 'malvado', 10, 'Cementerio Chivilcoy', 'John Digweed | Cementerio', '2017-03-06 16:31:46', '2017-03-24 00:00:00', '2017-03-24 15:00:00', '', 'img/images/events_img/digweed.jpg'),
+('Bizarrem Fest', 'La banda chivilcoyana que revoluciona el Hard-Pop-Punk-Funk-Soul-Jazz Mostrando su bizarrez plena, en una muestra en vivo donde prometen rosear de whiskey a un cura a eleccion  y prenderlo fuego.', 'augusto', 11, 'Piluso', 'Sobredosis de Cafe', '2017-03-06 16:34:37', '2017-04-07 14:00:00', '2017-04-22 00:00:00', 'Hard-Pop-Punk-Funk-Soul-Jazz', 'img/images/events_img/bizarrem.jpg'),
+('Los espiritus | Club Gimnacia', 'Los espiritus se estarán presentando en el Club Gimnacia a partir de la fecha.', 'augusto', 12, '', 'Los Espiritus -  Gira Gratitud ', '2017-03-06 16:50:18', '2017-03-07 00:00:00', '2017-03-08 10:00:00', 'Rock-Blues', 'img/images/events_img/losespiritus.jpg'),
+('Prueba de fotico', 'Estamos probando la foto, funcionara? mmmm...', 'augusto', 20, 'Prueba', 'Prueba de foto', '2017-03-07 11:14:43', '2017-03-12 01:00:00', '2017-01-01 01:00:00', 'rock', 'img/images/events_img/15109460_1810057645944163_8310896684256802636_n.jpg'),
+('El gordo mÃ¡s lindo de todos se presenta en Bartolo para agitar a las multitudes', 'Una noche dosmilera en Bartolo', 'augusto', 30, 'Bartolo', 'Supermovil en Bartolo', '2017-03-07 12:12:30', '2017-04-01 01:00:00', '2017-04-01 03:00:00', 'rock', 'img/images/events_img/supermovil.jpg');
 
 -- --------------------------------------------------------
 
@@ -147,6 +151,7 @@ INSERT INTO `usuarios_filtrados` (`user_name`, `name`, `last_name`, `state`, `ty
 ('bloqueado', 'nestor', 'bloqueqdo', b'1', b'0', 'nestor@bloqueado.com', NULL, NULL, '2017-03-03 14:18:47', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('malvado', 'santiago', 'pitelli', b'0', b'0', 'santiago@pitelli.com', NULL, NULL, '2017-03-06 19:21:11', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('ruben', 'ruben', 'dario', b'0', b'0', 'ruben@dario.com', NULL, NULL, '2017-03-03 15:13:25', 'caf1a3dfb505ffed0d024130f58c5cfa'),
+('solitario', 'solitario', 'juan', b'0', b'0', 'solitario@juan.com', NULL, NULL, '2017-03-06 20:31:07', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('tomas', 'tomas', 'ponzone', b'0', b'0', 'tomas@ponzone.com', NULL, NULL, '2017-03-03 15:24:08', 'caf1a3dfb505ffed0d024130f58c5cfa');
 
 --
@@ -210,12 +215,12 @@ ALTER TABLE `assistants`
 -- AUTO_INCREMENT de la tabla `interested`
 --
 ALTER TABLE `interested`
-  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -11,13 +11,18 @@ $title = $_POST["title"];
 $date_initiation =$_POST["date_initiation"];
 $date_end =$_POST["date_end"];
 $gender =$_POST["gender"];
-// $image = $_POST["image"];
+/*Imagen*/
 
+ $imagen = $_FILES['image']['name'];
+ $ruta = $_FILES['image']['tmp_name'];
+ $destino = "../img/images/events_img/".$imagen;
+  copy($ruta,$destino); 
+  $ruta_mysql ="img/images/events_img/".$imagen;;
 
 /*Deberiamos validar que - la fecha del evento no es una fecha pasada. 
 						 - Acotar las fechas
 						 - */
- $a="INSERT INTO publicaciones ( user_name , title , description , text , address , date_initiation , date_end , gender) values ('$user_name' , '$title' , '$description' , '$text' ,  '$address' , '$date_initiation', '$date_end' , '$gender'  ) ";
+ $a ="INSERT INTO publicaciones ( user_name , title , description , text , address , date_initiation , date_end , gender, image) values ('$user_name' , '$title' , '$description' , '$text' ,  '$address' , '$date_initiation', '$date_end' , '$gender' , '$ruta_mysql' ) ";
  $b ="SELECT  id_publication FROM publicaciones WHERE  user_name='$user_name' ORDER BY date_emit DESC";
  	
  $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
@@ -29,6 +34,7 @@ $consulta1 = mysqli_query($conexion, $b);
 				echo "Consulta exitosaaaaaaa";
 				$cant_reg_consulta= mysqli_num_rows($consulta1);
 				if ($cant_reg_consulta>0) {
+					
 					$fila = mysqli_fetch_row($consulta1);
 		
 					$codigo_publicacion = $fila[0];

@@ -142,7 +142,7 @@ session_start();
 				<h2> Crear Evento </h2>
 
 				<div class="addEvent-left">
-					<form action="add_event.php" method="POST" id="crearEvento">
+					<form action="add_event.php" method="POST" id="crearEvento" enctype="multipart/form-data">
 
 						<label>
 							Nombre del Evento:
@@ -224,7 +224,7 @@ session_start();
 			</div>
     <!-- ================== FOOTER ================-->
 
-    <div class="footer">
+    <div class="footer">  
 
       <ul>
         <li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
