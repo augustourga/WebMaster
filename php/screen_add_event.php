@@ -12,13 +12,23 @@ session_start();
     <link rel="shortcut icon" href="../img/logo/favicon.ico">
     <title> Ante Meridiem </title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Six+Caps" rel="stylesheet">
-
+   <link rel="stylesheet" type="text/css" href="../js/datetimepicker/jquery.datetimepicker.css">
+   <script src="../js/datetimepicker/jquery.js"></script>
+   <script src="../js/datetimepicker/build/jquery.datetimepicker.full.js"></script>
 	<style>
 	</style>
 
   </head>
 
   <body class="screen_addEvent">
+
+      <script >
+        $(document).ready(function(){
+     
+        $("#campofecha").datetimepicker();
+         $("#campofecha2").datetimepicker();
+        })
+      </script>
 
 
     <div class="contenido" >
@@ -88,28 +98,6 @@ session_start();
                   ?>
 
 
-  <!--         <img src="../img/images/icon-user.png" alt="User">
-          <form method="POST" action="php/login.php" >
-            <label class="user">
-              <input type="text" placeholder="User" name="user_name" required>
-            </label>
-
-            <br>
-
-            <label class="password">
-              <input type="password" placeholder="Password" name="password" required>
-            </label>
-
-          <br>
-
-          <button type="submit" name="acceder" value="acceder">
-            Acceder
-          </button>
-
-              <a href="http://localhost:8888/Sitio%202.0/registro.php">  Registrarse </a>
- 
-          </form>
--->
 
 
         </div> <!-- Cierra LOGIN-->
@@ -159,13 +147,13 @@ session_start();
 						<label>
 						Inicia:
 							<br>
-							<input class="date" type="datetime-local" name="date_initiation" required>
+							<input class="date" type="datetime-local" name="date_initiation" id= "campofecha" required>
 						</label>
 						<br>
 						<label>
 							Finaliza:
 							<br>
-							<input class="date" type="datetime-local" name ="date_end" required>
+							<input class="date" type="datetime-local" name ="date_end" id= "campofecha2" required  >
 						</label>
 						<br>
 						<label>
