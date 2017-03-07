@@ -1,5 +1,9 @@
 <?php
 include('functions.php');
+
+include("connections.php");
+
+
 session_start();
 
 $user_name = $_POST['user_name'];
@@ -16,7 +20,7 @@ if (!isset($_POST['user_name'])) {
 	
 }else{
 
-$conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
+/*$conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
 $consulta = mysqli_query($conexion,"SELECT * FROM usuarios_filtrados WHERE user_name='$user_name' OR mail='$mail'");
 
 

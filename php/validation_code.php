@@ -2,11 +2,15 @@
 session_start();
 //Houston we have a problem: Cuando creamos usuarios con el mismo mail se rompe, ya que el mail debe ser único, entonces hay que validar al registrarse
 
+include("connections.php");
+
+
+
 
 $user_name =$_GET['id'];
 $validation_code = $_POST['validation_code'];
-
-$conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
+/*
+$conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
 $consulta = mysqli_query($conexion,"SELECT user_name, state, password, mail, name,last_name FROM usuarios WHERE user_name='$user_name' AND validation_code= '$validation_code'");
 
 
