@@ -21,7 +21,7 @@ include("connections.php");
 
       /*Traeme*/
       $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
-      echo $a;
+      
 
 
       if($consulta){
