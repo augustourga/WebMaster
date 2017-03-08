@@ -364,18 +364,31 @@ left: 64vw;
 }
 
 
+.title-publication{
+  width: 400px;
+  height: 50px;
+}
 
 .publicaciones h2 {
   text-align: center;
-  padding: 10px 10px;
+  padding: 10px 0px;
   font-size: 1.8em;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
 
+}
+
+.img-content{
+  width: 300px;
+  height: 150px;
 }
 
 .portada  {
     max-width: 350px;
+    object-fit:scale-down;
     width: 100%;
-    margin-left: 1.5vw;
+    margin-left: 3vw;
     border-radius: 2%;
     display: inline-block;
 }
@@ -417,7 +430,7 @@ left: 64vw;
   display: inline-block;
   position: absolute;
 	width: 400px;
-	height: 400px;
+	height: 450px;
 	background-color: white;
   opacity: 0;
 
@@ -447,17 +460,39 @@ transition: opacity 2s ease-in-out;
 
 #d{
   font-size: 0.8em;
+  width: 16vw;
+  height: 5vh;
   padding-left: 0;
 }
 
+#d::after{
+  content: "...";
+}
+
 #l, #g{
-  margin-left: 3vw;
+  max-width: 6vw;
+  width: auto;
+  font-size: 1em;
+  margin-left: 2vw;
   background-color: black;
   color: white;
   border: 1px solid black;
-  padding: 2px 6px;
+  padding: 2px 2px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
 }
 
+img.rockHand{
+  width:17%;
+  border-radius:50%;
+  display:inline-block;
+  border: 1px solid darkgrey;
+  top: 0.8vh;
+  left: 1.5vw;
+  position: relative;
+  cursor: pointer;
+}
 .break{
   clear:both;
   width: 100vw;
@@ -1179,13 +1214,28 @@ overflow: scroll;
 
   .publicaciones-b{
       width: 18vw;
-      height: 35vh;
+      height: 42vh;
 
+  }
+
+  .title-publication{
+    width: 18vw;
+    height: 10vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   .publicaciones h2{
     font-size: 2em;
-    letter-spacing: 2px;
+    width: 18vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    letter-spacing: 1px;
+    font-size: 1.8em;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
   }
 
   .publicaciones p{
@@ -1200,9 +1250,27 @@ overflow: scroll;
     width: 84%;
   }
 
+
+  .img-content{
+    width: 15vw;
+    height: 21vh;
+
+  }
+
+  .img-content img.portada{
+    object-fit: contain;
+    height: 25vh;
+  }
+
   .MyEventsImg{
-    max-width: 30%;
+    max-width: 20vw;
     left: 7%;
+    height: 50vh;
+  }
+
+  .MyEventsImg img.img-myEvents{
+    object-fit: scale-down;
+    height: 20vh;
   }
 
   .MyEventsImg p{

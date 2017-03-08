@@ -289,11 +289,12 @@ session_start();
             ?>
             <div class="p-contenedor">
               <div class="publicaciones">
-
-                <h2><?php echo $publicacion[2];  ?></h2>
-
-                <img class="portada" src="<?php echo $publicacion[11];  ?>">
-
+                <div class="title-publication">
+                  <h2><?php echo $publicacion[2];  ?></h2>
+                </div>
+                <div class="img-content">
+                  <img class="portada" src="<?php echo $publicacion[11];  ?>">
+                </div>
                 <br>
 
                 <p > <?php echo $publicacion[6]; ?></p>
@@ -301,7 +302,7 @@ session_start();
 
 
                 <div class="publicaciones-b"   >
-                  <p> Interesados: [<?php echo $publicacion[9];  ?>] Asistentes: [<?php echo $publicacion[10];  ?>] </p><br>
+                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockI.jpg"><br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" ></p><br> 
                   <p id="d"> <?php echo $publicacion[3];  ?> </p><br>
                   <p id="l"> <?php echo $publicacion[5];  ?></p>
                   <p id="g"> <?php echo $publicacion[8];  ?> </p>
@@ -413,7 +414,7 @@ session_start();
 
                   <div id="box1">
                     <div class="MyEventsImg">
-                        <img src="<?php echo $publicacion[11];/*6*/  ?> ">
+                        <img class="img-myEvents" src="<?php echo $publicacion[11];/*6*/  ?> ">
                         <p> <?php echo $publicacion[6];/*6*/  ?> </p>
                     </div>
 
