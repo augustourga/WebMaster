@@ -1125,6 +1125,100 @@ overflow: scroll;
     height:15vh;
   }
 
+
+  /* ===================== SCREEN USER ===================================== */
+
+  .user-content{
+    width: 100vw;
+    height: 130vh;
+    border-top: 2.5px groove #87908c;
+    border-bottom: 2.5px groove #87908c;
+    background-image: url("../img/backgrounds/8.png");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .user-profile{
+    width: 80vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.72);
+    margin-top: 10vh;
+    margin-left: 10vw;
+    border-radius: 9%;
+  }
+
+  .user-image{
+    width: 20%;
+    height: 30vh;
+    float: left;
+    background-color:;
+    position: relative;
+    top: 6vh;
+    left: 4vw;
+  }
+
+  .user-image img{
+    object-fit: contain;
+    height: 100%;
+  }
+
+  .user-header{
+    width: 70%;
+    height: 30vh;
+    float: right;
+
+    position: relative;
+    top: 5vh;
+    margin-right: 4vw;
+    border: 1px outset #87908c;
+    border-radius: 3%;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  .user-header h2{
+    text-align: center;
+
+  }
+
+    .user-header h3{
+      padding: 2vh 1vw;
+      font-size: 1em;
+      color: white;
+    }
+
+
+  .user-description {
+
+    width: 77%;
+    height: 15vh;
+    position: relative;
+    top:-2vh;
+    left:10vw;
+    color: white;
+    overflow: hidden;
+    background-color: white;
+    }
+
+
+  .user-information{
+    width: 90%;
+    height: 40vh;
+    clear: both;
+    background-color: rgba(23, 26, 28, 0.88);
+    border: 2px ridge #87908c;
+    border-radius: 2%;
+    position: relative;
+    top: 15vh;
+    left: 5vw;
+
+  }
+
+  .break-user{
+    width: 100vw;
+    height: 20vh;
+    background-color: black;
+  }
+
 /* ============================ MEDIA QUERY =============================== */
 
 /* ============================ HOME =============================== */
