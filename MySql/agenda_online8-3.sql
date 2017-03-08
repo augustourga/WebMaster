@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-03-2017 a las 16:14:11
+-- Tiempo de generación: 08-03-2017 a las 23:12:52
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -69,7 +69,8 @@ INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
 (13, 10, 'augusto'),
 (14, 11, 'augusto'),
 (15, 11, 'tomas'),
-(16, 22, 'augusto');
+(16, 22, 'augusto'),
+(19, 6, 'tomas');
 
 -- --------------------------------------------------------
 
@@ -102,9 +103,21 @@ INSERT INTO `publicaciones` (`description`, `text`, `user_name`, `id_publication
 ('andarine Park & Tent\r\nAvenida Costanera y Sarmiento, 1087 Buenos Aires', 'EARLY TICKETS A $800\r\nMESAS VIP DISPONIBLES\r\n\r\nConsultas\r\nEventos Masivos Electronica\r\n15.6378.7988', 'malvado', 9, 'Parque lacunario Alejandro Martija', 'Armin van Buuren | La Martija', '2017-03-06 16:29:42', '2017-05-19 12:00:00', '2017-05-20 23:00:00', 'Electronica', 'img/images/events_img/armin.jpg'),
 ('Se presenta John Digwed Lorem Ipsum ', 'JOHN DIGWEED en Cementerio Chivilcoy\r\nProximamente info de mesas y tickets\r\n', 'malvado', 10, 'Cementerio Chivilcoy', 'John Digweed | Cementerio', '2017-03-06 16:31:46', '2017-03-24 00:00:00', '2017-03-24 15:00:00', '', 'img/images/events_img/digweed.jpg'),
 ('Bizarrem Fest', 'La banda chivilcoyana que revoluciona el Hard-Pop-Punk-Funk-Soul-Jazz Mostrando su bizarrez plena, en una muestra en vivo donde prometen rosear de whiskey a un cura a eleccion  y prenderlo fuego.', 'augusto', 11, 'Piluso', 'Sobredosis de Cafe', '2017-03-06 16:34:37', '2017-04-07 14:00:00', '2017-04-22 00:00:00', 'Hard-Pop-Punk-Funk-Soul-Jazz', 'img/images/events_img/bizarrem.jpg'),
-('Los espiritus | Club Gimnacia', 'Los espiritus se estarán presentando en el Club Gimnacia a partir de la fecha.', 'augusto', 12, '', 'Los Espiritus -  Gira Gratitud ', '2017-03-06 16:50:18', '2017-03-07 00:00:00', '2017-03-08 10:00:00', 'Rock-Blues', 'img/images/events_img/losespiritus.jpg'),
 ('Prueba de fotico', 'Estamos probando la foto, funcionara? mmmm...', 'augusto', 20, 'Prueba', 'Prueba de foto', '2017-03-07 11:14:43', '2017-03-12 01:00:00', '2017-01-01 01:00:00', 'rock', 'img/images/events_img/15109460_1810057645944163_8310896684256802636_n.jpg'),
-('El gordo mÃ¡s lindo de todos se presenta en Bartolo para agitar a las multitudes', 'Una noche dosmilera en Bartolo', 'augusto', 30, 'Bartolo', 'Supermovil en Bartolo', '2017-03-07 12:12:30', '2017-04-01 01:00:00', '2017-04-01 03:00:00', 'rock', 'img/images/events_img/supermovil.jpg');
+('sadasdas', '', 'ruben', 36, '<? echo $publicacion[5];?>', '<? echo $publicacion[2];?>', '2017-03-16 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'rock', ''),
+('asdas', '', 'augusto', 37, '<? echo $publicacion[5];?>', 'augusto', '2017-03-08 18:58:15', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'rock', '');
+
+--
+-- Disparadores `publicaciones`
+--
+DELIMITER $$
+CREATE TRIGGER `Borrar asistentes` BEFORE DELETE ON `publicaciones` FOR EACH ROW DELETE FROM assistants WHERE assistants.id_publication =  old.id_publication
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `Borrar interesados` AFTER DELETE ON `publicaciones` FOR EACH ROW DELETE FROM interested WHERE interested.id_publication =  old.id_publication
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -147,12 +160,12 @@ CREATE TABLE `usuarios_filtrados` (
 --
 
 INSERT INTO `usuarios_filtrados` (`user_name`, `name`, `last_name`, `state`, `type`, `mail`, `image_profile`, `description`, `usuario_date_emit`, `password`) VALUES
-('augusto', 'augusto', 'urga', b'0', b'0', 'augusto@urga.com', NULL, NULL, '2017-03-03 14:57:20', 'caf1a3dfb505ffed0d024130f58c5cfa'),
+('augusto', 'augusto', 'urga', b'0', b'1', 'augusto@urga.com', NULL, NULL, '2017-03-08 18:54:37', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('bloqueado', 'nestor', 'bloqueqdo', b'1', b'0', 'nestor@bloqueado.com', NULL, NULL, '2017-03-03 14:18:47', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('malvado', 'santiago', 'pitelli', b'0', b'0', 'santiago@pitelli.com', NULL, NULL, '2017-03-06 19:21:11', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('ruben', 'ruben', 'dario', b'0', b'0', 'ruben@dario.com', NULL, NULL, '2017-03-03 15:13:25', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('solitario', 'solitario', 'juan', b'0', b'0', 'solitario@juan.com', NULL, NULL, '2017-03-06 20:31:07', 'caf1a3dfb505ffed0d024130f58c5cfa'),
-('tomas', 'tomas', 'ponzone', b'0', b'0', 'tomas@ponzone.com', NULL, NULL, '2017-03-03 15:24:08', 'caf1a3dfb505ffed0d024130f58c5cfa');
+('tomas', 'tomas', 'ponzone', b'0', b'1', 'tomas@ponzone.com', NULL, NULL, '2017-03-08 18:56:38', 'caf1a3dfb505ffed0d024130f58c5cfa');
 
 --
 -- Disparadores `usuarios_filtrados`
@@ -215,12 +228,12 @@ ALTER TABLE `assistants`
 -- AUTO_INCREMENT de la tabla `interested`
 --
 ALTER TABLE `interested`
-  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

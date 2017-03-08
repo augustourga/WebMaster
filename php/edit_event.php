@@ -17,12 +17,12 @@ $date_initiation =$_POST["date_initiation"];
 $date_end =$_POST["date_end"];
 $gender =$_POST["gender"];
 
-$fecha_actual = new DateTime();
+/*$fecha_actual = new DateTime();
 
  
 
 $fecha_actual_ts = $fecha_actual->getTimestamp();
-
+*/
 /*Imagen*/
 
  $imagen = $_FILES['image']['name'];
@@ -42,7 +42,7 @@ $fecha_actual_ts = $fecha_actual->getTimestamp();
 						 - Acotar las fechas
 						 - */
 $a =" UPDATE publicaciones
- SET   title ='$title', description = '$description' , text = '$text' , date_emit = '$fecha_actual_ts', address  = '$address' , date_initiation = '$date_initiation' , date_end = '$date_end' , gender = '$gender', image ='$ruta_mysql'
+ SET   title ='$title', description = '$description' , text = '$text' , address  = '$address' , date_initiation = '$date_initiation' , date_end = '$date_end' , gender = '$gender', image ='$ruta_mysql'
   WHERE id_publication = '$id_publication'"; 
 
 
@@ -65,20 +65,20 @@ $consulta1 = mysqli_query($conexion, $b);
 					header("Location: screen_publication.php?id_publication=$codigo_publicacion");
 					
 				}/*Cierro el if ($cant_reg_consulta>0) */
-				else{
+				else{	
 					echo "no traje nada";
 				}/*Cierro  else el if ($cant_reg_consulta>0)*/
 			}/*Cierro el if ($consulta1) */ 
 		else{
 				echo "Consulta erronea" . "sarasa" . $b ;
-				header("Location: publication_edit.php?code='errorInsert'");
-
+			/*	header("Location: publication_edit.php?code='errorInsert'");
+*/
 	}/*Cierro el else if ($consulta1) */
 }/*Cierro el  if ($consulta) */
 else{	
 	
-	header("Location: publication_edit.php?code='errorInsert'");
+/*	header("Location: publication_edit.php?code='errorInsert'");*/
 
 }/*Cierro el else if ($consulta)*/
-}/*Cierro el if isset $_SESSION*/
+	}/*Cierro el if isset $_SESSION*/
  ?>}
