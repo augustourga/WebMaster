@@ -69,7 +69,7 @@
 
       <!-- ================== REGISTRO =============-->
 
-      <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2>
+      <h2 class="back"> <a href="../index.php#home"> < Volver al Home </a> </h2>
 
 
       <div class="formulario" id="formularioRegistro">
@@ -82,7 +82,7 @@
                                   ?>
                           <script type="text/javascript">
                               window.alert("Ya existe un usuario con ese nombre");
-                              window.location.href= 'http://localhost/WebMaster/php/screen_register.php';
+                              window.location.href= 'screen_register.php';
                           </script>
 
                                   <?php
@@ -116,7 +116,7 @@
                                  ?>
                                    <script type="text/javascript">
                                     window.alert("Usuario creado exitosamente");
-                                    window.location.href= 'http://localhost/WebMaster/index.php#home';
+                                    window.location.href= '../index.php#home';
                                   </script>
 
                                  <?php
@@ -126,7 +126,7 @@
                               ?>
                                    <script type="text/javascript">
                                     window.alert("FATAL ERROR");
-                                    window.location.href= 'http://localhost/WebMaster/index.php';
+                                    window.location.href= '../index.php';
                                   </script>
 
                                  <?php
@@ -157,7 +157,7 @@
                         ?>
                           <script type="text/javascript">
                               window.alert("Ocurrio un problema al enviar el código de validación, por favor revise su dirección de email");
-                              window.location.href= 'http://localhost/WebMaster/php/screen_register.php';
+                              window.location.href= 'screen_register.php';
                           </script>
 
                     <?php
@@ -166,7 +166,7 @@
                             ?>
                               <script type="text/javascript">
                               window.alert("fatal error");
-                              window.location.href= 'http://localhost/WebMaster/php/screen_register.php';
+                              window.location.href= 'screen_register.php';
                           </script>
                             <?php
 
@@ -178,7 +178,7 @@
                   ?>
 
         <h2> Registrarse </h2>
-        <form method="POST" action="http://localhost/WebMaster/php/register.php">
+        <form method="POST" action="register.php">
           <label class="user-name">
             <span> Nombre Usuario</span>
             <br>
@@ -249,12 +249,12 @@
     <div class="footer">
 
       <ul>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Ayuda  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Legales  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Politica de Privacidad  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">© Copyright 2017  </a></li>
+        <li><a href="screen_footer.php">Contacto |</a></li>
+        <li><a href="screen_footer.php">Sobre Ante Merídiem  |</a></li>
+        <li><a href="screen_footer.php">Ayuda  |</a></li>
+        <li><a href="screen_footer.php">Legales  |</a></li>
+        <li><a href="screen_footer.php">Politica de Privacidad  |</a></li>
+        <li><a href="screen_footer.php">© Copyright 2017  </a></li>
       </ul>
 
     </div>

@@ -40,7 +40,7 @@ session_start();?>
         <div class="header-login">
 
           <img src="../img/images/icon-user.png" alt="User">
-          <form method="POST" action="php/login.php" >
+          <form method="POST" action="login.php" >
 
           <?php
            if(isset($_SESSION['user_name']))  {
@@ -59,7 +59,7 @@ session_start();?>
                    <script type="text/javascript">
 
                       function redirect_unlogin(){
-                      window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                      window.location.href= 'unlogin.php';
                     }
 
                     var button_close_session = document.getElementById("button_close_session");
@@ -93,7 +93,7 @@ session_start();?>
             Acceder
           </button>
 
-              <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
+              <a href="screen_register.php">  Registrarse </a>
 
               <?php
               } /*cierra el else isset($_SESSION['user_name']) */
@@ -111,7 +111,7 @@ session_start();?>
 
       <!-- ================== MAIN-CONTENT =============-->
 
-      <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2>
+      <h2 class="back"> <a href="../index.php#home"> < Volver al Home </a> </h2>
 
       <div class="footer-content">
 
@@ -143,12 +143,12 @@ session_start();?>
     <div class="footer">
 
       <ul>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Ayuda  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Legales  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Politica de Privacidad  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">© Copyright 2017  </a></li>
+        <li><a href="screen_footer.php">Contacto |</a></li>
+        <li><a href="screen_footer.php">Sobre Ante Merídiem  |</a></li>
+        <li><a href="screen_footer.php">Ayuda  |</a></li>
+        <li><a href="screen_footer.php">Legales  |</a></li>
+        <li><a href="screen_footer.php">Politica de Privacidad  |</a></li>
+        <li><a href="screen_footer.php">© Copyright 2017  </a></li>
       </ul>
 
     </div>

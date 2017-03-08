@@ -37,7 +37,7 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 
 				echo "Se inserto el usuario corhrectamente";
 				//Ya esta hecho el trigger, falta mostrar alguna ventanita que diga usuario creado correctamente
-						 header("Location: http://localhost/WebMaster/php/screen_register.php?formulario_estado=ok&id=$user_name&codigo_validacion=true");
+						 header("Location: screen_register.php?formulario_estado=ok&id=$user_name&codigo_validacion=true");
 				
 				//header("Location: http://localhost/WebMaster/index.php");
 				}else{
@@ -46,20 +46,20 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 						// header("Location: http://localhost/WebMaster/index.php?formulario_estado=ok&id=$user_name&codigo_validacion=false");
 					
 			echo "falló el insert";
-			header("Location: http://localhost/WebMaster/index.php");
+			header("Location: ../index.php");
 
 			}
 			
 			
 
 			}else{
-					header("Location: http://localhost/WebMaster/php/screen_register.php?formulario_estado=ok&id=$user_name&codigo_validacion=false");
+					header("Location: screen_register.php?formulario_estado=ok&id=$user_name&codigo_validacion=false");
 
 					 // echo "codigo de validacion incorrecto deberiamos volver a la página anterior (ingrese codigo)";
 					}
 		}else{ //error en la consulta
 			// header("Location: http://localhost/WebMaster/index.php?formulario_estado=ok&id=$user_name");
-			header("Location: http://localhost/WebMaster/index.php");																																																																													
+			header("Location: ../index.php");																																																																													
 
 				}
 

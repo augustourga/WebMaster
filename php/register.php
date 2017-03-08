@@ -15,7 +15,7 @@ $validation_code = getRandomCode();
 
 
 if (!isset($_POST['user_name'])) {
-	header("Location: http://localhost/WebMaster/index.php#home");
+	header("Location: ../index.php#home");
 		
 	
 }else{
@@ -45,14 +45,14 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 			//header("Location: http://localhost/WebMaster/index.php?formulario_estado=ok#formulario");
 			if($consulta){
 			echo "Usuario válido y mensaje enviado";
-				header("Location: http://localhost/WebMaster/php/screen_register.php?formulario_estado=ok&id=$user_name&mail=$mail");
+				header("Location: screen_register.php?formulario_estado=ok&id=$user_name&mail=$mail");
 				}else{
 				echo "falló el insert";
 
 			}
 			}else{
 			//Usuario válido y mensaje no enviado
-			header("Location: http://localhost/WebMaster/index.php#formulario");
+			header("Location: screen_register.php?formulario_estado=mensajeerror");
 			echo "Usuario válido y mensaje no enviado";
 
 //enviar mail con $validation_code y redireccionar a una pestaña donde deba ingresar el validation code una vez ingresado y validado, se guardan todos los datos en la tabla usuarios_filtrados

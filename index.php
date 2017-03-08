@@ -101,7 +101,7 @@ session_start();
                   if($_GET["estado"]== "error"){ ?>
                     <script type="text/javascript">
                       window.alert("Los datos ingresados son incorrectos");
-                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+                      window.location.href= 'index.php#home';
 
 
                     </script>
@@ -113,7 +113,7 @@ session_start();
 
                     <script type="text/javascript">
                       window.alert("Usuario Bloqueado");
-                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+                      window.location.href= 'index.php#home';
                     </script>
 
 
@@ -142,7 +142,7 @@ session_start();
                    <script type="text/javascript">
 
                       function redirect_unlogin(){
-                      window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                      window.location.href= 'php/unlogin.php';
                     }
 
                     var button_close_session = document.getElementById("button_close_session");
@@ -176,7 +176,7 @@ session_start();
             Acceder
           </button>
 
-              <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
+              <a href="php/screen_register.php">  Registrarse </a>
 
               <?php
               } /*cierra el else isset($_SESSION['user_name']) */
@@ -236,7 +236,7 @@ session_start();
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
                   ?>
 
-                          <li><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion_cartelera[0];  ?>"> <?php echo $publicacion_cartelera[2];  ?> -  <?php echo $publicacion_cartelera[6];  ?> </a></li>
+                          <li><a href="php/screen_publication.php?id_publication=<?php echo $publicacion_cartelera[0];  ?>"> <?php echo $publicacion_cartelera[2];  ?> -  <?php echo $publicacion_cartelera[6];  ?> </a></li>
 
              <?php
                       }/*<!-- Cierra el While  Publicaciones_cartelera-->*/
@@ -267,7 +267,7 @@ session_start();
                            <?php if(isset($_SESSION['user_name']))  {
 
                             ?>
-                            <a href="http://localhost/WebMaster/php/screen_add_event.php"> <img id="addEventImg" src="img/images/addButton.png" alt=""> </a>
+                            <a href="php/screen_add_event.php"> <img id="addEventImg" src="img/images/addButton.png" alt=""> </a>
 
 
                             <?php
@@ -343,7 +343,7 @@ session_start();
                   <p id="d"> <?php echo $publicacion[3];  ?> </p><br>
                   <p id="l"> <?php echo $publicacion[5];  ?></p>
                   <p id="g"> <?php echo $publicacion[8];  ?> </p>
-                 <a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> mas informacion</a>
+                 <a href="php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> mas informacion</a>
                 </div>
 
               </div>
@@ -458,7 +458,7 @@ session_start();
                     <div class="infoEvent">
                       <h2> <?php echo $publicacion[2]; /*2*/ ?> </h2>
                       <p> <?php echo $publicacion[4];  ?>.</p>
-                      <span><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
+                      <span><a href="php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
 
                     </div>
 
@@ -520,12 +520,12 @@ session_start();
 
 
           <ul>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Ayuda  |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Legales  |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Politica de Privacidad  |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">© Copyright 2017  </a></li>
+						<li><a href="php/screen_footer.php">Contacto |</a></li>
+						<li><a href="php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
+						<li><a href="php/screen_footer.php">Ayuda  |</a></li>
+						<li><a href="php/screen_footer.php">Legales  |</a></li>
+						<li><a href="php/screen_footer.php">Politica de Privacidad  |</a></li>
+						<li><a href="php/screen_footer.php">© Copyright 2017  </a></li>
 					</ul>
 
         </div>

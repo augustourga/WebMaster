@@ -42,7 +42,7 @@ $consulta1 = mysqli_query($conexion, $b);
 					$fila = mysqli_fetch_row($consulta1);
 		
 					$codigo_publicacion = $fila[0];
-					header("Location: http://localhost/WebMaster/php/screen_publication.php?id_publication=$codigo_publicacion");
+					header("Location: screen_publication.php?id_publication=$codigo_publicacion");
 				}/*Cierro el if ($cant_reg_consulta>0) */
 				else{
 					echo "no traje nada";
@@ -50,13 +50,13 @@ $consulta1 = mysqli_query($conexion, $b);
 			}/*Cierro el if ($consulta1) */ 
 		else{
 				echo "Consulta erronea" . "sarasa" . $b ;
-				header("Location: http://localhost/WebMaster/screen_add_event.php?code='errorInsert'");
+				header("Location: screen_add_event.php?code='errorInsert'");
 
 	}/*Cierro el else if ($consulta1) */
 }/*Cierro el  if ($consulta) */
 else{	
 	
-	header("Location: http://localhost/WebMaster/screen_add_event.php?code='errorInsert'");
+	header("Location: screen_add_event.php?code='errorInsert'");
 
 }/*Cierro el else if ($consulta)*/
 }/*Cierro el if isset $_SESSION*/

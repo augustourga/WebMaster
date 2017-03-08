@@ -9,7 +9,7 @@ include("connections.php");
 
 
 if (!isset($_POST['user_name'])) {
-	header("Location: http://localhost/WebMaster/index.php#home");
+	header("Location: ../index.php#home");
 		
 	# code...
 }else{
@@ -39,7 +39,7 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 		if ($datos[2]==1) {
 	
 				//usuario bloqueado 
-		header("Location: http://localhost/WebMaster/index.php?estado=bloqueado#home");
+		header("Location: ../index.php?estado=bloqueado#home");
 					exit;			
 		}else{
 				//usuario válido
@@ -51,7 +51,7 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 		$_SESSION['conexion']= $conexion;
 	
 		echo "conectado usuario:" .$_SESSION['user_name'];
-		header("Location: http://localhost/WebMaster/index.php#home");
+		header("Location: ../index.php#home");
 		exit;
 }
 		
@@ -62,7 +62,7 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 			echo "usuario incorrecto";
 
 
-			header("Location: http://localhost/WebMaster/index.php?estado=error#home");
+			header("Location: ../index.php?estado=error#home");
 
 			exit;			
  			
@@ -76,7 +76,7 @@ exit;
 			echo "error en la consulta";
 	
 
-			header("Location: http://localhost/WebMaster/index.php#home");
+			header("Location: ../index.php#home");
 		
 exit;
 			} 
