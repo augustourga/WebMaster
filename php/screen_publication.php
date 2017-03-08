@@ -6,7 +6,7 @@ include("connections.php");
 
  if (!isset($_GET['id_publication'])) {
 
-      header("Location: http://localhost/WebMaster/index.php#home");
+      header("Location: ../index.php#home");
 
   }/*Cierro el if!isset*/
   else{
@@ -39,9 +39,12 @@ include("connections.php");
 
                     }/*Cierro el if $cant_reg_consulta>0*/else{
                       echo "no traje nada";
+                      header("Location: ../index.php#home");
+
                     }
                   }/*Cierro el if Consulta*/else{
                                     echo "fallo la consulta";
+                                    header("Location: ../index.php#home");
                   }
 
      }/*Cierro el else if!isset*/
@@ -102,7 +105,7 @@ include("connections.php");
                    <script type="text/javascript">
 
                      function redirect_unlogin(){
-                     window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                     window.location.href= 'unlogin.php';
                     }
 
                     var button_close_session = document.getElementById("button_close_session");
@@ -116,7 +119,7 @@ include("connections.php");
                 ?>
                    <script type="text/javascript">
                       window.alert("Se produjo un error al crear la publicación, por favor, intente de nuevo");
-                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+                      window.location.href= '../index.php#home';
 
 
                     </script>
@@ -144,7 +147,7 @@ include("connections.php");
             Acceder
           </button>
 
-            <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
+            <a href="screen_register.php">  Registrarse </a>
 
           </form>
               <?php
@@ -171,7 +174,22 @@ include("connections.php");
 
       <!-- ================== MAIN-CONTENT =============-->
 
-      <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2>
+      <!-- =============ADMINISTRAR PUBLICACION======== -->
+       <?php    if((isset($_SESSION['user_name']) && 
+                    ($_SESSION['user_name'] ==$publicacion[1] )) || (isset($_SESSION['user_type']) && ($_SESSION['user_type'] == 1 ))) {
+
+              ?>
+      <div class="panel_admin_publication">
+        
+          <a href="publication_delete.php?id_publication= <?php echo $publicacion[0]; ?>">Borrar </a><br>
+          <a href="publication_edit.php?id_publication= <?php echo $publicacion[0]; ?>">Editar </a><br>
+        
+      </div>
+        <?php }  ?>
+
+      <!-- ============= FIN ADMINISTRAR PUBLICACION=== -->
+
+      <h2 class="back"> <a href="../index.php#home"> < Volver al Home </a> </h2>
 
       <div class="publication-content">
         <div class="publication">
@@ -271,7 +289,7 @@ include("connections.php");
                           <div class="infoEvent">
                             <h2> <?php echo $publicacion[2];  ?> </h2>
                             <p> <?php echo $publicacion[4];  ?>.</p>
-                            <span><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
+                            <span><a href="screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
 
                           </div>
 
@@ -337,12 +355,12 @@ include("connections.php");
     <div class="footer">
 
       <ul>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Ayuda  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Legales  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Politica de Privacidad  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">© Copyright 2017  </a></li>
+        <li><a href="screen_footer.php">Contacto |</a></li>
+        <li><a href="screen_footer.php">Sobre Ante Merídiem  |</a></li>
+        <li><a href="screen_footer.php">Ayuda  |</a></li>
+        <li><a href="screen_footer.php">Legales  |</a></li>
+        <li><a href="screen_footer.php">Politica de Privacidad  |</a></li>
+        <li><a href="screen_footer.php">© Copyright 2017  </a></li>
       </ul>
 
     </div>

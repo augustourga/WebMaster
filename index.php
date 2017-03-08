@@ -3,6 +3,8 @@ session_start();
 
 
       include("php/connections.php");
+      include("php/interaction.php");
+
 
 
      /* $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
@@ -54,7 +56,9 @@ session_start();
 
   <body>
         <!--=============== INTRO =================-->
-
+      <?php
+      if (!isset($_SESSION["user_name"])) {
+      ?>
 
     <div class="intro">
       <video autoplay muted loop id="videoby">
@@ -66,6 +70,20 @@ session_start();
         <p id="introC">Agenda Nocturna</p>
 
     </div>
+    <?php
+    }else{
+      ?>
+        <style type="text/css">
+          .footer {
+            background-image: url( "img/backgrounds/audioSpectrum_gif.gif");
+            background-size: cover;
+            background-position: 80% 90%; 
+            opacity: 0.9;
+          }
+        </style> 
+      <?php
+      }  ?>
+
 
      <!--=============== MAIN CONTENT =================-->
 
@@ -99,7 +117,7 @@ session_start();
                   if($_GET["estado"]== "error"){ ?>
                     <script type="text/javascript">
                       window.alert("Los datos ingresados son incorrectos");
-                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+                      window.location.href= 'index.php#home';
 
 
                     </script>
@@ -111,7 +129,7 @@ session_start();
 
                     <script type="text/javascript">
                       window.alert("Usuario Bloqueado");
-                      window.location.href= 'http://localhost/WebMaster/index.php#home';
+                      window.location.href= 'index.php#home';
                     </script>
 
 
@@ -140,7 +158,7 @@ session_start();
                    <script type="text/javascript">
 
                       function redirect_unlogin(){
-                      window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                      window.location.href= 'php/unlogin.php';
                     }
 
                     var button_close_session = document.getElementById("button_close_session");
@@ -174,7 +192,7 @@ session_start();
             Acceder
           </button>
 
-              <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
+              <a href="php/screen_register.php">  Registrarse </a>
 
               <?php
               } /*cierra el else isset($_SESSION['user_name']) */
@@ -234,7 +252,7 @@ session_start();
                           /*   0                   1        2           3        4       5            6               7          8        9             10 */
                   ?>
 
-                          <li><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion_cartelera[0];  ?>"> <?php echo $publicacion_cartelera[2];  ?> -  <?php echo $publicacion_cartelera[6];  ?> </a></li>
+                          <li><a href="php/screen_publication.php?id_publication=<?php echo $publicacion_cartelera[0];  ?>"> <?php echo $publicacion_cartelera[2];  ?> -  <?php echo $publicacion_cartelera[6];  ?> </a></li>
 
              <?php
                       }/*<!-- Cierra el While  Publicaciones_cartelera-->*/
@@ -265,7 +283,7 @@ session_start();
                            <?php if(isset($_SESSION['user_name']))  {
 
                             ?>
-                            <a href="http://localhost/WebMaster/php/screen_add_event.php"> <img id="addEventImg" src="img/images/addButton.png" alt=""> </a>
+                            <a href="php/screen_add_event.php"> <img id="addEventImg" src="img/images/addButton.png" alt=""> </a>
 
 
                             <?php
@@ -302,11 +320,46 @@ session_start();
 
 
                 <div class="publicaciones-b"   >
-                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockI.jpg"><br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" ></p><br> 
+
+                <?php 
+                 if(isset($_SESSION['user_name']))  {
+                   
+                    if(im_interesting($publicacion[0] )){
+                    ?>
+                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=" ">
+                  <?php 
+                  /*onclick <?php desinterest_me($publicacion[0]); ?> */
+                }/*Cierra el ifim_interesting*/
+                    else{ 
+                    ?>
+                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="">
+                  
+                  <?php 
+                  /*onclick <?php interest_me($publicacion[0]); ?>*/
+                            } /*Cierra el elseim_interesting*/
+                    if(im_assistant($publicacion[0] )){  ?>
+                  <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=""></p><br> 
+                  <?php
+                  /*Onclick <?php desassistant_me($publicacion[0]); ?>"*/
+                   }/*Cierra el ifim_assistant*/
+                    else{
+                  ?>
+                    <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="" ></p><br> 
+                  <?php
+                  /*onclick <?php assistant_me($publicacion[0]);?>*/
+                        }
+                          } /*Cierra el ifisset*/
+                 else {
+                    ?>
+                    <p> Interesados: [<?php echo $publicacion[9];  ?>] 
+                  <br>Asistentes: [<?php echo $publicacion[10];  ?>] 
+                  <?php
+                    }/*Cierra el elseisset*/  ?>
+
                   <p id="d"> <?php echo $publicacion[3];  ?> </p><br>
                   <p id="l"> <?php echo $publicacion[5];  ?></p>
                   <p id="g"> <?php echo $publicacion[8];  ?> </p>
-                 <a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> mas informacion</a>
+                 <a href="php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> mas informacion</a>
                 </div>
 
               </div>
@@ -421,7 +474,7 @@ session_start();
                     <div class="infoEvent">
                       <h2> <?php echo $publicacion[2]; /*2*/ ?> </h2>
                       <p> <?php echo $publicacion[4];  ?>.</p>
-                      <span><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
+                      <span><a href="php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
 
                     </div>
 
@@ -483,12 +536,12 @@ session_start();
 
 
           <ul>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Ayuda  |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Legales  |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">Politica de Privacidad  |</a></li>
-						<li><a href="http://localhost/WebMaster/php/screen_footer.php">© Copyright 2017  </a></li>
+						<li><a href="php/screen_footer.php">Contacto |</a></li>
+						<li><a href="php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
+						<li><a href="php/screen_footer.php">Ayuda  |</a></li>
+						<li><a href="php/screen_footer.php">Legales  |</a></li>
+						<li><a href="php/screen_footer.php">Politica de Privacidad  |</a></li>
+						<li><a href="php/screen_footer.php">© Copyright 2017  </a></li>
 					</ul>
 
         </div>
