@@ -3,6 +3,8 @@ session_start();
 
 
       include("php/connections.php");
+      include("php/interaction.php");
+
 
 
      /* $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
@@ -302,7 +304,42 @@ session_start();
 
 
                 <div class="publicaciones-b"   >
-                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockI.jpg"><br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" ></p><br> 
+
+                <?php 
+                 if(isset($_SESSION['user_name']))  {
+                   
+                    if(im_interesting($publicacion[0] )){
+                    ?>
+                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=" ">
+                  <?php 
+                  /*onclick <?php desinterest_me($publicacion[0]); ?> */
+                }/*Cierra el ifim_interesting*/
+                    else{ 
+                    ?>
+                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="">
+                  
+                  <?php 
+                  /*onclick <?php interest_me($publicacion[0]); ?>*/
+                            } /*Cierra el elseim_interesting*/
+                    if(im_assistant($publicacion[0] )){  ?>
+                  <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=""></p><br> 
+                  <?php
+                  /*Onclick <?php desassistant_me($publicacion[0]); ?>"*/
+                   }/*Cierra el ifim_assistant*/
+                    else{
+                  ?>
+                    <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="" ></p><br> 
+                  <?php
+                  /*onclick <?php assistant_me($publicacion[0]);?>*/
+                        }
+                          } /*Cierra el ifisset*/
+                 else {
+                    ?>
+                    <p> Interesados: [<?php echo $publicacion[9];  ?>] 
+                  <br>Asistentes: [<?php echo $publicacion[10];  ?>] 
+                  <?php
+                    }/*Cierra el elseisset*/  ?>
+
                   <p id="d"> <?php echo $publicacion[3];  ?> </p><br>
                   <p id="l"> <?php echo $publicacion[5];  ?></p>
                   <p id="g"> <?php echo $publicacion[8];  ?> </p>
