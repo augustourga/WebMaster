@@ -39,9 +39,12 @@ include("connections.php");
 
                     }/*Cierro el if $cant_reg_consulta>0*/else{
                       echo "no traje nada";
+                      header("Location: ../index.php#home");
+
                     }
                   }/*Cierro el if Consulta*/else{
                                     echo "fallo la consulta";
+                                    header("Location: ../index.php#home");
                   }
 
      }/*Cierro el else if!isset*/
@@ -170,6 +173,21 @@ include("connections.php");
         </div>
 
       <!-- ================== MAIN-CONTENT =============-->
+
+      <!-- =============ADMINISTRAR PUBLICACION======== -->
+       <?php    if((isset($_SESSION['user_name']) && 
+                    ($_SESSION['user_name'] ==$publicacion[1] )) || (isset($_SESSION['user_type']) && ($_SESSION['user_type'] == 1 ))) {
+
+              ?>
+      <div class="panel_admin_publication">
+        
+          <a href="publication_delete.php?id_publication= <?php echo$_SESSION['user_name']; ?>">Borrar </a><br>
+          <a href="publication_edit.php?id_publication= <?php echo $publicacion[0]; ?>">Editar </a><br>
+        
+      </div>
+        <?php }  ?>
+
+      <!-- ============= FIN ADMINISTRAR PUBLICACION=== -->
 
       <h2 class="back"> <a href="../index.php#home"> < Volver al Home </a> </h2>
 
