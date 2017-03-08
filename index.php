@@ -56,7 +56,9 @@ session_start();
 
   <body>
         <!--=============== INTRO =================-->
-
+      <?php
+      if (!isset($_SESSION["user_name"])) {
+      ?>
 
     <div class="intro">
       <video autoplay muted loop id="videoby">
@@ -68,6 +70,20 @@ session_start();
         <p id="introC">Agenda Nocturna</p>
 
     </div>
+    <?php
+    }else{
+      ?>
+        <style type="text/css">
+          .footer {
+            background-image: url( "img/backgrounds/audioSpectrum_gif.gif");
+            background-size: cover;
+            background-position: 80% 90%; 
+            opacity: 0.9;
+          }
+        </style> 
+      <?php
+      }  ?>
+
 
      <!--=============== MAIN CONTENT =================-->
 
