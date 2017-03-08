@@ -10,9 +10,24 @@ include("connections.php");
 
   }/*Cierro el if!isset*/
   else{
-      $id_publication = $_GET['id_publication'];
-/*
-      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
+    $id_publication = $_GET['id_publication'];
+
+    $b ="SELECT publicaciones.user_name , publicaciones.image FROM publicaciones 
+         WHERE publicaciones.id_publication = '$id_publication'";
+
+    $consulta_b = mysqli_query($conexion,$b) or die (mysqli_error($conexion));
+
+    $publicacion = mysqli_fetch_row($consulta_b);
+
+    if((isset($_SESSION['user_name']) && 
+                    ($_SESSION['user_name'] ==$publicacion[0] )) || (isset($_SESSION['user_type']) && ($_SESSION['user_type'] == 1 ))) {
+      
+/*Tendriamos que ver como borrar la imagen*/
+      if ($publicacion[1] !== NULL) {
+         unlink("../$publicacion[1]");
+      }
+      
+      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
       $a=" DELETE FROM publicaciones WHERE id_publication= '$id_publication' ";
 
       /*Traeme*/
@@ -29,6 +44,7 @@ include("connections.php");
                      header("Location: ../index.php#home");
                                     echo "fallo la consulta";
                   }
+                  }/*Cierro el alto bardo*/
 
      }/*Cierro el else if!isset*/
  ?>

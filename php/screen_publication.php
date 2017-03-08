@@ -181,7 +181,7 @@ include("connections.php");
               ?>
       <div class="panel_admin_publication">
         
-          <a href="publication_delete.php?id_publication= <?php echo$_SESSION['user_name']; ?>">Borrar </a><br>
+          <a href="publication_delete.php?id_publication= <?php echo $publicacion[0]; ?>">Borrar </a><br>
           <a href="publication_edit.php?id_publication= <?php echo $publicacion[0]; ?>">Editar </a><br>
         
       </div>
