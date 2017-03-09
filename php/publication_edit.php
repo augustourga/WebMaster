@@ -198,31 +198,31 @@ include("connections.php");
 							Nombre del Evento:
 
 							<br>
-							<input type="text" name="title" maxlength="40"  value= "<? echo $publicacion[2];?>" required > 
+							<input type="text" name="title" maxlength="40"   required > 
 						</label>
 						<br>
 						<label>
 							Direccion:
 							<br>
-							<input type="text" name="address" maxlength="30" value="<? echo $publicacion[5];?>" required >
+							<input type="text" name="address" maxlength="30"  required >
 						</label>
 						<br>
 						<label>
 						Inicia:
 							<br>
-							<input class="date" type="datetime-local" name="date_initiation" id= "campofecha" value="<? echo $publicacion[6];?>" required>
+							<input class="date" type="datetime-local" name="date_initiation" id= "campofecha"  required>
 						</label>
 						<br>
 						<label>
 							Finaliza:
 							<br>
-							<input class="date" type="datetime-local" name ="date_end" id= "campofecha2" value="<? echo $publicacion[7];?>" required  >
+							<input class="date" type="datetime-local" name ="date_end" id= "campofecha2" required  >
 						</label>
 						<br>
 						<label>
 							Genero:
 
-							<select name="gender" value="<? echo $publicacion[8];?>">
+							<select name="gender" >
 								<option value="rock">Rock</option>
 								<option value="funk">Funk</option>
 								<option value="soul">Soul</option>
@@ -236,7 +236,7 @@ include("connections.php");
 						<label class="upImage"  >
 							Imagen:
 
-							<input type="file" name="image" value="<? echo $publicacion[11];?>">
+							<input type="file" name="image" >
 						</label>
            
              
@@ -253,13 +253,13 @@ include("connections.php");
 						<label>
 							Informacion:
 							<br>
-							<textarea form="crearEvento" rows="3" cols="50"  maxlength="60" placeholder="Información breve acerca del evento..." name= "text" value="<? echo $publicacion[4];?>"></textarea>
+							<textarea form="crearEvento" rows="3" cols="50"  maxlength="60" placeholder="Información breve acerca del evento..." name= "text" ></textarea>
 						</label>
 						<br>
 						<label>
 							Descripcion:
 							<br>
-							<textarea form="crearEvento" rows="6" cols="50"  placeholder="Información más amplia acerca del evento..." name="description"  value="<? echo $publicacion[3];?>" required></textarea>
+							<textarea form="crearEvento" rows="6" cols="50"  placeholder="Información más amplia acerca del evento..." name="description"  required></textarea>
 						</label>
 
 					<br>
