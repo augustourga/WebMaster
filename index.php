@@ -67,7 +67,7 @@ session_start();
       </video>
         <h1 id="introA">Meridiem</h1>
         <h1 id="introB">Ante</h1>
-        <p id="introC">Agenda Nocturna</p>
+        <p id="introC"> <a href="index.php#home">Agenda Nocturna</a></p>
 
     </div>
     <?php

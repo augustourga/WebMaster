@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 08-03-2017 a las 23:12:52
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Host: localhost
+-- Generation Time: Mar 08, 2017 at 08:59 PM
+-- Server version: 5.7.17-0ubuntu0.16.04.1
+-- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `agenda_online`
+-- Database: `agenda_online`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `assistants`
+-- Table structure for table `assistants`
 --
 
 CREATE TABLE `assistants` (
@@ -33,7 +33,7 @@ CREATE TABLE `assistants` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `assistants`
+-- Dumping data for table `assistants`
 --
 
 INSERT INTO `assistants` (`id_assistants`, `id_publication`, `user_name`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `assistants` (`id_assistants`, `id_publication`, `user_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `interested`
+-- Table structure for table `interested`
 --
 
 CREATE TABLE `interested` (
@@ -59,7 +59,7 @@ CREATE TABLE `interested` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabla de interesados en un evento';
 
 --
--- Volcado de datos para la tabla `interested`
+-- Dumping data for table `interested`
 --
 
 INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `publicaciones`
+-- Table structure for table `publicaciones`
 --
 
 CREATE TABLE `publicaciones` (
@@ -85,7 +85,7 @@ CREATE TABLE `publicaciones` (
   `id_publication` int(10) NOT NULL,
   `address` varchar(250) NOT NULL,
   `title` varchar(60) NOT NULL,
-  `date_emit` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_emit` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `date_initiation` datetime NOT NULL,
   `date_end` datetime NOT NULL,
   `gender` varchar(40) NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE `publicaciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `publicaciones`
+-- Dumping data for table `publicaciones`
 --
 
 INSERT INTO `publicaciones` (`description`, `text`, `user_name`, `id_publication`, `address`, `title`, `date_emit`, `date_initiation`, `date_end`, `gender`, `image`) VALUES
@@ -103,12 +103,12 @@ INSERT INTO `publicaciones` (`description`, `text`, `user_name`, `id_publication
 ('andarine Park & Tent\r\nAvenida Costanera y Sarmiento, 1087 Buenos Aires', 'EARLY TICKETS A $800\r\nMESAS VIP DISPONIBLES\r\n\r\nConsultas\r\nEventos Masivos Electronica\r\n15.6378.7988', 'malvado', 9, 'Parque lacunario Alejandro Martija', 'Armin van Buuren | La Martija', '2017-03-06 16:29:42', '2017-05-19 12:00:00', '2017-05-20 23:00:00', 'Electronica', 'img/images/events_img/armin.jpg'),
 ('Se presenta John Digwed Lorem Ipsum ', 'JOHN DIGWEED en Cementerio Chivilcoy\r\nProximamente info de mesas y tickets\r\n', 'malvado', 10, 'Cementerio Chivilcoy', 'John Digweed | Cementerio', '2017-03-06 16:31:46', '2017-03-24 00:00:00', '2017-03-24 15:00:00', '', 'img/images/events_img/digweed.jpg'),
 ('Bizarrem Fest', 'La banda chivilcoyana que revoluciona el Hard-Pop-Punk-Funk-Soul-Jazz Mostrando su bizarrez plena, en una muestra en vivo donde prometen rosear de whiskey a un cura a eleccion  y prenderlo fuego.', 'augusto', 11, 'Piluso', 'Sobredosis de Cafe', '2017-03-06 16:34:37', '2017-04-07 14:00:00', '2017-04-22 00:00:00', 'Hard-Pop-Punk-Funk-Soul-Jazz', 'img/images/events_img/bizarrem.jpg'),
-('Prueba de fotico', 'Estamos probando la foto, funcionara? mmmm...', 'augusto', 20, 'Prueba', 'Prueba de foto', '2017-03-07 11:14:43', '2017-03-12 01:00:00', '2017-01-01 01:00:00', 'rock', 'img/images/events_img/15109460_1810057645944163_8310896684256802636_n.jpg'),
+('asdnakn', '', 'augusto', 20, 'aknsdk', 'sdnakn', '2017-03-07 11:14:43', '2017-03-31 23:00:00', '2017-03-17 19:50:00', 'rock', ''),
 ('sadasdas', '', 'ruben', 36, '<? echo $publicacion[5];?>', '<? echo $publicacion[2];?>', '2017-03-16 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'rock', ''),
-('asdas', '', 'augusto', 37, '<? echo $publicacion[5];?>', 'augusto', '2017-03-08 18:58:15', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'rock', '');
+('jansjnd', 'jsdnaj', 'augusto', 37, 'Bartolo', 'tomasito y los brum brum', '2017-03-08 20:20:32', '2017-03-08 22:00:00', '2017-03-08 22:00:00', 'rock', 'img/images/events_img/logoblack.jpeg');
 
 --
--- Disparadores `publicaciones`
+-- Triggers `publicaciones`
 --
 DELIMITER $$
 CREATE TRIGGER `Borrar asistentes` BEFORE DELETE ON `publicaciones` FOR EACH ROW DELETE FROM assistants WHERE assistants.id_publication =  old.id_publication
@@ -122,7 +122,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -139,7 +139,7 @@ CREATE TABLE `usuarios` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios_filtrados`
+-- Table structure for table `usuarios_filtrados`
 --
 
 CREATE TABLE `usuarios_filtrados` (
@@ -156,7 +156,7 @@ CREATE TABLE `usuarios_filtrados` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='tabla de usuarios filtrados';
 
 --
--- Volcado de datos para la tabla `usuarios_filtrados`
+-- Dumping data for table `usuarios_filtrados`
 --
 
 INSERT INTO `usuarios_filtrados` (`user_name`, `name`, `last_name`, `state`, `type`, `mail`, `image_profile`, `description`, `usuario_date_emit`, `password`) VALUES
@@ -168,7 +168,7 @@ INSERT INTO `usuarios_filtrados` (`user_name`, `name`, `last_name`, `state`, `ty
 ('tomas', 'tomas', 'ponzone', b'0', b'1', 'tomas@ponzone.com', NULL, NULL, '2017-03-08 18:56:38', 'caf1a3dfb505ffed0d024130f58c5cfa');
 
 --
--- Disparadores `usuarios_filtrados`
+-- Triggers `usuarios_filtrados`
 --
 DELIMITER $$
 CREATE TRIGGER `Validar usuario` AFTER INSERT ON `usuarios_filtrados` FOR EACH ROW DELETE  FROM  usuarios WHERE usuarios.user_name=new.user_name
@@ -176,39 +176,39 @@ $$
 DELIMITER ;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `assistants`
+-- Indexes for table `assistants`
 --
 ALTER TABLE `assistants`
   ADD PRIMARY KEY (`id_assistants`),
   ADD UNIQUE KEY `id_assistants` (`id_assistants`);
 
 --
--- Indices de la tabla `interested`
+-- Indexes for table `interested`
 --
 ALTER TABLE `interested`
   ADD PRIMARY KEY (`id_interested`),
   ADD UNIQUE KEY `id_interested` (`id_interested`);
 
 --
--- Indices de la tabla `publicaciones`
+-- Indexes for table `publicaciones`
 --
 ALTER TABLE `publicaciones`
   ADD PRIMARY KEY (`id_publication`),
   ADD UNIQUE KEY `id_publication` (`id_publication`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`user_name`),
   ADD UNIQUE KEY `user_name` (`user_name`);
 
 --
--- Indices de la tabla `usuarios_filtrados`
+-- Indexes for table `usuarios_filtrados`
 --
 ALTER TABLE `usuarios_filtrados`
   ADD PRIMARY KEY (`user_name`),
@@ -216,21 +216,21 @@ ALTER TABLE `usuarios_filtrados`
   ADD UNIQUE KEY `mail` (`mail`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `assistants`
+-- AUTO_INCREMENT for table `assistants`
 --
 ALTER TABLE `assistants`
   MODIFY `id_assistants` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT de la tabla `interested`
+-- AUTO_INCREMENT for table `interested`
 --
 ALTER TABLE `interested`
   MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT de la tabla `publicaciones`
+-- AUTO_INCREMENT for table `publicaciones`
 --
 ALTER TABLE `publicaciones`
   MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
