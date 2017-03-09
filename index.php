@@ -117,7 +117,7 @@ session_start();
                   if($_GET["estado"]== "error"){ ?>
                     <script type="text/javascript">
                       window.alert("Los datos ingresados son incorrectos");
-                      window.location.href= 'index.php#home';
+                      window.location.href= 'index.php?ocultar=true#home';
 
 
                     </script>
@@ -129,7 +129,7 @@ session_start();
 
                     <script type="text/javascript">
                       window.alert("Usuario Bloqueado");
-                      window.location.href= 'index.php#home';
+                      window.location.href= 'index.php?ocultar=true#home';
                     </script>
 
 

@@ -39,7 +39,7 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 		if ($datos[2]==1) {
 	
 				//usuario bloqueado 
-		header("Location: ../index.php?estado=bloqueado#home");
+		header("Location: ../index.php?ocultar=true&estado=bloqueado#home");
 					exit;			
 		}else{
 				//usuario válido
@@ -62,7 +62,7 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 			echo "usuario incorrecto";
 
 
-			header("Location: ../index.php?estado=error#home");
+			header("Location: ../index.php?ocultar=true&estado=error#home");
 
 			exit;			
  			
