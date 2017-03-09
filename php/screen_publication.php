@@ -297,7 +297,7 @@ include("connections.php");
                           <div class="infoEvent">
                             <h2> <?php echo $publicacion[2]; /*2*/ ?> </h2>
                             <p> <?php echo $publicacion[4];  ?>.</p>
-                            <span><a href="php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
+                            <span><a href="screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
 
                           </div>
                         </div>
