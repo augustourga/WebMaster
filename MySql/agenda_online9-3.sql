@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 08, 2017 at 08:59 PM
--- Server version: 5.7.17-0ubuntu0.16.04.1
--- PHP Version: 7.0.15-0ubuntu0.16.04.4
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 09-03-2017 a las 17:51:30
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `agenda_online`
+-- Base de datos: `agenda_online`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assistants`
+-- Estructura de tabla para la tabla `assistants`
 --
 
 CREATE TABLE `assistants` (
@@ -33,7 +33,7 @@ CREATE TABLE `assistants` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `assistants`
+-- Volcado de datos para la tabla `assistants`
 --
 
 INSERT INTO `assistants` (`id_assistants`, `id_publication`, `user_name`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `assistants` (`id_assistants`, `id_publication`, `user_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `interested`
+-- Estructura de tabla para la tabla `interested`
 --
 
 CREATE TABLE `interested` (
@@ -59,7 +59,7 @@ CREATE TABLE `interested` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabla de interesados en un evento';
 
 --
--- Dumping data for table `interested`
+-- Volcado de datos para la tabla `interested`
 --
 
 INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `publicaciones`
+-- Estructura de tabla para la tabla `publicaciones`
 --
 
 CREATE TABLE `publicaciones` (
@@ -93,7 +93,7 @@ CREATE TABLE `publicaciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `publicaciones`
+-- Volcado de datos para la tabla `publicaciones`
 --
 
 INSERT INTO `publicaciones` (`description`, `text`, `user_name`, `id_publication`, `address`, `title`, `date_emit`, `date_initiation`, `date_end`, `gender`, `image`) VALUES
@@ -108,7 +108,7 @@ INSERT INTO `publicaciones` (`description`, `text`, `user_name`, `id_publication
 ('jansjnd', 'jsdnaj', 'augusto', 37, 'Bartolo', 'tomasito y los brum brum', '2017-03-08 20:20:32', '2017-03-08 22:00:00', '2017-03-08 22:00:00', 'rock', 'img/images/events_img/logoblack.jpeg');
 
 --
--- Triggers `publicaciones`
+-- Disparadores `publicaciones`
 --
 DELIMITER $$
 CREATE TRIGGER `Borrar asistentes` BEFORE DELETE ON `publicaciones` FOR EACH ROW DELETE FROM assistants WHERE assistants.id_publication =  old.id_publication
@@ -122,7 +122,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -139,7 +139,7 @@ CREATE TABLE `usuarios` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios_filtrados`
+-- Estructura de tabla para la tabla `usuarios_filtrados`
 --
 
 CREATE TABLE `usuarios_filtrados` (
@@ -156,59 +156,63 @@ CREATE TABLE `usuarios_filtrados` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='tabla de usuarios filtrados';
 
 --
--- Dumping data for table `usuarios_filtrados`
+-- Volcado de datos para la tabla `usuarios_filtrados`
 --
 
 INSERT INTO `usuarios_filtrados` (`user_name`, `name`, `last_name`, `state`, `type`, `mail`, `image_profile`, `description`, `usuario_date_emit`, `password`) VALUES
 ('augusto', 'augusto', 'urga', b'0', b'1', 'augusto@urga.com', NULL, NULL, '2017-03-08 18:54:37', 'caf1a3dfb505ffed0d024130f58c5cfa'),
-('bloqueado', 'nestor', 'bloqueqdo', b'1', b'0', 'nestor@bloqueado.com', NULL, NULL, '2017-03-03 14:18:47', 'caf1a3dfb505ffed0d024130f58c5cfa'),
+('bloqueado', 'nestor', 'bloqueqdo', b'0', b'0', 'nestor@bloqueado.com', NULL, NULL, '2017-03-09 16:44:05', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('malvado', 'santiago', 'pitelli', b'0', b'0', 'santiago@pitelli.com', NULL, NULL, '2017-03-06 19:21:11', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('ruben', 'ruben', 'dario', b'0', b'0', 'ruben@dario.com', NULL, NULL, '2017-03-03 15:13:25', 'caf1a3dfb505ffed0d024130f58c5cfa'),
-('solitario', 'solitario', 'juan', b'0', b'0', 'solitario@juan.com', NULL, NULL, '2017-03-06 20:31:07', 'caf1a3dfb505ffed0d024130f58c5cfa'),
+('solitario', 'solitario', 'juan', b'0', b'0', 'solitario@juan.com', NULL, NULL, '2017-03-09 16:37:18', 'caf1a3dfb505ffed0d024130f58c5cfa'),
 ('tomas', 'tomas', 'ponzone', b'0', b'1', 'tomas@ponzone.com', NULL, NULL, '2017-03-08 18:56:38', 'caf1a3dfb505ffed0d024130f58c5cfa');
 
 --
--- Triggers `usuarios_filtrados`
+-- Disparadores `usuarios_filtrados`
 --
+DELIMITER $$
+CREATE TRIGGER `Borrar publicaciones del usuario` AFTER DELETE ON `usuarios_filtrados` FOR EACH ROW DELETE FROM publicaciones WHERE publicaciones.user_name =  old.user_name
+$$
+DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `Validar usuario` AFTER INSERT ON `usuarios_filtrados` FOR EACH ROW DELETE  FROM  usuarios WHERE usuarios.user_name=new.user_name
 $$
 DELIMITER ;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `assistants`
+-- Indices de la tabla `assistants`
 --
 ALTER TABLE `assistants`
   ADD PRIMARY KEY (`id_assistants`),
   ADD UNIQUE KEY `id_assistants` (`id_assistants`);
 
 --
--- Indexes for table `interested`
+-- Indices de la tabla `interested`
 --
 ALTER TABLE `interested`
   ADD PRIMARY KEY (`id_interested`),
   ADD UNIQUE KEY `id_interested` (`id_interested`);
 
 --
--- Indexes for table `publicaciones`
+-- Indices de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
   ADD PRIMARY KEY (`id_publication`),
   ADD UNIQUE KEY `id_publication` (`id_publication`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`user_name`),
   ADD UNIQUE KEY `user_name` (`user_name`);
 
 --
--- Indexes for table `usuarios_filtrados`
+-- Indices de la tabla `usuarios_filtrados`
 --
 ALTER TABLE `usuarios_filtrados`
   ADD PRIMARY KEY (`user_name`),
@@ -216,24 +220,24 @@ ALTER TABLE `usuarios_filtrados`
   ADD UNIQUE KEY `mail` (`mail`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `assistants`
+-- AUTO_INCREMENT de la tabla `assistants`
 --
 ALTER TABLE `assistants`
   MODIFY `id_assistants` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT for table `interested`
+-- AUTO_INCREMENT de la tabla `interested`
 --
 ALTER TABLE `interested`
   MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT for table `publicaciones`
+-- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

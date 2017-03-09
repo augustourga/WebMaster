@@ -34,7 +34,7 @@ include("connections.php");
 
 
       if($consulta){
-     /*    header("Location: ../index.php?ocultar=true#home");*/
+         header("Location: ../index.php?ocultar=true#home");
               echo $a;
               echo "ccago fuegooo";
                   
