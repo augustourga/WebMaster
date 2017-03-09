@@ -214,7 +214,8 @@ include("connections.php");
 
           <div class="publication-info">
             <h3>Invitacion:</h3>
-            <p> <a href=""> <?php echo $publicacion[1];?> </a></p>
+            <p> <a href="screen_user.php?user=<?php echo $publicacion[1];
+                         ?>"> <?php echo $publicacion[1];?> </a></p>
             <h3> Fecha: </h3>
             <p> Desde <?php echo $publicacion[6];?> <br> hasta <?php echo $publicacion[7];?> </p>
             <h3> Lugar: </h3>
