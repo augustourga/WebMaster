@@ -164,9 +164,20 @@ include("connections.php");
 
       <!-- ================== MAIN-CONTENT =============-->
 
+  
 
          <!-- =============ADMINISTRAR PUBLICACION======== -->
        <?php   
+       if (isset($_GET["estado"])&&$_GET["estado"] == "bloqueado" ) {
+          ?>
+                          <script type="text/javascript">
+                              window.alert("Usuario Bloqueado");
+                          </script>
+
+                                  <?php
+
+       }
+
                if ( (isset($_SESSION['user_type']) && ($_SESSION['user_type'] == 1 ))) {
                           ?>
 
