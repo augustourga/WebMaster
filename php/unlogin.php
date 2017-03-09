@@ -8,5 +8,5 @@ session_unset();
 
 session_destroy();
 
-header("Location: ../index.php#home");
+header("Location: ../index.php?ocultar=true#home");
 ?>

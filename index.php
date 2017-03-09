@@ -57,7 +57,7 @@ session_start();
   <body>
         <!--=============== INTRO =================-->
       <?php
-      if (!isset($_SESSION["user_name"])) {
+      if ((!isset($_SESSION["user_name"])&&(!isset($_GET['ocultar'])))) {
       ?>
 
     <div class="intro">
@@ -67,7 +67,7 @@ session_start();
       </video>
         <h1 id="introA">Meridiem</h1>
         <h1 id="introB">Ante</h1>
-        <p id="introC"> <a href="index.php#home">Agenda Nocturna</a></p>
+        <p id="introC"> <a href="index.php?ocultar=true#home">Agenda Nocturna</a></p>
 
     </div>
     <?php
