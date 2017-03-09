@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
  ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ session_start();
 
       <script >
         $(document).ready(function(){
-     
+
         $("#campofecha").datetimepicker({ minDate: 0 });
          $("#campofecha2").datetimepicker({ minDate: 0 });
         })
@@ -52,19 +52,19 @@ session_start();
 
         </div>
         <div class="header-login">
-     
+
        <?php    if(isset($_SESSION['user_name']))  {
 
               ?>
              <!-- Cerrar sesion</button> -->
                 <ul class="show_name">
-     
+
                     <li>
                       <a href=""><?php echo $_SESSION['user_name'];
                          ?>                   </a>
                     </li>
                     <input type="button" id="button_close_session" value="Cerrar Sesión">
-                   
+
                  </ul>
 
                    <script type="text/javascript">
@@ -81,7 +81,7 @@ session_start();
 
               <?php
                 if (isset($_GET['code'])&& $_GET['code']=='errorInsert') {
-                ?> 
+                ?>
                    <script type="text/javascript">
                       window.alert("Se produjo un error al crear la publicación, por favor, intente de nuevo");
                       window.location.href= '../index.php#home';
@@ -175,12 +175,12 @@ session_start();
 
 							<input type="file" name="image">
 						</label>
-           
-             
-					<label>
+
+
+					<label id="botonEnviarEvento">
 
           	<input id="enviarEvento" type="submit" value="Crear Evento">
-          </label> 
+          </label>
 					</form>
 				</div>
 				<div class="addEvent-right">
@@ -202,8 +202,8 @@ session_start();
 					<br>
 
 
-				</div> 
-				
+				</div>
+
 			</div>
 
 		</div>
@@ -212,7 +212,7 @@ session_start();
 			</div>
     <!-- ================== FOOTER ================-->
 
-    <div class="footer">  
+    <div class="footer">
 
       <ul>
         <li><a href="screen_footer.php">Contacto |</a></li>

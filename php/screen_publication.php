@@ -80,12 +80,14 @@ include("connections.php");
           <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
-        <div class="header-center">
+        <a href="http://localhost/WebMaster/index.php#home">
+          <div class="header-center">
 
-          <h2>Ante Meridiem</h2>
-          <p> La agenda nocturna de Chivilcoy</p>
+            <h2>Ante Meridiem</h2>
+            <p> La agenda nocturna de Chivilcoy</p>
 
-        </div>
+          </div>
+        </a>
         <div class="header-login">
 
          <?php    if(isset($_SESSION['user_name']))  {
@@ -175,15 +177,15 @@ include("connections.php");
       <!-- ================== MAIN-CONTENT =============-->
 
       <!-- =============ADMINISTRAR PUBLICACION======== -->
-       <?php    if((isset($_SESSION['user_name']) && 
+       <?php    if((isset($_SESSION['user_name']) &&
                     ($_SESSION['user_name'] ==$publicacion[1] )) || (isset($_SESSION['user_type']) && ($_SESSION['user_type'] == 1 ))) {
 
               ?>
       <div class="panel_admin_publication">
-        
-          <a href="publication_delete.php?id_publication= <?php echo $publicacion[0]; ?>">Borrar </a><br>
-          <a href="publication_edit.php?id_publication= <?php echo $publicacion[0]; ?>">Editar </a><br>
-        
+
+          <a href="publication_delete.php?id_publication= <?php echo $publicacion[0]; ?>">Borrar </a>
+          <a href="publication_edit.php?id_publication= <?php echo $publicacion[0]; ?>">Editar </a>
+
       </div>
         <?php }  ?>
 
@@ -197,32 +199,37 @@ include("connections.php");
             <img src="../<?php echo $publicacion[11];  ?>" alt="imagen del evento">
           </div>
 
-          <h2> <?php echo $publicacion[2];  ?></h2>
-          <ul>
-            <li> Interesados : [<?php echo $publicacion[9];  ?>]</li>
-            <li> Asistentes  :[<?php echo $publicacion[10];  ?>]</li>
-          </ul>
+          <div class="publication-title">
+            <h2> <?php echo $publicacion[2];  ?> </h2>
+          </div>
 
-          <h3> Lugar: <?php echo $publicacion[5];?> </h3>
-          <span> Invita: </span>
-          <!-- Deberiamos redireccionar a la pagina del usuario -->
-          <span><a href=""> <?php echo $publicacion[1];?> </a></span>
+          <div class="publication-interactions">
+            <ul>
+              <li>Asistentes: [<?php echo $publicacion[10];  ?>]</li>
+              <li>Interesados: [<?php echo $publicacion[9]?>]</li>
+              <li></li>
+            </ul>
+          </div>
 
-          <div class="info-publication">
-            <h4> <?php echo $publicacion[6];?> </h3>
-            <h4> <?php echo $publicacion[7];?> </h3>
-              <div class="description">
-                <h3> Descripcion </h3>
+          <div class="publication-info">
+            <h3>Invitacion:</h3>
+            <p> <a href=""> <?php echo $publicacion[1];?> </a></p>
+            <h3> Fecha: </h3>
+            <p> Desde <?php echo $publicacion[6];?> <br> hasta <?php echo $publicacion[7];?> </p>
+            <h3> Lugar: </h3>
+            <p> <?php echo $publicacion[5];?> </p>
 
-                <p>
-                    <?php echo $publicacion[3];?>
-                 </p>
+          </div>
 
+          <div class="publication-description">
+            <h3>Descripcion: </h3>
+            <p>
+              <?php echo $publicacion[3];?>
+            </p>
+          </div>
 
-              </div>
-
-              <p style="color:white; position:relative; top:13vh; left:30vw; font-size:3em;"># <?php echo $publicacion[8]; ?></p>
-
+          <div class="publication-gender">
+            <h2> # <?php echo $publicacion[8]; ?> </h2>
           </div>
 
         </div>
@@ -282,17 +289,16 @@ include("connections.php");
 
                         <div id="box1">
                           <div class="MyEventsImg">
-                              <img src="../<?php echo $publicacion[11];  ?>">
-                              <p> <?php echo $publicacion[6];  ?> </p>
+                              <img class="img-myEvents" src="../<?php echo $publicacion[11];/*6*/  ?> ">
+                              <p> <?php echo $publicacion[6];/*6*/  ?> </p>
                           </div>
 
                           <div class="infoEvent">
-                            <h2> <?php echo $publicacion[2];  ?> </h2>
+                            <h2> <?php echo $publicacion[2]; /*2*/ ?> </h2>
                             <p> <?php echo $publicacion[4];  ?>.</p>
-                            <span><a href="screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
+                            <span><a href="php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
 
                           </div>
-
                         </div>
 
 

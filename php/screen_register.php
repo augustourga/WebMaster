@@ -28,12 +28,14 @@
           <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
-        <div class="header-center">
+        <a href="http://localhost/WebMaster/index.php#home">
+          <div class="header-center">
 
-          <h2>Ante Meridiem</h2>
-          <p> La agenda nocturna de Chivilcoy</p>
+            <h2>Ante Meridiem</h2>
+            <p> La agenda nocturna de Chivilcoy</p>
 
-        </div>
+          </div>
+        </a>
         <div class="header-login">
 
         <!--  <img src="../img/images/icon-user.png" alt="User">
@@ -86,7 +88,7 @@
                           </script>
 
                                   <?php
-                    
+
                         break;
                         case 'ok': //redireccionar a la pantalla para ingresar codigo de validación
                                 if (!isset($_GET['codigo_validacion'])) {
@@ -106,10 +108,10 @@
                                      ?>
                                    <script type="text/javascript">
                                     window.alert("Codigo de validación incorrecto");
-                      
 
-                                  </script> 
-                                     <?php 
+
+                                  </script>
+                                     <?php
                               break;
 
                              case 'true':
@@ -130,13 +132,13 @@
                                   </script>
 
                                  <?php
-                             
+
                               break;
                           }
-                             
 
-                    
-                        
+
+
+
 
                       }/*Cierro el if de isset($_GET["codigo_validacion" */
                           ?>
@@ -147,9 +149,9 @@
                           <input type="text" placeholder="" name="validation_code" required>
                         </label>
                         <div class="buttons">
-                
+
                           <button type="submit" id="confirmar">Confirmar </button>
-              
+
                         </div>
                     <?php
                         break;
@@ -172,7 +174,7 @@
 
                         break;
                       }
-                      
+
                   }//cierre del if isset formulario estado
                 else{
                   ?>

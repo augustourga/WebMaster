@@ -95,7 +95,7 @@ video#videoby {
 .header {
   width: 100%;
   min-height: 84px;
-  height: 27vh;
+  height: 12vh;
   background-color: black;
   color: white;
   border-bottom: 0.2px solid white;
@@ -109,7 +109,7 @@ video#videoby {
 }
 
 .header-logo img{
-  width: 40%;
+  width: 30%;
   max-width: 282px;
   margin-left: 5vw;
 
@@ -121,8 +121,8 @@ video#videoby {
   float: left;
   text-align: center;
   padding-left: 2vw;
-  padding-top: 3vh;
-  line-height: 4vh;
+  padding-top: 2vh;
+  line-height: 2vh;
 }
 
 .header-login {
@@ -132,7 +132,7 @@ video#videoby {
 }
 
 .header-login img {
-  width: 10%;
+  width: 15%;
   max-width: 50px;
   display: inline-block;
 
@@ -140,13 +140,13 @@ video#videoby {
 
 .header-center h2 {
   font-family: 'Six Caps', sans-serif;
-  font-size: 3.5em;
+  font-size: 2.5em;
   color: white;
-  letter-spacing: 23px;
+  letter-spacing: 15px;
 }
 
 .header-center p{
-  font-size: 2.5em;
+  font-size: 1.5em;
   position: relative;
   top: 4vh;
 }
@@ -157,18 +157,49 @@ video#videoby {
   margin-left: 2em;
 }
 
-.header-login input {
+.header-login form button{
   display: inline-block;
-  width: 10vw;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+    padding: 4px 5px;
+    text-align: center;
+    background-color: rgba(31, 76, 109, 0.75);
+    color: white;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-weight: bolder;
 }
 
-.header-login button{
+#button_close_session {
   display: inline-block;
-  margin-top: 1vh;
-  margin-left: 0.5vw;
-  padding: 4px 5px;
-  text-align: center;
+width: 10vw;
+font-family: 'Six Caps', sans-serif;
+background-color: rgba(206, 23, 23, 0.63);
+color: white;
+letter-spacing: 3px;
+top: 3vh;
+position: relative;
 }
+
+.header-login input:hover{
+  cursor: pointer;
+}
+
+.show_name li{
+  list-style-type: none;
+}
+
+.show_name a{
+  padding: 1vh 1vw;
+  position: relative;
+  top: 1.5vh;
+  background-color: white;
+  color: black;
+  left: 2vw;
+  font-weight: bolder;
+  letter-spacing: 4px;
+}
+
 
 .header-login button:hover {
   cursor: pointer;
@@ -324,7 +355,7 @@ p.home-text {
     background-image: url(../img/publicaciones/lights.jpg);
     background-position: center;
     background-size: cover;
-    top: 11vh;
+    top: 15vh;
     position: relative;
     margin-bottom: 25vh;
     border-radius: 5%;
@@ -342,55 +373,58 @@ left: 64vw;
 
 .publicaciones-content{
   width: 100%;
-  height: 55vh;
-  position: relative;
-  top: 2vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+    height: 55vh;
+    position: relative;
+    top: 2vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .publicaciones {
-	display: inline-block;
-	width: 400px;
-	height: 450px;
-	background-color: black;
-  margin: 46px 30px;
-  opacity: 0.9;
-  border-radius: 4%;
-  margin-left: 2vw;
-  z-index: 2;
-  position: relative;
+  display: inline-block;
+    width: 19vw;
+    height: 46vh;
+    background-color: black;
+    margin: 46px 30px;
+    opacity: 0.9;
+    border-radius: 4%;
+    margin-left: 2vw;
+    z-index: 2;
+    position: relative;
 
 }
 
 
 .title-publication{
-  width: 400px;
-  height: 50px;
+    width: 19vw;
+    height: 50px;
 }
+
 
 .publicaciones h2 {
   text-align: center;
-  padding: 10px 0px;
-  font-size: 1.8em;
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow: ellipsis;
+    padding: 10px 15px;
+    font-size: 2.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 }
 
 .img-content{
-  width: 300px;
-  height: 150px;
+  width: 19vw;
+height: 32vh;
+position: relative;
+top: 5vh;
 }
 
 .portada  {
-    max-width: 350px;
-    object-fit:scale-down;
-    width: 100%;
-    margin-left: 3vw;
-    border-radius: 2%;
-    display: inline-block;
+  max-width: 250px;
+  width: 100%;
+  margin-left: 3vw;
+  border-radius: 2%;
+  display: inline-block;
+  object-fit: contain;
 }
 
 .publicaciones span {
@@ -406,9 +440,11 @@ left: 64vw;
 
 .publicaciones p{
   color: white;
-  margin-left: 4.5vw;
-  display: inline-block;
-  padding: 5px 5px;
+margin-left: 4vw;
+display: inline-block;
+padding: 5px 5px;
+font-size: 2em;
+font-weight: bolder;
 }
 
 .publicaciones:hover .publicaciones-b{
@@ -417,52 +453,52 @@ left: 64vw;
 }
 
 .p-contenedor{
-  width: 400px;
-  height: 450px;
-  display: inline-block;
-  margin-right: 5vw;
-  position: relative;
-  margin-bottom: 10vh;
+  width: 19vw;
+    height: 51vh;
+    display: inline-block;
+    margin-right: 5vw;
+    position: relative;
+    margin-bottom: 10vh;
 
 }
 
 .publicaciones-b {
   display: inline-block;
-  position: absolute;
-	width: 400px;
-	height: 450px;
-	background-color: white;
-  opacity: 0;
-
-  border-radius: 4%;
-  top:1.2vh ;
-  left: 0.5vw;
+position: absolute;
+width: 18vw;
+height: 44vh;
+background-color: white;
+opacity: 0;
+border-radius: 4%;
+top: 1.2vh;
+left: 0.5vw;
 transition: opacity 2s ease-in-out;
 }
 
 .publicaciones-b p{
-  padding: 0;
-  margin:0;
-  font-size: 0.5em;
-  color: black;
-  margin-left: 1vw;
-
+  font-size: 1.5em;
+padding-bottom: 3vh;
+padding-top: 1vh;
+color: black;
 }
 
 .publicaciones-b a{
   color: black;
-  margin: 0;
-  padding: 0;
-  margin-left: -9vw;
-  font-size: 0.7em;
-  font-family: 'PT Mono', monospace;
+    margin: 0;
+    padding: 0;
+    margin-left: -9vw;
+    font-size: 1.1em;
+    font-family: 'PT Mono', monospace;
 }
 
 #d{
-  font-size: 0.8em;
-  width: 16vw;
-  height: 5vh;
-  padding-left: 0;
+  font-size: 1.1em;
+width: 16vw;
+left:-2vw;
+height: 15vh;
+padding-left: 0;
+color: black;
+position: relative;
 }
 
 #d::after{
@@ -470,21 +506,21 @@ transition: opacity 2s ease-in-out;
 }
 
 #l, #g{
-  max-width: 6vw;
-  width: auto;
-  font-size: 1em;
-  margin-left: 2vw;
-  background-color: black;
-  color: white;
-  border: 1px solid black;
-  padding: 2px 2px;
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow: ellipsis;
+  max-width: 7vw;
+width: auto;
+font-size: 2em;
+margin-left: 1vw;
+background-color: black;
+color: white;
+border: 1px solid black;
+padding: 4px 4px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
 }
 
 img.rockHand{
-  width:17%;
+  width:27%;
   border-radius:50%;
   display:inline-block;
   border: 1px solid darkgrey;
@@ -816,7 +852,7 @@ display: inline-block;
 .screen_publication .publication-content {
 
   width: 100vw;
-  height: 120vh;
+  height: 140vh;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   background-image: url("../img/backgrounds/mapachivilblack.png");
@@ -824,6 +860,32 @@ display: inline-block;
   background-size: cover;
 }
 
+.panel_admin_publication{
+  width: 20vw;
+  font-size: 1.5em;
+  position: relative;
+  left: 40vw;
+  top: 5vh;
+}
+
+.panel_admin_publication a {
+    display: inline-block;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    border: 1px solid rgba(15, 16, 16, 0.88);
+    background-color: rgba(20, 48, 68, 0.63);
+    border-radius: 9%;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition: all 1.5s ease-in-out;
+}
+
+.panel_admin_publication a:hover{
+  background-color: rgba(206, 23, 23, 0.63);
+}
 
 .publication-break {
   width: 100vw;
@@ -836,7 +898,7 @@ display: inline-block;
   display: inline-block;
   position: relative;
   width: 90vw;
-  height: 100vh;
+  height: 120vh;
   background-color: rgba(33, 37, 39, 0.78);
   margin-left: 10vh;
   top:10vh;
@@ -845,129 +907,167 @@ display: inline-block;
 
 .publication .publication-img{
   display: inline-block;
+  width: 30vw;
   z-index: 2;
   position: relative;
-  margin: 10vh 5vw;
+  float: left;
+  margin: ;
+  left: ;
+  padding: 5vh 5vw;
+
 
 }
 
 .publication-img img{
   display: inline-block;
-  width: 40%;
-  border: 3px solid darkgrey;
-  border-radius: 5%;
+  object-fit: contain;
+  height: 45vh;
+  width: 30vw;
+  border-radius: 2%;
+  border: 2px groove grey;
 }
 
-.publication h2{
+
+
+.publication-title{
   display: inline-block;
-  position: relative;
-  left: 28vw;
-  top: -38vh;
-  font-size: 5em;
-}
-
-.publication ul{
-  float: right;
-  top: -40vh;
-  color: white;
-  margin-right: 4vw;
-  position: relative;
-  display: inline-block;
-  list-style-type: none;
-}
-
-.publication li{
-  display: inline-block;
-}
-
-.publication h3{
-  float: right;
-  color: #b5b5b5;
-  top:  40vh;
-  z-index: 2;
-  left: 60vw;
-  font-family: 'Six Caps', sans-serif;
-  font-size: 2em;
-  letter-spacing: 2px;
-  position: absolute;
-}
-
-.info-publication h3{
   float: left;
-  top: 0;
-}
-
-.publication span{
+  width: 65%;
+  height: 20vh;
+  background-color: ;
   position: relative;
-  top: -20vh;
-  margin-left: -15vw;
-  font-family: 'Six Caps', sans-serif;
-  font-size: 2em;
-  color: #b5b5b5;
-  z-index: 3;
+  top: 15vh;
+  left: 2vw;
 }
 
-.publication a{
-  color: #b5b5b5;
+.publication-title h2{
+  font-size: 5em;
   position: relative;
-  top: 1vh;
-  margin-left: 17vw;
+  left:1vw;
+  text-align: center;
+  text-shadow: -10px 15px 20px black;
 }
 
-
-
-.info-publication{
+.publication-interactions{
   display: inline-block;
+  float: right;
+  width: 71%;
+  height: 5vh;
+
   position: relative;
-  width: 74vw;
-  height: 60vh;
-  background-color: rgb(10, 10, 10);
-  margin-left: 9vw;
-  top: -35vh;
+  top: -10vh;
+
+}
+
+.publication-interactions ul{
+  list-style-type: none;
+  width: 60vw;
+  float: left;
+  position: relative;
+  right:10vw;
+  top: 0.5vh;
+  padding: 1vh 0;
+
+
+}
+
+.publication-interactions li{
+  display: block;
+  float: right;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  color: white;
+  background-color:  rgba(0, 0, 0, 0.81);
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  transition: background-color 1.5s ease-in-out;
+}
+
+.publication-interactions li:hover{
+    background-color: rgba(20, 48, 68, 0.63) ;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+.publication-info{
+  display: inline-block;
+  float: left;
+  width: 25%;
+  height: 40vh;
+  background-color: rgba(0, 0, 0, 0.81);
+  position: relative;
+  left: 3vw;
+  top: -2vh;
   border-radius: 3%;
 }
 
-.info-publication h4{
-    display: inline-block;
-    position: relative;
-    margin-left: vw;
-    margin-right: 2vw;
-    float: right;
-    top: -5vh;
-    color:  white;
-    border-top-right-radius: 15%;
-    border-top-left-radius: 15%;
-    padding: 5px 5px;
-    background-color:rgb(10, 10, 10);
-
-}
-.description{
- width: 61vw;
- border-radius: 3%;
- padding: 20px 40px;
- height: 30vh;
-background-color: rgba(6, 6, 6, 0.92);
-position: relative;
-top: 14vh;
-left: 6vw;
-overflow: scroll;
- overflow-x: hidden;
-}
-
-.description p{
+.publication-info h3{
   color: white;
+  font-family: 'Six Caps', sans-serif;
+  letter-spacing: 2px;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 1.5vh 1vw;
+}
+
+.publication-info p{
+  color: white;
+  padding: 0vh 4vw;
+
+}
+
+.publication-description{
+  display: inline-block;
+  float: right;
+  width: 65%;
+  height: 45vh;
+  background-color: rgba(0, 0, 0, 0.81);
   position: relative;
-  top: 5vh;
-  font-weight: 200;
-  letter-spacing: 1px;
-  font-size: 0.9em;
-  font-family: 'PT Mono', monospace;
-
+  top: -10vh;
+  right: 2vw;
+  border-radius: 2%;
 }
 
-.description h3 {
-
+.publication-description h3{
+  color: white;
+  font-family: 'Six Caps', sans-serif;
+  letter-spacing: 2px;
+  padding: 2vh 2vw;
 }
+
+.publication-description p{
+  color: white;
+  padding:1vh 5vw;
+}
+
+.publication-gender{
+    display: inline-block;
+    clear: both;
+    width: 100%;
+    height: 15vh;
+    background-color: ;
+    position: relative;
+    top: -5vh;
+}
+
+.publication-gender h2 {
+    font-size: 3em;
+    display: inline-block;
+    width: 100%;
+    padding: 0vh 1vw;
+    left: 0vw;
+    top: -3vh;
+    position: relative;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.83);
+    color: black;
+    border-radius: 2%;
+    border-top: 5px dashed black;
+    border-bottom: 5px dashed black;
+    transition: all 3s ease-in-out;
+}
+
 
 .publication .myEvents {
     clear: both;
@@ -1114,9 +1214,22 @@ overflow: scroll;
     position:relative;
   }
 
+  #botonEnviarEvento {
+    position: relative;
+    top: -10vh;
+    left: 50vh;
+  }
+
   input#enviarEvento{
-    margin-left:35vw;
-    margin-top:2vh;
+    background-color: rgba(11, 19, 13, 0.67);
+    color: white;
+    padding: 1vh 1vw;
+    transition: background-color 1s ease-in-out;
+  }
+
+  input#enviarEvento:hover{
+    cursor: pointer;
+    background-color: rgba(6, 66, 21, 0.67);
   }
 
   .black {
@@ -1248,7 +1361,7 @@ overflow: scroll;
   }
 
   .header {
-    height: 15vh;
+    height: 17vh;
     font-size: 1em;
   }
 
@@ -1290,8 +1403,17 @@ overflow: scroll;
   #addEventImg{
     width: 6%;
   position: absolute;
-  top: -10vh;
+  top: -12vh;
   left: 66vw;
+
+  border-radius: 50%;
+  transition: all 1s ease-in-out;
+  }
+
+  #addEventImg:hover{
+    background-color: rgba(6, 66, 21, 0.67);
+    width: 7%;
+    box-shadow: -5px 0px 25px green;
   }
 
   .p-contenedor{
@@ -1310,6 +1432,74 @@ overflow: scroll;
       width: 18vw;
       height: 42vh;
 
+  }
+
+
+  .publicaciones-b {
+    display: inline-block;
+  position: absolute;
+  width: 18vw;
+  height: 44vh;
+  background-color: white;
+  opacity: 0;
+  border-radius: 4%;
+  top: 1.2vh;
+  left: 0.5vw;
+  transition: opacity 2s ease-in-out;
+  }
+
+  .publicaciones-b p{
+    padding: 0;
+    margin:0;
+    font-size: 0.5em;
+    color: black;
+    margin-left: 1vw;
+
+  }
+
+  .publicaciones-b a{
+    color: black;
+    margin: 0;
+    padding: 0;
+    margin-left: -9vw;
+    font-size: 0.7em;
+    font-family: 'PT Mono', monospace;
+  }
+
+  #d{
+    font-size: 0.8em;
+    width: 16vw;
+    height: 5vh;
+    padding-left: 0;
+  }
+
+  #d::after{
+    content: "...";
+  }
+
+  #l, #g{
+    max-width: 6vw;
+    width: auto;
+    font-size: 1em;
+    margin-left: 2vw;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    padding: 2px 2px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+  }
+
+  img.rockHand{
+    width:17%;
+    border-radius:50%;
+    display:inline-block;
+    border: 1px solid darkgrey;
+    top: 0.8vh;
+    left: 1.5vw;
+    position: relative;
+    cursor: pointer;
   }
 
   .title-publication{
@@ -1432,4 +1622,13 @@ overflow: scroll;
     width: 84%;
     height: 55vh;
   }
+
+/* ===================== SCREEN PUBLICATION ========================*/
+
+.panel_admin_publication{
+  top:7vh;
+  font-size: 0.8em;
+}
+
+
 } /* CIERRA MEDIA 1400PX */

@@ -77,10 +77,10 @@ session_start();
           .footer {
             background-image: url( "img/backgrounds/audioSpectrum_gif.gif");
             background-size: cover;
-            background-position: 80% 90%; 
+            background-position: 80% 90%;
             opacity: 0.9;
           }
-        </style> 
+        </style>
       <?php
       }  ?>
 
@@ -99,12 +99,14 @@ session_start();
           <img src="img/logo/logoblack.jpg" alt="Logo">
 
         </div>
-        <div class="header-center">
+        <a href="http://localhost/WebMaster/index.php#home">
+          <div class="header-center">
 
-          <h2>Ante Meridiem</h2>
-          <p> La agenda nocturna de Chivilcoy</p>
+            <h2>Ante Meridiem</h2>
+            <p> La agenda nocturna de Chivilcoy</p>
 
-        </div>
+          </div>
+        </a>
         <div class="header-login">
 
           <img src="img/images/icon-user.png" alt="User">
@@ -321,38 +323,38 @@ session_start();
 
                 <div class="publicaciones-b"   >
 
-                <?php 
+                <?php
                  if(isset($_SESSION['user_name']))  {
-                   
+
                     if(im_interesting($publicacion[0] )){
                     ?>
                   <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=" ">
-                  <?php 
+                  <?php
                   /*onclick <?php desinterest_me($publicacion[0]); ?> */
                 }/*Cierra el ifim_interesting*/
-                    else{ 
+                    else{
                     ?>
                   <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="">
-                  
-                  <?php 
+
+                  <?php
                   /*onclick <?php interest_me($publicacion[0]); ?>*/
                             } /*Cierra el elseim_interesting*/
                     if(im_assistant($publicacion[0] )){  ?>
-                  <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=""></p><br> 
+                  <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=""></p><br>
                   <?php
                   /*Onclick <?php desassistant_me($publicacion[0]); ?>"*/
                    }/*Cierra el ifim_assistant*/
                     else{
                   ?>
-                    <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="" ></p><br> 
+                    <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="" ></p><br>
                   <?php
                   /*onclick <?php assistant_me($publicacion[0]);?>*/
                         }
                           } /*Cierra el ifisset*/
                  else {
                     ?>
-                    <p> Interesados: [<?php echo $publicacion[9];  ?>] 
-                  <br>Asistentes: [<?php echo $publicacion[10];  ?>] 
+                    <p> Interesados: [<?php echo $publicacion[9];  ?>]
+                  <br>Asistentes: [<?php echo $publicacion[10];  ?>]
                   <?php
                     }/*Cierra el elseisset*/  ?>
 
