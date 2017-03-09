@@ -1,5 +1,49 @@
 <?php
-    
+  session_start();
+
+include("connections.php");
+
+
+ if (!isset($_GET['user'])) {
+
+      header("Location: ../index.php#home");
+
+  }/*Cierro el if!isset*/
+  else{
+      $user_profile = $_GET['user'];
+/*
+      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
+      $a=" SELECT usuarios_filtrados.user_name , usuarios_filtrados.name , usuarios_filtrados.last_name , usuarios_filtrados.mail, usuarios_filtrados.image_profile , usuarios_filtrados.description FROM usuarios_filtrados WHERE user_name = '$user_profile' ";
+
+      /*Traeme*/
+      $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
+
+
+      if($consulta){
+
+
+            $cant_reg_consulta= mysqli_num_rows($consulta);
+
+               if ($cant_reg_consulta>0) {
+
+                        $user_dates = mysqli_fetch_row($consulta);
+
+                          /* user_name , name , last_name , mail, image_profile , description */
+
+                          /*   0           1        2        3        4                   5           /
+                         
+
+                    /*Cierro el if $cant_reg_consulta>0*/}else{
+                      echo "no traje nada";
+                      header("Location: ../index.php?ocultar=true#home");
+
+                    }
+                  }/*Cierro el if Consulta*/else{
+                                    echo "fallo la consulta";
+                                    header("Location: ../index.php?ocultar=true#home");
+                  }
+
+     }/*Cierro el else if!isset*/
 
  ?>
 
@@ -58,7 +102,7 @@
                    <script type="text/javascript">
 
                      function redirect_unlogin(){
-                     window.location.href= 'http://localhost/WebMaster/php/unlogin.php';
+                     window.location.href= 'unlogin.php';
                     }
 
                     var button_close_session = document.getElementById("button_close_session");
@@ -90,7 +134,7 @@
             Acceder
           </button>
 
-            <a href="http://localhost/WebMaster/php/screen_register.php">  Registrarse </a>
+            <a href="screen_register.php">  Registrarse </a>
 
           </form>
               <?php
@@ -119,65 +163,59 @@
 
   <!--    <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2> -->
 
+  <!-- 
+                          /* user_name , name , last_name , mail, image_profile , description */
+
+                          /*   0           1        2        3        4                   5           /
+ -->
       <div class="user-content">
 
           <div class="user-profile">
 
             <div class="user-image">
-              <img src="../img/images/icon-user.png" alt="user image">
-            </div>
+
+            <?php if(isset($user_dates[4])) { 
+                      if ($user_dates[4]!== NULL && $user_dates[4]!== '' ) {
+                        ?>
+                          <img src="../<?php  echo $user_dates[0]; ?>" alt="user image">
+                       <?php
+                       }else { ?>
+
+                          <img src="../img/images/icon-user.png" alt="user image">
+           
+                       <?php }
+                        }else {
+                          ?>
+                           <img src="../img/images/icon-user.png" alt="user image">
+                          <?php             
+                                       } ?>
+           </div>
 
             <div class="user-header">
-              <h2> User_Name </h2>
+              <h2> <?php  echo $user_dates[0]; ?></h2>
               <h3> Description: </h3>
 
               <div class="user-description">
+             <p> <?php  echo $user_dates[0]; ?> </p>
 
               </div>
 
-            </div>
 
+            </div>
+ <!-- ================== USER CREATED EVENTS ==================== -->
+            <div>
+              <h2 >Eventos de <?php  echo $user_dates[0]; ?> </h2>
+            </div>
             <div class="user-information">
 
-            </div>
+                           
 
-          </div>
-
-
-
-      </div>
-
-
-      <div class="break-user">
-
-      </div>
-
-      <!-- ================== MY EVENTS ==================== -->
-
-
-
-                         <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
-                           <?php if(isset($_SESSION['user_name']))  {
-
-                          ?>
-
-              <div class="myEvents">
-
-                <div class="home-text">
-
-
-                  <h2 class="home-text">Mis Eventos</h2>
-
-
-
-
-                       <?php
-                       $usuario =$_SESSION['user_name'];
+                                    <?php
                          $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes, publicaciones.image FROM publicaciones AS publicaciones
-                                                LEFT OUTER JOIN assistants AS a USING(id_publication)
-                                                LEFT OUTER JOIN interested AS i USING(id_publication)
-                                               WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
-                                                GROUP BY id_publication";
+                            LEFT OUTER JOIN assistants AS a USING(id_publication)
+                            LEFT OUTER JOIN interested AS i USING(id_publication)
+                            WHERE publicaciones.user_name = '$user_profile' 
+                            GROUP BY id_publication";
 
             /*Traeme*/
             $consulta = mysqli_query($conexion,$consulta_mis_eventos) or die (mysqli_error($conexion));
@@ -187,7 +225,7 @@
 
                 if ($estado_mis_eventos>0) {
                   ?>
-                    </div><!-- Cierra Home-text -->
+                   
                       <div id="slideshow-container">
                       <div id="slideshow">
                       <?php
@@ -209,7 +247,7 @@
                           <div class="infoEvent">
                             <h2> <?php echo $publicacion[2];  ?> </h2>
                             <p> <?php echo $publicacion[4];  ?>.</p>
-                            <span><a href="http://localhost/WebMaster/php/screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
+                            <span><a href="screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
 
                           </div>
 
@@ -227,7 +265,7 @@
                    }/*Cierra el  if ($estado_publicacion)*/ else{
 
                     ?>
-                        <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
+                        
 
                     </div><!-- Cierra Home-text -->
 
@@ -259,11 +297,20 @@
                    ?>
 
 
-                    </div>
+                </div>
 
-                <?php
-                      }/*Cierra el  if(isset($_SESSION['user_name'])) */
-                 ?>
+
+
+      </div>
+
+
+      <div class="break-user">
+
+      </div>
+
+  
+
+      <!-- ================== FIN USER CREATED EVENTS ==================== -->
 
 
 
