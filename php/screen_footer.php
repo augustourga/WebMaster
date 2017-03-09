@@ -49,7 +49,8 @@ session_start();?>
                  <!-- Cerrar sesion</button> -->
                 <ul class="show_name">
                     <li>
-                      <a href=""><?php echo $_SESSION['user_name'];
+                      <a href="screen_user.php?user=<?php echo $_SESSION['user_name'];
+                         ?>"><?php echo $_SESSION['user_name'];
                          ?>                   </a>
                     </li>
                     <input type="button" id="button_close_session" value="Cerrar Sesión">

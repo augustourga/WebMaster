@@ -6,7 +6,7 @@ include("connections.php");
 
  if (!isset($_GET['id_publication'])) {
 
-      header("Location: ../index.php#home");
+      header("Location: ../index.php?ocultar=true#home");
 
   }/*Cierro el if!isset*/
   else{
@@ -27,7 +27,6 @@ include("connections.php");
          unlink("../$publicacion[1]");
       }
       
-      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");
       $a=" DELETE FROM publicaciones WHERE id_publication= '$id_publication' ";
 
       /*Traeme*/
@@ -35,13 +34,13 @@ include("connections.php");
 
 
       if($consulta){
-         header("Location: ../index.php#home");
+         header("Location: ../index.php?ocultar=true#home");
  echo "consulta exitosa";
                   
 
             
                   }/*Cierro el if Consulta*/else{
-                     header("Location: ../index.php#home");
+                     header("Location: ../index.php?ocultar=true#home");
                                     echo "fallo la consulta";
                   }
                   }/*Cierro el alto bardo*/

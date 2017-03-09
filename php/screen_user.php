@@ -92,7 +92,8 @@ include("connections.php");
                 <ul class="show_name">
 
                     <li>
-                      <a href=""><?php echo $_SESSION['user_name'];
+                      <a href="screen_user.php?user=<?php echo $_SESSION['user_name'];
+                         ?>"><?php echo $_SESSION['user_name'];
                          ?>                   </a>
                     </li>
                     <input type="button" id="button_close_session" value="Cerrar Sesión">
@@ -159,9 +160,46 @@ include("connections.php");
               </form>
         </div>
 
+     <h2 class="back"> <a href="http://localhost/WebMaster/index.php?ocultar=true#home"> < Volver al Home </a> </h2>s
+
       <!-- ================== MAIN-CONTENT =============-->
 
-  <!--    <h2 class="back"> <a href="http://localhost/WebMaster/index.php#home"> < Volver al Home </a> </h2> -->
+
+         <!-- =============ADMINISTRAR PUBLICACION======== -->
+       <?php   
+               if ( (isset($_SESSION['user_type']) && ($_SESSION['user_type'] == 1 ))) {
+                          ?>
+
+           <div class="panel_admin_publication">
+        
+             <a href="user_delete.php?user=<?php echo $user_dates[0]; ?>">Borrar </a><br>
+             <a href="user_edit.php?user=<?php echo $user_dates[0]; ?>">Editar </a><br>
+             <a href="user_bloquear.php?user=<?php echo $user_dates[0]; ?>">Bloquear</a><br>
+             <a href="screen_user_password.php?user=<?php echo $user_dates[0]; ?>">Cambiar contraseña</a><br>
+
+        
+          </div>    
+          <?php
+
+        }else {  if((isset($_SESSION['user_name']) && 
+                    ($_SESSION['user_name'] ==$user_dates[0] )) ) {
+
+              ?>
+           <div class="panel_user_publication">
+        
+              
+              <a href="user_edit.php?user=<?php echo $publicacion[0]; ?>">Editar </a><br>
+              <a href="screen_user_password.php?user=<?php echo $user_dates[0];?>">Cambiar contraseña</a><br>
+              <a href="user_delete.php?user=<?php echo $user_dates[0]; ?>">Borrar </a><br>
+        
+          </div>
+
+        <?php }
+        }  ?>
+
+      <!-- ============= FIN ADMINISTRAR PUBLICACION=== -->
+ 
+
 
   <!-- 
                           /* user_name , name , last_name , mail, image_profile , description */
