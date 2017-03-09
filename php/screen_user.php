@@ -13,7 +13,7 @@ include("connections.php");
       $user_profile = $_GET['user'];
 /*
       $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
-      $a=" SELECT usuarios_filtrados.user_name , usuarios_filtrados.name , usuarios_filtrados.last_name , usuarios_filtrados.mail, usuarios_filtrados.image_profile , usuarios_filtrados.description FROM usuarios_filtrados WHERE user_name = '$user_profile' ";
+      $a=" SELECT usuarios_filtrados.user_name , usuarios_filtrados.name , usuarios_filtrados.last_name , usuarios_filtrados.mail, usuarios_filtrados.image_profile , usuarios_filtrados.description, usuarios_filtrados.state FROM usuarios_filtrados WHERE user_name = '$user_profile' ";
 
       /*Traeme*/
       $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
@@ -28,9 +28,9 @@ include("connections.php");
 
                         $user_dates = mysqli_fetch_row($consulta);
 
-                          /* user_name , name , last_name , mail, image_profile , description */
+                          /* user_name , name , last_name , mail, image_profile , description, state */
 
-                          /*   0           1        2        3        4                   5           /
+                          /*   0           1        2        3        4                   5      6     /
                          
 
                     /*Cierro el if $cant_reg_consulta>0*/}else{
@@ -168,7 +168,7 @@ include("connections.php");
 
          <!-- =============ADMINISTRAR PUBLICACION======== -->
        <?php   
-       if (isset($_GET["estado"])&&$_GET["estado"] == "bloqueado" ) {
+       if ((isset($_GET["estado"])&&$_GET["estado"] == "bloqueado" )|| $user_dates[6] == 1 ) {
           ?>
                           <script type="text/javascript">
                               window.alert("Usuario Bloqueado");
@@ -185,7 +185,16 @@ include("connections.php");
         
              <a href="user_delete.php?user=<?php echo $user_dates[0]; ?>">Borrar </a><br>
              <a href="user_edit.php?user=<?php echo $user_dates[0]; ?>">Editar </a><br>
+             <?php if($user_dates[6] == 0  ){ ?>
              <a href="user_bloquear.php?user=<?php echo $user_dates[0]; ?>">Bloquear</a><br>
+
+             <?php }else {
+              ?>
+
+             <a href="user_desbloquear.php?user=<?php echo $user_dates[0]; ?>">Desloquear</a><br>
+              <?php
+             }
+             ?>
              <a href="screen_user_password.php?user=<?php echo $user_dates[0]; ?>">Cambiar contraseña</a><br>
 
         
@@ -213,9 +222,9 @@ include("connections.php");
 
 
   <!-- 
-                          /* user_name , name , last_name , mail, image_profile , description */
+                          /* user_name , name , last_name , mail, image_profile , description , state */
 
-                          /*   0           1        2        3        4                   5           /
+                          /*   0           1        2        3        4                   5       6    /
  -->
       <div class="user-content">
 

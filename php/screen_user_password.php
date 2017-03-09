@@ -159,6 +159,7 @@ include("connections.php");
                                   <?php
                     
                         break;
+                        
 
                         case 'ok': //redireccionar a la pantalla para ingresar codigo de validación
                                
