@@ -18,7 +18,7 @@ if( $new_password !== $new_password1 ){
 }
 else{
 
- $a ="SELECT  user_name FROM usuarios_filtrados WHERE  user_name='$user_password' AND password = '$new_password1'";
+ $a ="SELECT  user_name FROM usuarios_filtrados WHERE  user_name='$user_password' AND password = '$old_password'";
   
 $b =" UPDATE usuarios_filtrados
  SET   password = '$new_password1'
@@ -48,11 +48,8 @@ $consulta1 = mysqli_query($conexion, $a);
 					}
 				
 					
-				}/*Cierro el if ($cant_reg_consulta>0) */
-				else{	
-					echo "no traje nada";
-				}/*Cierro  else el if ($cant_reg_consulta>0)*/
-				else{
+				
+				}else{
 
 				header("Location: screen_user_password.php?user=$user_password&password_estado=oldpassword ");
 				}
