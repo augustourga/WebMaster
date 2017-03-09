@@ -1538,6 +1538,7 @@ display: inline-block;
   .img-content{
     width: 15vw;
     height: 21vh;
+    top: 0;
 
   }
 
