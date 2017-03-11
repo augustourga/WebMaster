@@ -219,6 +219,9 @@ include("functions.php");
 
           <div class="publication-interactions">
             <ul>
+            <?php 
+            if(isset($_SESSION['user_name'])){
+               ?>
             <?php if($es_asistente){ ?>
               <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imngoing">Asistentes: [<?php echo $publicacion[10];  ?>]</a> </li>
               <?php } else { ?>
@@ -231,6 +234,13 @@ include("functions.php");
               <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=iminsterested">Interesados: [<?php echo $publicacion[9]; ?>]</a></li>
               <?php }  ?>
               <li></li>
+
+              <?php } else{ ?>
+
+                  <li> Asistentes: [<?php echo $publicacion[10];  ?>]</li>
+                 <li> Interesados: [<?php echo $publicacion[9];  ?>]</li>
+
+              <?php }?>
             </ul>
           </div>
 
