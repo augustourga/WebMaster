@@ -31,6 +31,7 @@ session_start();?>
           <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
+        <a href="../index.php?ocultar=true#home">
         <div class="header-center">
 
           <h2>Ante Meridiem</h2>
@@ -112,7 +113,7 @@ session_start();?>
 
       <!-- ================== MAIN-CONTENT =============-->
 
-      <h2 class="back"> <a href="../index.php#home"> < Volver al Home </a> </h2>
+      <h2 class="back"> <a href="../index.php?ocultar=true#home"> < Volver al Home </a> </h2>
 
       <div class="footer-content">
 

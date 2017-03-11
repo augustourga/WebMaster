@@ -76,6 +76,7 @@ include("connections.php");
           <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
+             <a href="../index.php?ocultar=true#home">
         <div class="header-center">
 
           <h2>Ante Meridiem</h2>
