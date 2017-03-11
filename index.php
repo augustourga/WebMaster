@@ -357,7 +357,7 @@ session_start();
                  else {
                     ?>
                     <p> Interesados: [<?php echo $publicacion[9];  ?>]</p>
-                  <br>Asistentes: [<?php echo $publicacion[10];  ?>]</p>
+                  <br><p>Asistentes: [<?php echo $publicacion[10];  ?>]</p>
                   <?php
                     }/*Cierra el elseisset*/  ?>
 
