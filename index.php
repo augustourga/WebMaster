@@ -3,7 +3,9 @@ session_start();
 
 
       include("php/connections.php");
-      include("php/interaction.php");
+
+      include("php/functions.php");
+
 
 
 
@@ -99,7 +101,7 @@ session_start();
           <img src="img/logo/logoblack.jpg" alt="Logo">
 
         </div>
-        <a href="http://localhost/WebMaster/index.php#home">
+        
           <div class="header-center">
 
             <h2>Ante Meridiem</h2>
@@ -326,35 +328,36 @@ session_start();
                 <?php
                  if(isset($_SESSION['user_name']))  {
 
-                    if(im_interesting($publicacion[0] )){
+
+                    if(are_u_interested($_SESSION['user_name'], $publicacion[0])){
                     ?>
-                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=" ">
+                   <p > Interesados: [<?php echo $publicacion[9];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imninterested"><img class="rockHand" src="img/images/handRockIII.jpg" ></a>
                   <?php
                   /*onclick <?php desinterest_me($publicacion[0]); ?> */
                 }/*Cierra el ifim_interesting*/
                     else{
                     ?>
-                  <p> Interesados: [<?php echo $publicacion[9];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="">
+                  <p > Interesados: [<?php echo $publicacion[9];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=iminterested"><img class="rockHand" src="img/images/handRockI.jpg" ></a>
 
                   <?php
                   /*onclick <?php interest_me($publicacion[0]); ?>*/
                             } /*Cierra el elseim_interesting*/
-                    if(im_assistant($publicacion[0] )){  ?>
-                  <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockIII.jpg" onclick=""></p><br>
+                    if(are_u_assistant($_SESSION['user_name'], $publicacion[0])){  ?>
+                  <br><p>Asistentes: [<?php echo $publicacion[10];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imngoing"><img class="rockHand" src="img/images/handRockIII.jpg" ></a><br>
                   <?php
                   /*Onclick <?php desassistant_me($publicacion[0]); ?>"*/
                    }/*Cierra el ifim_assistant*/
                     else{
                   ?>
-                    <br>Asistentes: [<?php echo $publicacion[10];  ?>] <img class="rockHand" src="img/images/handRockI.jpg" onclick="" ></p><br>
+                    <br><p>Asistentes: [<?php echo $publicacion[10];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imgoing"><img class="rockHand" src="img/images/handRockI.jpg"  ></a><br>
                   <?php
                   /*onclick <?php assistant_me($publicacion[0]);?>*/
                         }
                           } /*Cierra el ifisset*/
                  else {
                     ?>
-                    <p> Interesados: [<?php echo $publicacion[9];  ?>]
-                  <br>Asistentes: [<?php echo $publicacion[10];  ?>]
+                    <p> Interesados: [<?php echo $publicacion[9];  ?>]</p>
+                  <br>Asistentes: [<?php echo $publicacion[10];  ?>]</p>
                   <?php
                     }/*Cierra el elseisset*/  ?>
 

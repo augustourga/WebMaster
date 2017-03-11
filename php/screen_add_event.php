@@ -45,6 +45,7 @@ session_start();
           <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
+        <a href="../index.php?ocultar=true#home">
         <div class="header-center">
 
           <h2>Ante Meridiem</h2>
@@ -148,13 +149,13 @@ session_start();
 						<label>
 						Inicia:
 							<br>
-							<input class="date" type="datetime-local" name="date_initiation" id= "campofecha" required>
+							<input class="date" type="datetime" name="date_initiation" id= "campofecha" required>
 						</label>
 						<br>
 						<label>
 							Finaliza:
 							<br>
-							<input class="date" type="datetime-local" name ="date_end" id= "campofecha2" required  >
+							<input class="date" type="datetime" name ="date_end" id= "campofecha2" required  >
 						</label>
 						<br>
 						<label>

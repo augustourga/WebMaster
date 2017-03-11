@@ -1,106 +1,48 @@
 <?php 
-/*session_start();*/
-
-
-function im_interesting($id_publication ){
-include("php/connections.php");
-if(isset($_SESSION['user_name'])){
-	$user_name = $_SESSION['user_name'];
-	$consulta = mysqli_query($conexion,"SELECT id_interested FROM interested WHERE id_publication = '$id_publication' AND user_name ='$user_name'") or die (mysqli_error($conexion));
 	
-	if($consulta){
-			$cant_reg_consulta= mysqli_num_rows($consulta);
 
-		if ($cant_reg_consulta>0) {
+include("connections.php");
+session_start();
 
-				return true;
-						    	}/*Cierra if cant_reg*/ 
-		else{
-				return false;
-						    	}/*Cierra else cant_reg*/
-					} /*Cierra if consulta*/
-	else{
-					return false;
-				    }/*Cierra else if consulta*/
+
+if ( isset($_GET['action'])&& isset($_SESSION['user_name'])&&isset($_GET['id_publication'])){
 
 
 
-
-		}/*Cierra ifisset*/ else{
-	return false;
-	}/*Cierra else ifisset*/
-}/*Cierra fubnction*/
-
-
-
-function im_assistant($id_publication ){
-include("php/connections.php");
-if(isset($_SESSION['user_name'])){
-	$user_name = $_SESSION['user_name'];
-	$consulta = mysqli_query($conexion,"SELECT id_assistants FROM assistants WHERE id_publication = '$id_publication' AND user_name ='$user_name'") or die (mysqli_error($conexion));
 	
-	if($consulta){
-			$cant_reg_consulta= mysqli_num_rows($consulta);
-
-		if ($cant_reg_consulta>0) {
-
-				return true;
-						    	}/*Cierra if cant_reg*/ 
-		else{
-				return false;
-						    	}/*Cierra else cant_reg*/
-					} /*Cierra if consulta*/
-	else{
-					return false;
-				    }/*Cierra else if consulta*/
+	$id_publication_action = $_GET['id_publication'];
 
 
+	switch ($_GET['action']) {
+		case 'iminsterested':
+		include("functions.php");
+		interest_me($id_publication_action );
 
+			break;
+		case 'imninsterested':
+		include("functions.php");
+		desinterest_me($id_publication_action );
 
-		}/*Cierra ifisset*/ else{
-	return false;
-	}/*Cierra else ifisset*/
-}/*Cierra fubnction*/
+			break;
+		case 'imgoing':
+		include("functions.php");
+		assitant_me($id_publication_action );
 
- function desinterest_me($id_publication){
-	include("php/connections.php");
-	if(isset($_SESSION['user_name'])){
-		$user_name = $_SESSION['user_name'];
-		$consulta = mysqli_query($conexion,"DELETE FROM interested WHERE id_publication = '$id_publication' AND user_name ='$user_name'
-") or die (mysqli_error($conexion));
-return;	
+			break;
+		case 'imngoing':
+		include("functions.php");
+		desassitant_me($id_publication_action );
 
- }
+			break;	
+		default:
+				header("Location: screen_publication.php?id_publication=$id_publication_action");
+			
+			break;
+	}
 }
- function interest_me($id_publication){
-	include("php/connections.php");
-	if(isset($_SESSION['user_name'])){
-		$user_name = $_SESSION['user_name'];
-		$consulta = mysqli_query($conexion," INSERT INTO interested (id_publication,user_name) VALUES ('$id_publication' , '$user_name')
-") or die (mysqli_error($conexion));
-return;	
- 	
- }
-}
- function desassitant_me($id_publication){
- 		include("php/connections.php");
-	if(isset($_SESSION['user_name'])){
-		$user_name = $_SESSION['user_name'];
-		$consulta = mysqli_query($conexion,"DELETE FROM assistants WHERE id_publication = '$id_publication' AND user_name ='$user_name'
-") or die (mysqli_error($conexion));
-return;	
 
- 	
- }
-}
- function assitant_me($id_publication){
- 		include("php/connections.php");
-	if(isset($_SESSION['user_name'])){
-		$user_name = $_SESSION['user_name'];
-		$consulta = mysqli_query($conexion," INSERT INTO assistants (id_publication,user_name) VALUES ('$id_publication' , '$user_name')
-") or die (mysqli_error($conexion));
-return;	
- }
-}
+
+
+
 
  ?>

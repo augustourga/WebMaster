@@ -28,7 +28,7 @@
           <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
-        <a href="http://localhost/WebMaster/index.php#home">
+        <a href="../index.php?ocultar=true#home">
           <div class="header-center">
 
             <h2>Ante Meridiem</h2>
@@ -38,30 +38,7 @@
         </a>
         <div class="header-login">
 
-        <!--  <img src="../img/images/icon-user.png" alt="User">
-          <form method="POST" action="php/login.php" >
-            <label class="user">
-              <input type="text" placeholder="User" name="user_name" required>
-            </label>
-
-            <br>
-
-            <label class="password">
-              <input type="password" placeholder="Password" name="password" required>
-            </label>
-
-          <br>
-
-          <button type="submit" name="acceder" value="acceder">
-            Acceder
-          </button>
-
-              <a href="http://localhost:8888/Sitio%202.0/registro.php">  Registrarse </a>
-
-          </form>
-
-
--->
+       
         </div> <!-- Cierra LOGIN-->
 
         </div> <!-- Cierra HEADER -->
@@ -86,8 +63,18 @@
                               window.alert("Ya existe un usuario con ese nombre");
                               window.location.href= 'screen_register.php';
                           </script>
+                 <?php
+                            break;
+                        case 'existemail':
+                         
+                            ?>
+                              <script type="text/javascript">
+                              window.alert("existe el usuario, o ya se han registrado con ese email, ingrese otro nombre de usuario");
+                              window.location.href= 'screen_register.php';
+                          </script>          
 
                                   <?php
+
 
                         break;
                         case 'ok': //redireccionar a la pantalla para ingresar codigo de validación
@@ -161,6 +148,7 @@
                               window.alert("Ocurrio un problema al enviar el código de validación, por favor revise su dirección de email");
                               window.location.href= 'screen_register.php';
                           </script>
+          
 
                     <?php
                             break;

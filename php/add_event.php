@@ -35,8 +35,6 @@ $gender =$_POST["gender"];
 						 - */
  $a ="INSERT INTO publicaciones ( user_name , title , description , text , address , date_initiation , date_end , gender, image) values ('$user_name' , '$title' , '$description' , '$text' ,  '$address' , '$date_initiation', '$date_end' , '$gender' , '$ruta_mysql' ) ";
  $b ="SELECT  id_publication FROM publicaciones WHERE  user_name='$user_name' ORDER BY date_emit DESC";
- 	/*
- $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
 $consulta = mysqli_query($conexion, $a);
 
 $consulta1 = mysqli_query($conexion, $b);

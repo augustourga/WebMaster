@@ -22,7 +22,6 @@ include("connections.php");
     if((isset($_SESSION['user_name']) && 
                     ($_SESSION['user_name'] ==$user_delete_dates[0] )) || (isset($_SESSION['user_type']) && ($_SESSION['user_type'] == 1 ))) {
       
-/*Tendriamos que ver como borrar la imagen*/
       if ($user_delete_dates[1] !== NULL) {
          unlink("../$user_delete_dates[1]");
       }
@@ -40,8 +39,8 @@ include("connections.php");
                   
 
             
-                  }/*Cierro el if Consulta*/else{/*
-                     header("Location: ../index.php?ocultar=true#home");*/
+                  }/*Cierro el if Consulta*/else{
+                     header("Location: ../index.php?ocultar=true#home");
                                     echo "fallo la consulta";
                   }
                   }/*Cierro el alto bardo*/

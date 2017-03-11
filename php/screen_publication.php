@@ -2,6 +2,7 @@
 session_start();
 
 include("connections.php");
+include("functions.php");
 
 
  if (!isset($_GET['id_publication'])) {
@@ -11,8 +12,7 @@ include("connections.php");
   }/*Cierro el if!isset*/
   else{
       $id_publication = $_GET['id_publication'];
-/*
-      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
+
       $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender,  COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes , publicaciones.image FROM publicaciones AS publicaciones
            LEFT OUTER JOIN assistants AS a USING(id_publication)
            LEFT OUTER JOIN interested AS i USING(id_publication)
@@ -36,6 +36,11 @@ include("connections.php");
 
                           /*   0                   1        2           3        4       5            6               7          8        9             10 *     11/
                           /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
+                          if (isset($_SESSION['user_name'])) {
+                              $es_interesado= are_u_interested($_SESSION['user_name'], $id_publication);
+                              $es_asistente= are_u_assistant($_SESSION['user_name'], $id_publication);
+                          }
+                      
 
                     }/*Cierro el if $cant_reg_consulta>0*/else{
                       echo "no traje nada";
@@ -80,7 +85,7 @@ include("connections.php");
           <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
-        <a href="http://localhost/WebMaster/index.php#home">
+        <a href="../index.php#home">
           <div class="header-center">
 
             <h2>Ante Meridiem</h2>
@@ -178,7 +183,15 @@ include("connections.php");
       <!-- ================== MAIN-CONTENT =============-->
 
       <!-- =============ADMINISTRAR PUBLICACION======== -->
-       <?php    if((isset($_SESSION['user_name']) &&
+
+
+       <?php  
+           /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes img*/
+
+          /*   0                   1        2           3        4       5            6               7          8        9             10 *     11/
+                          /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
+
+         if((isset($_SESSION['user_name']) &&
                     ($_SESSION['user_name'] ==$publicacion[1] )) || (isset($_SESSION['user_type']) && ($_SESSION['user_type'] == 1 ))) {
 
               ?>
@@ -206,8 +219,17 @@ include("connections.php");
 
           <div class="publication-interactions">
             <ul>
-              <li>Asistentes: [<?php echo $publicacion[10];  ?>]</li>
-              <li>Interesados: [<?php echo $publicacion[9]?>]</li>
+            <?php if($es_asistente){ ?>
+              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imngoing">Asistentes: [<?php echo $publicacion[10];  ?>]</a> </li>
+              <?php } else { ?>
+              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imgoing">Asistentes: [<?php echo $publicacion[10];  ?>]</a> </li>
+              <?php }  ?>
+
+              <?php if($es_interesado){ ?>
+              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imninsterested">Interesados: [<?php echo $publicacion[9]; ?>]</a></li>
+              <?php } else { ?>
+              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=iminsterested">Interesados: [<?php echo $publicacion[9]; ?>]</a></li>
+              <?php }  ?>
               <li></li>
             </ul>
           </div>

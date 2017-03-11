@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 
@@ -25,15 +27,14 @@ include("connections.php");
 
 
       if($consulta){
-     /*    header("Location: ../index.php?ocultar=true#home");*/
             header("Location: screen_user.php?user=$user_bloq");
               echo $a;
               echo "ccago fuegooo";
                   
 
             
-                  }/*Cierro el if Consulta*/else{/*
-                     header("Location: ../index.php?ocultar=true#home");*/
+                  }/*Cierro el if Consulta*/else{
+                     header("Location: ../index.php?ocultar=true#home");
                                     echo "fallo la consulta";
                   }
                   }/*Cierro el alto bardo*/

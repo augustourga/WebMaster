@@ -47,8 +47,7 @@ $a =" UPDATE publicaciones
 
 
  $b ="SELECT  id_publication FROM publicaciones WHERE  user_name='$user_name' ORDER BY date_emit DESC";
- 	/*
- $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
+
 $consulta = mysqli_query($conexion, $a);
 
 $consulta1 = mysqli_query($conexion, $b);
@@ -71,13 +70,13 @@ $consulta1 = mysqli_query($conexion, $b);
 			}/*Cierro el if ($consulta1) */ 
 		else{
 				echo "Consulta erronea" . "sarasa" . $b ;
-			/*	header("Location: publication_edit.php?code='errorInsert'");
-*/
-	}/*Cierro el else if ($consulta1) */
+
+				header("Location: publication_edit.php?code='errorInsert'");
+	}/*Cierro el else if ($consulta1) 
 }/*Cierro el  if ($consulta) */
 else{	
 	
-/*	header("Location: publication_edit.php?code='errorInsert'");*/
+	header("Location: publication_edit.php?code='errorInsert'");
 
 }/*Cierro el else if ($consulta)*/
 	}/*Cierro el if isset $_SESSION*/

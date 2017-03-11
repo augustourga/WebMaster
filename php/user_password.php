@@ -24,12 +24,6 @@ $b =" UPDATE usuarios_filtrados
  SET   password = '$new_password1'
   WHERE usuarios_filtrados.user_name = $user_password"; 
 
-
-
- 	/*
- $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
-/**/
-
 $consulta1 = mysqli_query($conexion, $a);
 	
 		if ($consulta1) {

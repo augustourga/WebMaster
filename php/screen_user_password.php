@@ -92,30 +92,6 @@ include("connections.php");
 
               }?>
 
-        <!--  <img src="../img/images/icon-user.png" alt="User">
-          <form method="POST" action="php/login.php" >
-            <label class="user">
-              <input type="text" placeholder="User" name="user_name" required>
-            </label>
-
-            <br>
-
-            <label class="password">
-              <input type="password" placeholder="Password" name="password" required>
-            </label>
-
-          <br>
-
-          <button type="submit" name="acceder" value="acceder">
-            Acceder
-          </button>
-
-              <a href="http://localhost:8888/Sitio%202.0/registro.php">  Registrarse </a>
-
-          </form>
-
-
--->
         </div> <!-- Cierra LOGIN-->
 
         </div> <!-- Cierra HEADER -->

@@ -20,7 +20,6 @@ if (!isset($_POST['user_name'])) {
 	
 }else{
 
-/*$conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
 $consulta = mysqli_query($conexion,"SELECT * FROM usuarios_filtrados WHERE user_name='$user_name' OR mail='$mail'");
 
 
@@ -31,7 +30,8 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 	if ($cant_reg_consulta>0) {
 
 		//existe el usuario, ingrese otro nombre de usuario	
-			//header("Location: http://localhost/WebMaster/index.php?formulario_estado=usererror#formulario");
+		
+			header("Location: screen_register.php?formulario_estado=existemail");
 	echo "existe el usuario o ya ha sido creado un usuario con esa direccion de e-mail, ingrese otro nombre de usuario	";
 
 	}
@@ -42,12 +42,12 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
 			
 	
 			$consulta = mysqli_query($conexion ,"INSERT INTO usuarios ( user_name ,name, last_name, mail, state , password , validation_code) values ('$user_name' , '$name' , '$last_name' , '$mail' , 0 , '$password' , '$validation_code' ) ");
-			//header("Location: http://localhost/WebMaster/index.php?formulario_estado=ok#formulario");
 			if($consulta){
 			echo "Usuario válido y mensaje enviado";
 				header("Location: screen_register.php?formulario_estado=ok&id=$user_name&mail=$mail");
 				}else{
 				echo "falló el insert";
+				header("Location: ../index.php#home");
 
 			}
 			}else{
@@ -59,15 +59,11 @@ $cant_reg_consulta= mysqli_num_rows($consulta);
  			}
 
 
-//header("Location: http://localhost/WebMaster/index.php");
-
 } 
 }		else {
 
 	echo "error en la consulta";
-	
-	//para cerrar sesion --> session_destroy();
-	//header("Location: http://localhost/WebMaster/index.php");
+	header("Location: ../index.php#home");
 	
 
 			}

@@ -10,8 +10,6 @@ include("connections.php");
   }/*Cierro el if!isset*/
   else{
       $id_publication = $_GET['id_publication'];
-/*
-      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
       $a=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender,  COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes , publicaciones.image FROM publicaciones AS publicaciones
            LEFT OUTER JOIN assistants AS a USING(id_publication)
            LEFT OUTER JOIN interested AS i USING(id_publication)
@@ -191,7 +189,7 @@ include("connections.php");
 					<form action="edit_event.php?id_publication=<?php echo $publicacion[0];  ?>" method="POST" id="crearEvento" enctype="multipart/form-data">
 			<!-- 		/* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes img*/
 
-                          /*   0                   1        2           3        4       5            6               7          8        9             10 *     11/
+                          /*   0      1        2           3        4       5            6               7          8        9             10 *     11/
                           /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
 
  -->
@@ -199,25 +197,25 @@ include("connections.php");
 							Nombre del Evento:
 
 							<br>
-							<input type="text" name="title" maxlength="40"   required > 
+							<input type="text" name="title" maxlength="40"   required value="<?php echo $publicacion[2];  ?>"> 
 						</label>
 						<br>
 						<label>
 							Direccion:
 							<br>
-							<input type="text" name="address" maxlength="30"  required >
+							<input type="text" name="address" maxlength="30"  required value="<?php echo $publicacion[5];  ?>" >
 						</label>
 						<br>
 						<label>
 						Inicia:
 							<br>
-							<input class="date" type="datetime-local" name="date_initiation" id= "campofecha"  required>
+							<input class="date" type="datetime" name="date_initiation" id= "campofecha"  required value="<?php echo $publicacion[6];  ?>">
 						</label>
 						<br>
 						<label>
 							Finaliza:
 							<br>
-							<input class="date" type="datetime-local" name ="date_end" id= "campofecha2" required  >
+							<input class="date" type="datetime" name ="date_end" id= "campofecha2" required value="<?php echo $publicacion[7];  ?>" >
 						</label>
 						<br>
 						<label>
@@ -254,13 +252,13 @@ include("connections.php");
 						<label>
 							Informacion:
 							<br>
-							<textarea form="crearEvento" rows="3" cols="50"  maxlength="60" placeholder="Información breve acerca del evento..." name= "text" ></textarea>
+							<textarea form="crearEvento" rows="3" cols="50"  maxlength="60" value name= "text" ><?php echo $publicacion[3];  ?></textarea>
 						</label>
 						<br>
 						<label>
 							Descripcion:
 							<br>
-							<textarea form="crearEvento" rows="6" cols="50"  placeholder="Información más amplia acerca del evento..." name="description"  required></textarea>
+							<textarea form="crearEvento" rows="6" cols="50"  placeholder="Información más amplia acerca del evento..." name="description"  required><?php echo $publicacion[4];  ?></textarea>
 						</label>
 
 					<br>

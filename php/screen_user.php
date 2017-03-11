@@ -11,8 +11,7 @@ include("connections.php");
   }/*Cierro el if!isset*/
   else{
       $user_profile = $_GET['user'];
-/*
-      $conexion = mysqli_connect('localhost','root','augus32311213','agenda_online') or die ("Error en la conexion");*/
+
       $a=" SELECT usuarios_filtrados.user_name , usuarios_filtrados.name , usuarios_filtrados.last_name , usuarios_filtrados.mail, usuarios_filtrados.image_profile , usuarios_filtrados.description, usuarios_filtrados.state FROM usuarios_filtrados WHERE user_name = '$user_profile' ";
 
       /*Traeme*/
@@ -160,7 +159,7 @@ include("connections.php");
               </form>
         </div>
 
-     <h2 class="back"> <a href="http://localhost/WebMaster/index.php?ocultar=true#home"> < Volver al Home </a> </h2>s
+     <h2 class="back"> <a href="../index.php?ocultar=true#home"> < Volver al Home </a> </h2>s
 
       <!-- ================== MAIN-CONTENT =============-->
 
@@ -380,12 +379,12 @@ include("connections.php");
     <div class="footer">
 
       <ul>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Contacto |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Sobre Ante Merídiem  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Ayuda  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Legales  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">Politica de Privacidad  |</a></li>
-        <li><a href="http://localhost/WebMaster/php/screen_footer.php">© Copyright 2017  </a></li>
+        <li><a href="screen_footer.php">Contacto |</a></li>
+        <li><a href="screen_footer.php">Sobre Ante Merídiem  |</a></li>
+        <li><a href="screen_footer.php">Ayuda  |</a></li>
+        <li><a href="screen_footer.php">Legales  |</a></li>
+        <li><a href="screen_footer.php">Politica de Privacidad  |</a></li>
+        <li><a href="screen_footer.php">© Copyright 2017  </a></li>
       </ul>
 
     </div>
