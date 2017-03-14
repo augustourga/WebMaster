@@ -331,25 +331,25 @@ session_start();
 
                     if(are_u_interested($_SESSION['user_name'], $publicacion[0])){
                     ?>
-                   <p > Interesados: [<?php echo $publicacion[9];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imninterested"><img class="rockHand" src="img/images/handRockIII.jpg" ></a>
+                   <p > Ya no me interesa: [<?php echo $publicacion[9];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imninsterested"><img class="rockHand" src="img/images/handRockI.jpg" ></a>
                   <?php
                   /*onclick <?php desinterest_me($publicacion[0]); ?> */
                 }/*Cierra el ifim_interesting*/
                     else{
                     ?>
-                  <p > Interesados: [<?php echo $publicacion[9];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=iminterested"><img class="rockHand" src="img/images/handRockI.jpg" ></a>
+                  <p > Me interesa: [<?php echo $publicacion[9];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=iminsterested"><img class="rockHand" src="img/images/handRockI.jpg" ></a>
 
                   <?php
                   /*onclick <?php interest_me($publicacion[0]); ?>*/
                             } /*Cierra el elseim_interesting*/
                     if(are_u_assistant($_SESSION['user_name'], $publicacion[0])){  ?>
-                  <br><p>Asistentes: [<?php echo $publicacion[10];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imngoing"><img class="rockHand" src="img/images/handRockIII.jpg" ></a><br>
+                  <br><p>Ya no asistiré: [<?php echo $publicacion[10];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imngoing"><img class="rockHand" src="img/images/handRockI.jpg" ></a><br>
                   <?php
                   /*Onclick <?php desassistant_me($publicacion[0]); ?>"*/
                    }/*Cierra el ifim_assistant*/
                     else{
                   ?>
-                    <br><p>Asistentes: [<?php echo $publicacion[10];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imgoing"><img class="rockHand" src="img/images/handRockI.jpg"  ></a><br>
+                    <br><p>Asistiré: [<?php echo $publicacion[10];  ?>] </p><a href="php/interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imgoing"><img class="rockHand" src="img/images/handRockI.jpg"  ></a><br>
                   <?php
                   /*onclick <?php assistant_me($publicacion[0]);?>*/
                         }

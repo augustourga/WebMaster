@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-03-2017 a las 17:51:30
+-- Tiempo de generación: 14-03-2017 a las 20:55:56
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -37,14 +37,15 @@ CREATE TABLE `assistants` (
 --
 
 INSERT INTO `assistants` (`id_assistants`, `id_publication`, `user_name`) VALUES
-(1, 6, 'augusto'),
 (4, 6, 'bloqueado'),
 (5, 6, 'tomas'),
 (8, 10, 'malvado'),
 (9, 10, 'bloqueado'),
 (10, 11, 'augusto'),
 (11, 11, 'ruben'),
-(12, 11, 'malvado');
+(12, 11, 'malvado'),
+(29, 10, 'augusto'),
+(32, 6, 'augusto');
 
 -- --------------------------------------------------------
 
@@ -63,14 +64,15 @@ CREATE TABLE `interested` (
 --
 
 INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
-(1, 6, 'augusto'),
 (9, 6, 'ruben'),
 (12, 10, 'malvado'),
-(13, 10, 'augusto'),
 (14, 11, 'augusto'),
 (15, 11, 'tomas'),
 (16, 22, 'augusto'),
-(19, 6, 'tomas');
+(19, 6, 'tomas'),
+(31, 6, 'augusto'),
+(32, 10, 'augusto'),
+(33, 7, 'augusto');
 
 -- --------------------------------------------------------
 
@@ -97,13 +99,12 @@ CREATE TABLE `publicaciones` (
 --
 
 INSERT INTO `publicaciones` (`description`, `text`, `user_name`, `id_publication`, `address`, `title`, `date_emit`, `date_initiation`, `date_end`, `gender`, `image`) VALUES
-('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit ame', 'Una noche a puro rock', 'augusto', 6, 'Cheers', 'Oesterheld En Cheers', '2017-03-06 03:07:24', '2018-02-02 02:00:00', '2017-02-03 03:01:00', 'rock', 'img/images/events_img/oesterheld.jpg'),
+('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit ame', 'Una noche a puro rock', 'augusto', 6, 'Cheers', 'Oesterheld En Cheers', '2017-03-11 01:59:33', '2018-02-02 02:00:00', '2017-02-03 03:01:00', 'rock', 'img/images/events_img/oesterheld.jpg'),
 ('\r\nFestival de música, dedicado a la fusión y difusión de Bandas emergentes de el under Argentino', 'Vuelve a Chivilcoy para desplegar toda su energia molecular y sus armonias demoledoras y para presentar su ultimo material, haciendo un repaso por su corta pero rica historia SAMBARA, junto a ellos se presentara la banda chivilcoyana, TU PUEDES BRUCE.\r\nENTRADAS ANTICIPADAS \r\nRESKATE av Soarez 124', 'tomas', 7, 'Bartolo bar', 'Sambara + TU Puedes BRUCE en Bartolo', '2017-03-06 16:25:06', '2017-03-31 00:30:00', '2017-04-01 08:00:00', 'Rock', 'img/images/events_img/sambara.jpg'),
 ('Organizado por CIRQUE NATION', 'Estreno de #septimodia el show del Cirque du Soleil sobre la historia de Soda Stereo.\r\n\r\nVenta de entradas a partir del lunes 1 de Agosto para clientes del Banco Frances en 6 cuotas sin interés.\r\n\r\nA partir del 10 de agosto las entradas para público general.\r\n\r\nPrecios entre $680 y $3650\r\n\r\nTapis Rouge con servicio gastronómico y souvenir sorpresa una hora antes del show.\r\n', 'augusto', 8, 'Ozono', 'Sep7imo Día (Soda Cirque)', '2017-03-06 16:27:04', '2017-04-14 00:00:00', '2017-04-15 05:00:00', 'Espectaculo', 'img/images/events_img/septimo.jpg'),
 ('andarine Park & Tent\r\nAvenida Costanera y Sarmiento, 1087 Buenos Aires', 'EARLY TICKETS A $800\r\nMESAS VIP DISPONIBLES\r\n\r\nConsultas\r\nEventos Masivos Electronica\r\n15.6378.7988', 'malvado', 9, 'Parque lacunario Alejandro Martija', 'Armin van Buuren | La Martija', '2017-03-06 16:29:42', '2017-05-19 12:00:00', '2017-05-20 23:00:00', 'Electronica', 'img/images/events_img/armin.jpg'),
 ('Se presenta John Digwed Lorem Ipsum ', 'JOHN DIGWEED en Cementerio Chivilcoy\r\nProximamente info de mesas y tickets\r\n', 'malvado', 10, 'Cementerio Chivilcoy', 'John Digweed | Cementerio', '2017-03-06 16:31:46', '2017-03-24 00:00:00', '2017-03-24 15:00:00', '', 'img/images/events_img/digweed.jpg'),
 ('Bizarrem Fest', 'La banda chivilcoyana que revoluciona el Hard-Pop-Punk-Funk-Soul-Jazz Mostrando su bizarrez plena, en una muestra en vivo donde prometen rosear de whiskey a un cura a eleccion  y prenderlo fuego.', 'augusto', 11, 'Piluso', 'Sobredosis de Cafe', '2017-03-06 16:34:37', '2017-04-07 14:00:00', '2017-04-22 00:00:00', 'Hard-Pop-Punk-Funk-Soul-Jazz', 'img/images/events_img/bizarrem.jpg'),
-('asdnakn', '', 'augusto', 20, 'aknsdk', 'sdnakn', '2017-03-07 11:14:43', '2017-03-31 23:00:00', '2017-03-17 19:50:00', 'rock', ''),
 ('sadasdas', '', 'ruben', 36, '<? echo $publicacion[5];?>', '<? echo $publicacion[2];?>', '2017-03-16 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'rock', ''),
 ('jansjnd', 'jsdnaj', 'augusto', 37, 'Bartolo', 'tomasito y los brum brum', '2017-03-08 20:20:32', '2017-03-08 22:00:00', '2017-03-08 22:00:00', 'rock', 'img/images/events_img/logoblack.jpeg');
 
@@ -227,17 +228,17 @@ ALTER TABLE `usuarios_filtrados`
 -- AUTO_INCREMENT de la tabla `assistants`
 --
 ALTER TABLE `assistants`
-  MODIFY `id_assistants` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_assistants` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT de la tabla `interested`
 --
 ALTER TABLE `interested`
-  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_publication` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

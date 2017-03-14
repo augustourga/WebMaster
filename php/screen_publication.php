@@ -228,15 +228,15 @@ include("functions.php");
             if(isset($_SESSION['user_name'])){
                ?>
             <?php if($es_asistente){ ?>
-              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imngoing">Asistentes: [<?php echo $publicacion[10];  ?>]</a> </li>
+              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imngoing">Ya no Asistiré: [<?php echo $publicacion[10];  ?>]</a> </li>
               <?php } else { ?>
-              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imgoing">Asistentes: [<?php echo $publicacion[10];  ?>]</a> </li>
+              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imgoing">Asistiré: [<?php echo $publicacion[10];  ?>]</a> </li>
               <?php }  ?>
 
               <?php if($es_interesado){ ?>
-              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imninsterested">Interesados: [<?php echo $publicacion[9]; ?>]</a></li>
+              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=imninsterested">Ya no me interesa: [<?php echo $publicacion[9]; ?>]</a></li>
               <?php } else { ?>
-              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=iminsterested">Interesados: [<?php echo $publicacion[9]; ?>]</a></li>
+              <li ><a href="interaction.php?id_publication=<?php echo $publicacion[0];?>&action=iminsterested">Me interesa: [<?php echo $publicacion[9]; ?>]</a></li>
               <?php }  ?>
               <li></li>
 
