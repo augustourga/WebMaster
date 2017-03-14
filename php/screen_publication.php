@@ -18,6 +18,8 @@ include("functions.php");
            LEFT OUTER JOIN interested AS i USING(id_publication)
            WHERE publicaciones.id_publication = '$id_publication'
           GROUP BY user_name ";
+      $consulta_comentarios = "SELECT comments.user_name , comments.date_comments ,comments.comment , usuarios_filtrados.image_profile, comments.id_publication , comments.id_comments FROM comments JOIN usuarios_filtrados USING(user_name) WHERE comments.id_publication = '$id_publication' ";
+      /*ORDER BY comments.date_comments DESC"*/
 
       /*Traeme*/
       $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
@@ -34,7 +36,10 @@ include("functions.php");
 
                           /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes img*/
 
-                          /*   0                   1        2           3        4       5            6               7          8        9             10 *     11/
+                          /*   0                   1        2           3        4       5            6               7          8        9             10 *     11*/
+
+
+                           $comentarios = mysqli_query($conexion,$consulta_comentarios) or die (mysqli_error($conexion));
                           /*Traeme los interesados en el evento SELECT  COUNT(*) FROM interested WHERE id_publication = 6  */
                           if (isset($_SESSION['user_name'])) {
                               $es_interesado= are_u_interested($_SESSION['user_name'], $id_publication);
@@ -273,121 +278,133 @@ include("functions.php");
       </div>
 
 
-      <!-- ================== MY EVENTS ==================== -->
+      <!-- ================== COMMENTS ==================== -->
 
 
+<!--comments.user_name , comments.date_comments ,comments.comment , usuarios_filtrados.image_profile, comments.id_publication , comments.id_comments-->
+<!--  0                         1                         2                      3                               4                        5            -->
 
-                         <!-- Sólo los usuarios loggueados podran acceder a Mis eventos -->
-                           <?php if(isset($_SESSION['user_name']))  {
+<div class="myEvents" id = "comments">
+  <div class="comments-container">
+   
+    <h2>Comentarios </h2>
+  
+<style type="text/css">
+    .comments-list{
+      background-color: black;
+       border-radius: 3%;
 
-                          ?>
+    }
+    .comments-container{
+      background-color: black;
+      position: relative; 
+      padding-left: 100px;
+      padding-right: 100px;
 
-              <div class="myEvents">
+     
+    }
+    .comment-box{
+      position: relative;
+      padding-right: 50px;
+      padding-left: 50px;
+      background-color: grey;
 
-                <div class="home-text">
+    }
+</style>
+    <ul id="comments-list" class="comments-list">
+    <?php if ($comentarios) {
+               $cant_comentarios = mysqli_num_rows($comentarios);
+                   if ($cant_comentarios>0) {
+                         while ( $comentario = mysqli_fetch_row($comentarios)) {
+                      /*         echo $comentario[0];
+                          echo $comentario[1];
+                          echo $comentario[2];
+                          echo $comentario[3];
+                            echo $comentario[4]; 
 
-
-                  <h2 class="home-text">Mis Eventos</h2>
-
-
-
-
-                       <?php
-                       $usuario =$_SESSION['user_name'];
-                         $consulta_mis_eventos=" SELECT publicaciones.id_publication , publicaciones.user_name , publicaciones.title , publicaciones.description , publicaciones.text , publicaciones.address , publicaciones.date_initiation , publicaciones.date_end , publicaciones.gender, COUNT( DISTINCT(i.user_name)) AS interesados , COUNT(DISTINCT(a.user_name)) AS asistentes, publicaciones.image FROM publicaciones AS publicaciones
-                                                LEFT OUTER JOIN assistants AS a USING(id_publication)
-                                                LEFT OUTER JOIN interested AS i USING(id_publication)
-                                               WHERE (i.user_name ='$usuario' OR a.user_name = '$usuario') AND  publicaciones.date_initiation> CURDATE()
-                                                GROUP BY id_publication";
-
-            /*Traeme*/
-            $consulta = mysqli_query($conexion,$consulta_mis_eventos) or die (mysqli_error($conexion));
-
-            $estado_mis_eventos = mysqli_num_rows($consulta);
-
-
-                if ($estado_mis_eventos>0) {
-                  ?>
-                    </div><!-- Cierra Home-text -->
-                      <div id="slideshow-container">
-                      <div id="slideshow">
-                      <?php
-                while ($publicacion =mysqli_fetch_row($consulta)) {
-                       /*  /* id_publication , user_name , title , description , text , address , date_initiation , date_end , gender, interesados , asistentes img*/
-
-                          /*   0                   1        2           3        4       5            6               7          8        9             10 *     11/*/
-                  ?>
-
-
-
-
-                        <div id="box1">
-                          <div class="MyEventsImg">
-                              <img class="img-myEvents" src="../<?php echo $publicacion[11];/*6*/  ?> ">
-                              <p> <?php echo $publicacion[6];/*6*/  ?> </p>
-                          </div>
-
-                          <div class="infoEvent">
-                            <h2> <?php echo $publicacion[2]; /*2*/ ?> </h2>
-                            <p> <?php echo $publicacion[4];  ?>.</p>
-                            <span><a href="screen_publication.php?id_publication=<?php echo $publicacion[0];  ?>"> Mas info </a></span>
-
-                          </div>
-                        </div>
+                       */
 
 
+          ?>                
 
+      <li>
+        <!-- <div class="comment-main-level"> -->
+          <!-- Avatar -->
+<!--           ruta img src  ../img/user_img/<?php /*echo $comentarios[3];*/  ?>
+ --><!--           <div class="comment-avatar"><img src="" alt=""></div>
+ -->          <!-- Contenedor del Comentario -->
+          <div class="comment-box" >
+            <div class="comment-head">
+            <!-- autor del comentario -->
+              <h6 class="comment-name by-author"><a href="screen_user.php?user=<?php echo $comentario[0];  ?>">
+           
+              <?php echo $comentario[0];  ?></a><br></h6>
+                   <!-- Fecha del comentario estaria bueno cambiar a hace "tanto tiempo"  -->
+              <span><?php echo $comentario[1];  ?><br></span>
+             
+            </div>
+            <div class="comment-content">
 
-                       <?php
-                    }/*cierra el while ($publicacion =mysqli_fetch_row($publicaciones))*/
-                              ?>
-                              </div>  <!--CIERRA SLIDESHOW -->
-                              </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-                              <?php
-                   }/*Cierra el  if ($estado_publicacion)*/ else{
+            <!-- commentario -->
+             <?php echo $comentario[2];  ?>
+             <!-- panel de commentario -->
+             <?php if ((isset($_SESSION['user_name'] ) && $_SESSION['user_name']== $comentario[0] ) || (isset($_SESSION['user_type'] ) && $_SESSION['user_type'] == 1 ) ) {
+              ?>
+                <a href="delete_comment.php?id_comments=<?php echo $comentario[5]; ?>&id_publication=<?php echo $comentario[4]; ?>">borrar</a>
+             <?php
+             }  ?>
+            </div> <br>
+          </div>
+        <!-- </div> -->
+      </li>
 
-                    ?>
-                        <p class="home-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis quam in massa fringilla pulvinar. Ut eget velit et neque feugiat tempor sit amet vitae enim. Aenean mattis felis non eros egestas, at aliquam ligula bibendum. Pellentesque viverra, felis nec lacinia rhoncus, nisi orci pulvinar ante, non accumsan turpis nisl sed sapien </p>
+           <?php              
+                              }/*Cierra el While*/   
+      }/*Cierra el if ($CANT*/
+      else{
+        ?>
+              <li>
+        <!-- <div class="comment-main-level"> -->
+          <!-- Avatar -->
+<!--           ruta img src  ../img/user_img/<?php /*echo $comentarios[3];*/  ?>
+ --><!--           <div class="comment-avatar"><img src="" alt=""></div>
+ -->          <!-- Contenedor del Comentario -->
+          <div class="comment-box">
+            <div class="comment-head">
+              <h6 class="comment-name by-author"><br></h6>
+              <span>  <br></span>
+             
+            </div>
+            <div class="comment-content">
+             No hay comentarios para mostrar
+            </div> <br>
+          </div>
+        <!-- </div> -->
+      </li>
+        <?php 
+      }
+    }/*Cierra el if($comentarios)*/ ?>
 
-                    </div><!-- Cierra Home-text -->
-
-                <div id="slideshow-container">
-                      <div id="slideshow">
-                        <div id="box1">
-                          <div class="MyEventsImg">
-                              <img src="../img/images/jack.jpeg">
-                              <p> Agrega publicaciones </p>
-                          </div>
-
-                          <div class="infoEvent">
-                            <h2> Gil </h2>
-                            <p> bobo.</p>
-                            <span><a > Mas info Llena la cancha </a></span>
-
-                          </div>
-
-                        </div>
-
-                     </div>  <!--CIERRA SLIDESHOW -->
-                    </div> <!-- CIERRA SLIDESHOW-CONTAINER -->
-
-
-
-
-                    <?php
-                   }
-                   ?>
-
-
-                    </div>
-
-                <?php
-                      }/*Cierra el  if(isset($_SESSION['user_name'])) */
-                 ?>
-
-
-
-
+      
+      <?php if (isset($_SESSION['user_name'])&& isset($_GET['id_publication'])) {
+           $id_publication = $_GET['id_publication'];
+       
+       ?>
+      <li>
+        <div id = "new-comment">
+        <h2>Nuevo Comentario </h2>
+            <form action="add_comment.php?id_publication=<?php echo    $id_publication; ?>" method="POST" >
+              <textarea placeholder="Inserte un commentario" name="comment_text" required></textarea>
+              <input type="submit" name="Comentar">
+              
+            </form>
+        </div>
+      </li>
+      <?php }  ?>
+       
+    </ul>
+  </div>
+  </div>
 
 
     <!-- ================== FOOTER ================-->
