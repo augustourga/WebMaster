@@ -324,7 +324,7 @@ session_start();
 
 
                 <div class="publicaciones-b"   >
-
+<!-- 
                 <?php
                  if(isset($_SESSION['user_name']))  {
 
@@ -355,12 +355,12 @@ session_start();
                         }
                           } /*Cierra el ifisset*/
                  else {
-                    ?>
-                    <p> Interesados: [<?php echo $publicacion[9];  ?>]</p>
+                    ?> -->
+              
+                <!--   <?php
+                    }/*Cierra el elseisset*/  ?> -->
+                     <p> Interesados: [<?php echo $publicacion[9];  ?>]</p>
                   <br><p>Asistentes: [<?php echo $publicacion[10];  ?>]</p>
-                  <?php
-                    }/*Cierra el elseisset*/  ?>
-
                   <p id="d"> <?php echo $publicacion[3];  ?> </p><br>
                   <p id="l"> <?php echo $publicacion[5];  ?></p>
                   <p id="g"> <?php echo $publicacion[8];  ?> </p>
