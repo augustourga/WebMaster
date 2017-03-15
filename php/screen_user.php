@@ -76,13 +76,15 @@ include("connections.php");
           <img src="../img/logo/logoblack.jpg" alt="Logo">
 
         </div>
-             <a href="../index.php?ocultar=true#home">
+  <a href="../index.php?ocultar=true#home">
         <div class="header-center">
 
           <h2>Ante Meridiem</h2>
           <p> La agenda nocturna de Chivilcoy</p>
 
+ 
         </div>
+   </a>
         <div class="header-login">
 
          <?php    if(isset($_SESSION['user_name']))  {

@@ -52,6 +52,7 @@ session_start();
           <p> La agenda nocturna de Chivilcoy</p>
 
         </div>
+        </a>
         <div class="header-login">
 
        <?php    if(isset($_SESSION['user_name']))  {
