@@ -6,7 +6,7 @@ include("connections.php");
 
  if (!isset($_GET['user'])) {
 
-      header("Location: ../index.php#home");
+      header("Location: ../index.php?ocultar=true#home");
 
   }/*Cierro el if!isset*/
   else{
@@ -184,7 +184,7 @@ include("connections.php");
            <div class="panel_admin_publication">
         
              <a href="user_delete.php?user=<?php echo $user_dates[0]; ?>">Borrar </a><br>
-             <a href="user_edit.php?user=<?php echo $user_dates[0]; ?>">Editar </a><br>
+             <a href="screen_user_edit.php?user=<?php echo $user_dates[0]; ?>">Editar </a><br>
              <?php if($user_dates[6] == 0  ){ ?>
              <a href="user_bloquear.php?user=<?php echo $user_dates[0]; ?>">Bloquear</a><br>
 
@@ -205,10 +205,10 @@ include("connections.php");
                     ($_SESSION['user_name'] ==$user_dates[0] )) ) {
 
               ?>
-           <div class="panel_user_publication">
+           <div class="panel_admin_publication">
         
               
-              <a href="user_edit.php?user=<?php echo $publicacion[0]; ?>">Editar </a><br>
+              <a href="screen_user_edit.php?user=<?php echo $user_dates[0]; ?>">Editar </a><br>
               <a href="screen_user_password.php?user=<?php echo $user_dates[0];?>">Cambiar contraseña</a><br>
               <a href="user_delete.php?user=<?php echo $user_dates[0]; ?>">Borrar </a><br>
         
@@ -235,7 +235,7 @@ include("connections.php");
             <?php if(isset($user_dates[4])) { 
                       if ($user_dates[4]!== NULL && $user_dates[4]!== '' ) {
                         ?>
-                          <img src="../<?php  echo $user_dates[0]; ?>" alt="user image">
+                          <img src="../<?php  echo $user_dates[4]; ?>" alt="user image">
                        <?php
                        }else { ?>
 
@@ -254,7 +254,7 @@ include("connections.php");
               <h3> Description: </h3>
 
               <div class="user-description">
-             <p> <?php  echo $user_dates[0]; ?> </p>
+             <p> <?php  echo $user_dates[5]; ?> </p>
 
               </div>
 
