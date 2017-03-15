@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-03-2017 a las 20:55:56
+-- Tiempo de generación: 15-03-2017 a las 01:42:37
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -45,7 +45,9 @@ INSERT INTO `assistants` (`id_assistants`, `id_publication`, `user_name`) VALUES
 (11, 11, 'ruben'),
 (12, 11, 'malvado'),
 (29, 10, 'augusto'),
-(32, 6, 'augusto');
+(32, 6, 'augusto'),
+(33, 9, 'malvado'),
+(37, 6, 'malvado');
 
 -- --------------------------------------------------------
 
@@ -70,9 +72,10 @@ INSERT INTO `interested` (`id_interested`, `id_publication`, `user_name`) VALUES
 (15, 11, 'tomas'),
 (16, 22, 'augusto'),
 (19, 6, 'tomas'),
-(31, 6, 'augusto'),
 (32, 10, 'augusto'),
-(33, 7, 'augusto');
+(33, 7, 'augusto'),
+(36, 9, 'malvado'),
+(42, 6, 'augusto');
 
 -- --------------------------------------------------------
 
@@ -228,12 +231,12 @@ ALTER TABLE `usuarios_filtrados`
 -- AUTO_INCREMENT de la tabla `assistants`
 --
 ALTER TABLE `assistants`
-  MODIFY `id_assistants` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_assistants` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT de la tabla `interested`
 --
 ALTER TABLE `interested`
-  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_interested` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
