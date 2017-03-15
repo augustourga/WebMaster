@@ -18,8 +18,8 @@ include("functions.php");
            LEFT OUTER JOIN interested AS i USING(id_publication)
            WHERE publicaciones.id_publication = '$id_publication'
           GROUP BY user_name ";
-      $consulta_comentarios = "SELECT comments.user_name , comments.date_comments ,comments.comment , usuarios_filtrados.image_profile, comments.id_publication , comments.id_comments FROM comments JOIN usuarios_filtrados USING(user_name) WHERE comments.id_publication = '$id_publication' ";
-      /*ORDER BY comments.date_comments DESC"*/
+      $consulta_comentarios = "SELECT comments.user_name , comments.date_comments ,comments.comment , usuarios_filtrados.image_profile, comments.id_publication , comments.id_comments FROM comments JOIN usuarios_filtrados USING(user_name) WHERE comments.id_publication = '$id_publication' 
+      ORDER BY comments.date_comments ";
 
       /*Traeme*/
       $consulta = mysqli_query($conexion,$a) or die (mysqli_error($conexion));
